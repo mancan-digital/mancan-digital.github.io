@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mancan.digital - Next-Gen IT Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Tailwind Configuration - Embedded for self-containment */
+        :root {
+            --color-bg-primary: #F8F8F8; /* Light theme background */
+            --color-text-dark: #333333; /* Dark text for light theme */
+            --color-header-bg: #09247B;
+            --color-accent-blue: #454CFF;
+            --color-accent-purple-light: #8E3FBB;
+            --color-section-bg: #FFFFFF; /* White background for sections */
+            --color-button-primary: #6A1B9A;
+            --color-button-hover: #8E3FBB;
+            --color-shadow-light: rgba(69, 76, 255, 0.1); /* Adjusted for light theme */
+            --color-shadow-dark: rgba(142, 63, 187, 0.1); /* Adjusted for light theme */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.7;
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-dark); /* Using dark text color */
+            overflow-x: hidden;
+        }
+
+        /* Header background animation */
+        .header-bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.2; /* Slightly increased opacity for visibility on light background */
+        }
+
+        .header-bg-animation::before,
+        .header-bg-animation::after {
+            content: '';
+            position: absolute;
+            background: radial-gradient(circle, var(--color-accent-blue) 0%, transparent 70%);
+            animation: pulse-glow 10s infinite alternate;
+            border-radius: 50%;
+        }
+
+        .header-bg-animation::before {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+
+        .header-bg-animation::after {
+            width: 250px;
+            height: 250px;
+            bottom: -70px;
+            right: -70px;
+            animation-delay: 2s;
+            background: radial-gradient(circle, var(--color-accent-purple-light) 0%, transparent 70%);
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(0.8); opacity: 0.1; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+            100% { transform: scale(0.8); opacity: 0.1; }
+        }
+
+        /* Section entry animation */
+        .section-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section-animate.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom styles for icon sizing */
+        .icon-small {
+            width: 1.25rem; /* 20px */
+            height: 1.25rem; /* 20px */
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            color: var(--color-accent-purple-light);
+        }
+
+        /* Typing cursor effect */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em; /* Adjust based on font size */
+            background-color: var(--color-accent-purple-light);
+            animation: blink-caret 0.75s step-end infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes blink-caret {
+            from, to { background-color: transparent; }
+            50% { background-color: var(--color-accent-purple-light); }
+        }
+
+        /* Card specific styles */
+        .card {
+            background-color: var(--color-section-bg);
+            padding: 1.5rem; /* p-6 */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 10px var(--color-shadow-light); /* shadow-lg */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Ensure cards in a row have equal height */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px var(--color-shadow-dark);
+        }
+
+        .card-icon {
+            margin-bottom: 1rem; /* mb-4 */
+            color: var(--color-accent-blue); /* Primary accent for card icons */
+            width: 2.5rem; /* w-10 */
+            height: 2.5rem; /* h-10 */
+        }
+
+        .card-title {
+            font-weight: 600; /* font-semibold */
+            font-size: 1.25rem; /* text-xl */
+            margin-bottom: 0.5rem; /* mb-2 */
+            color: var(--color-accent-purple-light); /* Secondary accent for card titles */
+        }
+
+        .card-description {
+            font-size: 0.95rem; /* text-base */
+            color: var(--color-text-dark);
+            flex-grow: 1; /* Allows description to take up available space */
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="relative bg-[var(--color-header-bg)] text-white py-16 md:py-24 text-center overflow-hidden rounded-b-3xl shadow-lg">
+        <div class="header-bg-animation"></div>
+        <div class="relative z-10 px-4">
+            <img src="logo-symbol.jpg" alt="mancan.digital logo" class="mx-auto mb-6 w-24 h-24 rounded-full border-4 border-[var(--color-accent-blue)] shadow-xl" />
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-3 leading-tight tracking-tight text-[var(--color-accent-blue)]">
+                mancan<span id="typed-text" class="text-[var(--color-accent-purple-light)]"></span><span class="typing-cursor"></span>
+            </h1>
+            <p class="text-lg md:text-2xl font-light text-gray-300 max-w-2xl mx-auto">
+                Future-Proof Your Business: Intelligent Solutions for Tomorrow's Challenges
+            </p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <button onclick="switchLang('en')" class="bg-[var(--color-button-primary)] hover:bg-[var(--color-button-hover)] text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] focus:ring-opacity-75">
+                    English 🇺🇸
+                </button>
+                <button onclick="switchLang('pt')" class="bg-[var(--color-button-primary)] hover:bg-[var(--color-button-hover)] text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] focus:ring-opacity-75">
+                    Português 🇧🇷
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 md:py-20 flex flex-col gap-10">
+        <div id="lang-en" class="lang-section">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    About Us: Architects of Digital Transformation
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)]">
+                    At mancan.digital, we are an IT consultancy focused on helping small businesses reach operational excellence through custom technology solutions. As seasoned engineers and strategists, we leverage **disruptive technologies** like AI, RPA, and **cloud-native solutions** to re-engineer business operations for unparalleled efficiency and growth. We partner with small businesses to unlock their full technological potential.
+                </p>
+            </section>
+
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                    Our Core Services: Driving Innovation
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                        <h3 class="card-title">Automation & RPA</h3>
+                        <p class="card-description">Eliminate repetitive manual tasks and streamline operations with intelligent robotic process automation, boosting efficiency and reducing costs.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-1.5a2.5 2.5 0 0 0 0 5H18"></path><path d="M20 10h2"></path><path d="M2 10h2"></path><path d="M7.5 8H6a2 2 0 0 0 0 5h1.5"></path><path d="M10 0v24"></path><path d="M14 0v24"></path><path d="M0 10h24"></path></svg>
+                        <h3 class="card-title">AI Integration</h3>
+                        <p class="card-description">Leverage machine learning and predictive analytics to inform strategic decisions and autonomously optimize workflows for smarter business outcomes.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        <h3 class="card-title">Full Stack Development</h3>
+                        <p class="card-description">Crafting robust, high-performance web and mobile applications with cutting-edge frameworks and cloud-native principles, ensuring scalability and responsiveness.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3 class="card-title">Desktop Applications</h3>
+                        <p class="card-description">Custom software solutions designed to streamline complex business workflows, providing powerful, secure, and intuitive tools tailored to your specific needs.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
+                        <h3 class="card-title">IT Consultancy & Strategy</h3>
+                        <p class="card-description">Strategic guidance to optimize your technology investments, ensuring alignment with business goals and maximizing your competitive advantage.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    Our Mission: Empowering Digital Futures
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)]">
+                    Our mission is to empower small businesses by transforming complex processes into streamlined, intelligent, and digital workflows. We are committed to delivering innovative solutions that drive efficiency, foster growth, and build a resilient digital infrastructure for every client.
+                </p>
+            </section>
+
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                    Market Strategy: Global Reach, Local Impact
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
+                        <h3 class="card-title">Strategic Partnerships</h3>
+                        <p class="card-description">Collaborating closely with SMBs to deeply understand their unique operational needs and challenges.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                        <h3 class="card-title">Result-Driven Relationships</h3>
+                        <p class="card-description">Building long-term, mutually beneficial partnerships focused on measurable outcomes and sustainable growth.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
+                        <h3 class="card-title">Expansive Footprint</h3>
+                        <p class="card-description">Serving clients across Brazil and LATAM, with a clear vision for global expansion and impact.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3 class="card-title">Innovation Leadership</h3>
+                        <p class="card-description">Continuously integrating the latest advancements in AI, automation, and cloud technologies to keep clients ahead.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
+                    Connect With Us
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)] mb-2">
+                    Email: <a href="mailto:info@mancan.digital" class="text-[var(--color-accent-purple-light)] hover:underline flex items-center">
+                        <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        info@mancan.digital
+                    </a>
+                </p>
+                <p class="text-lg text-[var(--color-accent-blue)]">
+                    <strong class="text-[var(--color-accent-blue)]">Global Reach:</strong> Based in Brazil — Available worldwide.
+                </p>
+            </section>
+        </div>
+
+        <!-- Portuguese Content -->
+        <div id="lang-pt" class="lang-section" style="display:none">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    Sobre Nós: Arquitetos da Transformação Digital
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)]">
+                    Na mancan.digital, somos uma consultoria de TI focada em ajudar pequenas empresas a alcançar a excelência operacional através de soluções tecnológicas personalizadas. Como engenheiros e estrategistas experientes, utilizamos **tecnologias disruptivas** como IA, RPA e **soluções nativas da nuvem** para reestruturar as operações de negócios, visando eficiência e crescimento incomparáveis. Nós nos unimos a pequenas empresas para desbloquear todo o seu potencial tecnológico.
+                </p>
+            </section>
+
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                    Nossos Serviços Principais: Impulsionando a Inovação
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                        <h3 class="card-title">Automação e RPA</h3>
+                        <p class="card-description">Elimine tarefas manuais repetitivas e otimize operações com automação robótica de processos inteligente, aumentando a eficiência e reduzindo custos.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-1.5a2.5 2.5 0 0 0 0 5H18"></path><path d="M20 10h2"></path><path d="M2 10h2"></path><path d="M7.5 8H6a2 2 0 0 0 0 5h1.5"></path><path d="M10 0v24"></path><path d="M14 0v24"></path><path d="M0 10h24"></path></svg>
+                        <h3 class="card-title">Integração com IA</h3>
+                        <p class="card-description">Utilize aprendizado de máquina e análise preditiva para embasar decisões estratégicas e otimizar fluxos de trabalho de forma autônoma, resultando em melhores resultados de negócios.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        <h3 class="card-title">Desenvolvimento Full Stack</h3>
+                        <p class="card-description">Construção de aplicações web e móveis robustas e de alto desempenho com frameworks de ponta e princípios cloud-native, garantindo escalabilidade e responsividade.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3 class="card-title">Aplicações Desktop</h3>
+                        <p class="card-description">Soluções de software personalizadas projetadas para otimizar fluxos de trabalho de negócios complexos, fornecendo ferramentas poderosas, seguras e intuitivas adaptadas às suas necessidades específicas.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
+                        <h3 class="card-title">Consultoria e Estratégia de TI</h3>
+                        <p class="card-description">Orientação estratégica para otimizar seus investimentos em tecnologia, garantindo alinhamento com os objetivos de negócios e maximizando sua vantagem competitiva.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    Nossa Missão: Capacitando Futuros Digitais
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)]">
+                    Nossa missão é capacitar pequenas empresas transformando processos complexos em fluxos de trabalho digitais, inteligentes e otimizados. Estamos comprometidos em entregar soluções inovadoras que impulsionam a eficiência, promovem o crescimento e constroem uma infraestrutura digital resiliente para cada cliente.
+                </p>
+            </section>
+
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                    Estratégia de Mercado: Alcance Global, Impacto Local
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
+                        <h3 class="card-title">Parcerias Estratégicas</h3>
+                        <p class="card-description">Colaborando de perto com PMEs para entender profundamente suas necessidades e desafios operacionais únicos.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                        <h3 class="card-title">Relações Orientadas a Resultados</h3>
+                        <p class="card-description">Construindo parcerias de longo prazo e mutuamente benéficas, focadas em resultados mensuráveis e crescimento sustentável.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
+                        <h3 class="card-title">Presença Abrangente</h3>
+                        <p class="card-description">Atendendo clientes no Brasil e na América Latina, com uma clara visão de expansão e impacto global.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3 class="card-title">Liderança em Inovação</h3>
+                        <p class="card-description">Integrando continuamente os mais recentes avanços em IA, automação, e tecnologias de nuvem para manter clientes à frente.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
+                    Fale Conosco
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)] mb-2">
+                    Email: <a href="mailto:info@mancan.digital" class="text-[var(--color-accent-purple-light)] hover:underline flex items-center">
+                        <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        info@mancan.digital
+                    </a>
+                </p>
+                <p class="text-lg text-[var(--color-accent-blue)]">
+                    <strong class="text-[var(--color-accent-blue)]">Alcance Global:</strong> Com sede no Brasil — Disponível mundialmente.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-[var(--color-header-bg)] text-gray-400 py-8 text-center text-sm rounded-t-3xl shadow-inner">
+        <p>&copy; 2025 mancan.digital. All rights reserved. Empowering your digital future.</p>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        function switchLang(lang) {
+            document.getElementById('lang-en').style.display = lang === 'en' ? 'contents' : 'none';
+            document.getElementById('lang-pt').style.display = lang === 'pt' ? 'contents' : 'none';
+        }
+
+        // Initialize language to Portuguese on load
+        document.addEventListener('DOMContentLoaded', () => {
+            switchLang('pt'); // Set Portuguese as default
+            initTypingEffect(); // Initialize typing effect after DOM is loaded
+        });
+
+        // Intersection Observer for scroll animations
+        const sections = document.querySelectorAll('.section-animate');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Typing Effect Logic
+        function initTypingEffect() {
+            const typedTextSpan = document.getElementById('typed-text');
+            const words = [".digital"]; // The text to be typed
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 150; // Speed of typing
+            let deletingSpeed = 100; // Speed of deleting
+            let pauseBeforeDelete = 1500; // Pause before deleting
+            let pauseBeforeType = 500; // Pause before typing next word
+
+            function type() {
+                const currentWord = words[wordIndex];
+                if (isDeleting) {
+                    typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
+
+                if (!isDeleting && charIndex === currentWord.length) {
+                    currentSpeed = pauseBeforeDelete;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    currentSpeed = pauseBeforeType;
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length; // Loop back to the first word
+                }
+
+                setTimeout(type, currentSpeed);
+            }
+
+            type(); // Start the typing effect
+        }
+    </script>
+</body>
+</html>
