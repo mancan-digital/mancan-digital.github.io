@@ -157,20 +157,18 @@
         }
 
         /* Specific styles for logo and title enhancement */
-        .logo-enhanced {
-            width: 140px; /* Slightly larger */
-            height: 140px; /* Slightly larger */
-            border-radius: 50%;
-            border: 4px solid #FFFFFF; /* White border for white logo */
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Initial subtle glow, now white */
-            transition: all 0.3s ease-in-out;
-            filter: brightness(0) invert(1); /* Attempt to make the logo white */
-        }
 
-        .logo-enhanced:hover {
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.5); /* More pronounced white glow on hover */
-            transform: scale(1.05);
-        }
+/* Specific styles for logo and title enhancement */
+.logo-enhanced {
+    width: 140px; /* Slightly larger */
+    height: 140px; /* Slightly larger */
+    /* Removed all border-radius, border, box-shadow, and filter properties */
+    transition: all 0.3s ease-in-out; /* Keep transition for hover scale */
+}
+
+.logo-enhanced:hover {
+    transform: scale(1.05); /* Keep scale on hover */
+}
 
         .main-title-text-shadow {
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Subtle text shadow for "mancan" */
