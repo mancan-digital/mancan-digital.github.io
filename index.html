@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mancan.digital - Next-Gen IT Solutions</title>
-    <link rel="icon" type="image/x-icon" href="logo-symbol.jpeg">
-
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="logo-symbol.jpg">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Outfit -->
@@ -21,8 +21,8 @@
             --color-section-bg: #FFFFFF; /* White background for sections */
             --color-button-primary: #6A1B9A;
             --color-button-hover: #8E3FBB;
-            --color-shadow-light: rgba(69, 76, 255, 0.1); /* Adjusted for light theme */
-            --color-shadow-dark: rgba(142, 63, 187, 0.1); /* Adjusted for light theme */
+            --color-shadow-light: rgba(69, 76, 255, 0.05); /* Lighter shadow for Apple-inspired look */
+            --color-shadow-dark: rgba(142, 63, 187, 0.08); /* Lighter shadow for Apple-inspired look */
         }
 
         html {
@@ -132,8 +132,8 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px var(--color-shadow-dark);
+            transform: translateY(-3px); /* Reduced translate for subtler effect */
+            box-shadow: 0 6px 12px var(--color-shadow-dark); /* Softer shadow on hover */
         }
 
         .card-icon {
@@ -155,14 +155,46 @@
             color: var(--color-text-dark);
             flex-grow: 1; /* Allows description to take up available space */
         }
+
+        /* Specific styles for logo and title enhancement */
+        .logo-enhanced {
+            width: 140px; /* Slightly larger */
+            height: 140px; /* Slightly larger */
+            border-radius: 50%;
+            border: 4px solid #FFFFFF; /* White border for white logo */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Initial subtle glow, now white */
+            transition: all 0.3s ease-in-out;
+            filter: brightness(0) invert(1); /* Attempt to make the logo white */
+        }
+
+        .logo-enhanced:hover {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.5); /* More pronounced white glow on hover */
+            transform: scale(1.05);
+        }
+
+        .main-title-text-shadow {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Subtle text shadow for "mancan" */
+        }
+
+        /* New section hover effect */
+        section.section-animate {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+            background: var(--color-section-bg); /* Default background */
+        }
+
+        section.section-animate:hover {
+            transform: translateY(-5px); /* Slightly more lift for the whole section */
+            box-shadow: 0 8px 20px var(--color-shadow-dark); /* More pronounced shadow */
+            background: linear-gradient(135deg, var(--color-section-bg) 0%, rgba(255, 255, 255, 0.95) 50%, var(--color-section-bg) 100%); /* Subtle gradient on hover */
+        }
     </style>
 </head>
 <body class="antialiased">
-    <header class="relative bg-[var(--color-header-bg)] text-white py-16 md:py-24 text-center overflow-hidden rounded-b-3xl shadow-lg">
+    <header class="relative bg-[var(--color-header-bg)] text-white py-20 md:py-32 text-center overflow-hidden rounded-b-3xl shadow-lg">
         <div class="header-bg-animation"></div>
         <div class="relative z-10 px-4">
-            <img src="logo-symbol.jpeg" alt="mancan.digital logo" class="mx-auto mb-6 w-24 h-24 rounded-full border-4 border-[var(--color-accent-blue)] shadow-xl" />
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-3 leading-tight tracking-tight text-[var(--color-accent-blue)]">
+            <img src="logo-symbol.png" alt="mancan.digital logo" class="mx-auto mb-6 logo-enhanced" />
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-3 leading-tight tracking-tight text-[var(--color-accent-blue)] main-title-text-shadow">
                 mancan<span id="typed-text" class="text-[var(--color-accent-purple-light)]"></span><span class="typing-cursor"></span>
             </h1>
             <p class="text-lg md:text-2xl font-light text-gray-300 max-w-2xl mx-auto">
@@ -179,9 +211,9 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-12 md:py-20 flex flex-col gap-10">
+    <main class="container mx-auto px-4 py-16 md:py-28 flex flex-col gap-16">
         <div id="lang-en" class="lang-section">
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                     About Us: Architects of Digital Transformation
@@ -191,7 +223,7 @@
                 </p>
             </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
                     Our Core Services: Driving Innovation
@@ -225,7 +257,7 @@
                 </div>
             </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                     Our Mission: Empowering Digital Futures
@@ -235,7 +267,7 @@
                 </p>
             </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
                     Market Strategy: Global Reach, Local Impact
@@ -264,7 +296,7 @@
                 </div>
             </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
                     Connect With Us
@@ -283,7 +315,7 @@
 
         <!-- Portuguese Content -->
         <div id="lang-pt" class="lang-section" style="display:none">
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                     Sobre Nós: Arquitetos da Transformação Digital
@@ -293,7 +325,7 @@
                 </p>
             </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
                     Nossos Serviços Principais: Impulsionando a Inovação
@@ -327,7 +359,7 @@
                 </div>
             </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                     Nossa Missão: Capacitando Futuros Digitais
@@ -337,7 +369,7 @@
                 </p>
             </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
                     Estratégia de Mercado: Alcance Global, Impacto Local
@@ -366,7 +398,7 @@
                 </div>
             </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
                     Fale Conosco
@@ -391,8 +423,20 @@
     <script>
         // Language switching functionality
         function switchLang(lang) {
-            document.getElementById('lang-en').style.display = lang === 'en' ? 'contents' : 'none';
-            document.getElementById('lang-pt').style.display = lang === 'pt' ? 'contents' : 'none';
+            const langEn = document.getElementById('lang-en');
+            const langPt = document.getElementById('lang-pt');
+
+            if (langEn) {
+                langEn.style.display = lang === 'en' ? 'contents' : 'none';
+            } else {
+                console.warn("Element with ID 'lang-en' not found.");
+            }
+
+            if (langPt) {
+                langPt.style.display = lang === 'pt' ? 'contents' : 'none';
+            } else {
+                console.warn("Element with ID 'lang-pt' not found.");
+            }
         }
 
         // Initialize language to Portuguese on load
@@ -437,13 +481,19 @@
 
             function type() {
                 const currentWord = words[wordIndex];
-                if (isDeleting) {
-                    typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
-                    charIndex--;
+                if (typedTextSpan) { // Null check for typedTextSpan
+                    if (isDeleting) {
+                        typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
                 } else {
-                    typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
-                    charIndex++;
+                    console.warn("Element with ID 'typed-text' not found.");
+                    return; // Stop the typing effect if element is not found
                 }
+
 
                 let currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
 
