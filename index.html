@@ -4,510 +4,1140 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mancan.digital - Next-Gen IT Solutions</title>
-    <!-- Favicon -->
+    <meta name="description" content="IT consultancy helping businesses achieve operational excellence through AI, RPA, and cloud-native solutions.">
     <link rel="icon" type="image/x-icon" href="logo-symbol.png">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Outfit -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* Custom Tailwind Configuration - Embedded for self-containment */
-        :root {
-            --color-bg-primary: #F8F8F8; /* Light theme background */
-            --color-text-dark: #333333; /* Dark text for light theme */
-            --color-header-bg: #09247B;
-            --color-accent-blue: #454CFF;
-            --color-accent-purple-light: #8E3FBB;
-            --color-section-bg: #FFFFFF; /* White background for sections */
-            --color-button-primary: #6A1B9A;
-            --color-button-hover: #8E3FBB;
-            --color-shadow-light: rgba(69, 76, 255, 0.05); /* Lighter shadow for Apple-inspired look */
-            --color-shadow-dark: rgba(142, 63, 187, 0.08); /* Lighter shadow for Apple-inspired look */
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
         }
+    </script>
+    <style>
+        :root {
+            --color-bg: #fafafa;
+            --color-bg-alt: #ffffff;
+            --color-text: #1a1a2e;
+            --color-text-muted: #64748b;
+            --color-primary: #8B5CF6;
+            --color-secondary: #3B82F6;
+            --color-accent: #06B6D4;
+            --color-border: #e2e8f0;
+            --gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #06B6D4 100%);
+            --gradient-mesh: radial-gradient(at 40% 20%, hsla(270, 91%, 65%, 0.12) 0px, transparent 50%),
+                            radial-gradient(at 80% 0%, hsla(217, 91%, 60%, 0.1) 0px, transparent 50%),
+                            radial-gradient(at 0% 80%, hsla(187, 94%, 43%, 0.08) 0px, transparent 50%);
+        }
+
+        [data-theme="dark"] {
+            --color-bg: #0d0d14;
+            --color-bg-alt: #13131d;
+            --color-text: #f0f0f5;
+            --color-text-muted: #a0a0b8;
+            --color-primary: #A78BFA;
+            --color-secondary: #60A5FA;
+            --color-accent: #22D3EE;
+            --color-border: #2a2a3d;
+            --gradient-primary: linear-gradient(135deg, #A78BFA 0%, #60A5FA 50%, #22D3EE 100%);
+            --gradient-mesh: radial-gradient(at 40% 20%, hsla(270, 91%, 65%, 0.15) 0px, transparent 50%),
+                            radial-gradient(at 80% 0%, hsla(217, 91%, 60%, 0.12) 0px, transparent 50%),
+                            radial-gradient(at 0% 80%, hsla(187, 94%, 43%, 0.1) 0px, transparent 50%);
+        }
+
+        * { box-sizing: border-box; }
 
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            line-height: 1.7;
-            background-color: var(--color-bg-primary);
-            color: var(--color-text-dark); /* Using dark text color */
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Header background animation */
-        .header-bg-animation {
+        /* Mesh gradient background */
+        .mesh-bg {
+            background: var(--gradient-mesh);
+            background-attachment: fixed;
+        }
+
+        /* Glass morphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] .glass {
+            background: rgba(19, 19, 29, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Modern cards */
+        .modern-card {
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-card::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-            opacity: 0.2; /* Slightly increased opacity for visibility on light background */
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .header-bg-animation::before,
-        .header-bg-animation::after {
+        .modern-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.2);
+            border-color: var(--color-primary);
+        }
+
+        [data-theme="dark"] .modern-card {
+            background: var(--color-bg-alt);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] .modern-card:hover {
+            box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
+        }
+
+        .modern-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Icon container */
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.1) 50%, rgba(6, 182, 212, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .icon-box {
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.2) 0%, rgba(96, 165, 250, 0.15) 50%, rgba(34, 211, 238, 0.1) 100%);
+        }
+
+        .modern-card:hover .icon-box {
+            background: var(--gradient-primary);
+        }
+
+        .modern-card:hover .icon-box svg {
+            color: white;
+        }
+
+        /* Animated gradient border */
+        .gradient-border {
+            position: relative;
+            background: var(--color-bg-alt);
+            border-radius: 24px;
+        }
+
+        .gradient-border::before {
             content: '';
             position: absolute;
-            background: radial-gradient(circle, var(--color-accent-blue) 0%, transparent 70%);
-            animation: pulse-glow 10s infinite alternate;
-            border-radius: 50%;
-        }
-
-        .header-bg-animation::before {
-            width: 300px;
-            height: 300px;
-            top: -50px;
-            left: -50px;
-            animation-delay: 0s;
-        }
-
-        .header-bg-animation::after {
-            width: 250px;
-            height: 250px;
-            bottom: -70px;
-            right: -70px;
-            animation-delay: 2s;
-            background: radial-gradient(circle, var(--color-accent-purple-light) 0%, transparent 70%);
-        }
-
-        @keyframes pulse-glow {
-            0% { transform: scale(0.8); opacity: 0.1; }
-            50% { transform: scale(1.1); opacity: 0.2; }
-            100% { transform: scale(0.8); opacity: 0.1; }
-        }
-
-        /* Section entry animation */
-        .section-animate {
+            inset: -2px;
+            border-radius: 26px;
+            background: var(--gradient-primary);
+            z-index: -1;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transition: opacity 0.3s ease;
         }
 
-        .section-animate.is-visible {
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+
+        /* Hero floating elements */
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .float-delay {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Custom styles for icon sizing */
-        .icon-small {
-            width: 1.25rem; /* 20px */
-            height: 1.25rem; /* 20px */
-            vertical-align: middle;
-            margin-right: 0.5rem;
-            color: var(--color-accent-purple-light);
+        /* Stagger children */
+        .stagger-children > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-children > *:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-children > *:nth-child(3) { transition-delay: 0.3s; }
+        .stagger-children > *:nth-child(4) { transition-delay: 0.4s; }
+        .stagger-children > *:nth-child(5) { transition-delay: 0.5s; }
+
+        /* Button styles */
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
         }
 
-        /* Typing cursor effect */
-        .typing-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em; /* Adjust based on font size */
-            background-color: var(--color-accent-purple-light);
-            animation: blink-caret 0.75s step-end infinite;
-            vertical-align: middle;
-            margin-left: 2px;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
         }
 
-        @keyframes blink-caret {
-            from, to { background-color: transparent; }
-            50% { background-color: var(--color-accent-purple-light); }
+        [data-theme="dark"] .btn-primary {
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35);
         }
 
-        /* Card specific styles */
-        .card {
-            background-color: var(--color-section-bg);
-            padding: 1.5rem; /* p-6 */
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 4px 10px var(--color-shadow-light); /* shadow-lg */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%; /* Ensure cards in a row have equal height */
-            display: flex;
+        [data-theme="dark"] .btn-primary:hover {
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text);
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            border: 2px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        /* Nav styles */
+        .nav-link {
+            position: relative;
+            color: var(--color-text-muted);
+            font-weight: 500;
+            font-size: 0.9375rem;
+            padding: 0.5rem 0;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--color-text);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+            border-radius: 1px;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Section styles */
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(59, 130, 246, 0.1) 50%, rgba(6, 182, 212, 0.08) 100%);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .section-tag {
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.15) 0%, rgba(96, 165, 250, 0.12) 50%, rgba(34, 211, 238, 0.1) 100%);
+        }
+
+        /* Mobile nav */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--color-bg-alt);
+            z-index: 100;
+            transition: right 0.3s ease;
+            padding: 2rem;
+            box-shadow: -10px 0 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav.open {
+            right: 0;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 90;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
             flex-direction: column;
-            justify-content: flex-start;
+            gap: 5px;
+            padding: 8px;
+            cursor: pointer;
         }
 
-        .card:hover {
-            transform: translateY(-3px); /* Reduced translate for subtler effect */
-            box-shadow: 0 6px 12px var(--color-shadow-dark); /* Softer shadow on hover */
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
         }
 
-        .card-icon {
-            margin-bottom: 1rem; /* mb-4 */
-            color: var(--color-accent-blue); /* Primary accent for card icons */
-            width: 2.5rem; /* w-10 */
-            height: 2.5rem; /* h-10 */
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
         }
 
-        .card-title {
-            font-weight: 600; /* font-semibold */
-            font-size: 1.25rem; /* text-xl */
-            margin-bottom: 0.5rem; /* mb-2 */
-            color: var(--color-accent-purple-light); /* Secondary accent for card titles */
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
         }
 
-        .card-description {
-            font-size: 0.95rem; /* text-base */
-            color: var(--color-text-dark);
-            flex-grow: 1; /* Allows description to take up available space */
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        /* Specific styles for logo and title enhancement */
-
-/* Specific styles for logo and title enhancement */
-.logo-enhanced {
-    width: 140px; /* Slightly larger */
-    height: 140px; /* Slightly larger */
-    /* Removed all border-radius, border, box-shadow, and filter properties */
-    transition: all 0.3s ease-in-out; /* Keep transition for hover scale */
-}
-
-.logo-enhanced:hover {
-    transform: scale(1.05); /* Keep scale on hover */
-}
-
-        .main-title-text-shadow {
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Subtle text shadow for "mancan" */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .desktop-nav { display: none; }
         }
 
-        /* New section hover effect */
-        section.section-animate {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
-            background: var(--color-section-bg); /* Default background */
+        /* Smooth scroll offset for fixed nav */
+        section[id] {
+            scroll-margin-top: 80px;
         }
 
-        section.section-animate:hover {
-            transform: translateY(-5px); /* Slightly more lift for the whole section */
-            box-shadow: 0 8px 20px var(--color-shadow-dark); /* More pronounced shadow */
-            background: linear-gradient(135deg, var(--color-section-bg) 0%, rgba(255, 255, 255, 0.95) 50%, var(--color-section-bg) 100%); /* Subtle gradient on hover */
+        /* Footer links */
+        .footer-link {
+            color: var(--color-text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--color-text);
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] .lang-toggle {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .lang-btn.active {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .lang-btn.active {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Dark mode enhancements */
+        [data-theme="dark"] body {
+            background: var(--color-bg);
+        }
+
+        [data-theme="dark"] .mesh-bg {
+            background-color: var(--color-bg);
+        }
+
+        [data-theme="dark"] .float,
+        [data-theme="dark"] .float-delay {
+            opacity: 0.7;
+        }
+
+        [data-theme="dark"] footer {
+            background: var(--color-bg-alt);
+            border-top-color: var(--color-border);
+        }
+
+        /* Tech tags in about section */
+        .tech-tag {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tech-tag:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        [data-theme="dark"] .tech-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--color-border);
+        }
+
+        [data-theme="dark"] .tech-tag:hover {
+            background: rgba(167, 139, 250, 0.1);
+            border-color: var(--color-primary);
+        }
+
+        /* Mobile responsive improvements */
+        @media (max-width: 640px) {
+            .modern-card {
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+
+            .icon-box {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                margin-bottom: 1rem;
+            }
+
+            .section-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Hide floating decorations on small screens */
+            .float,
+            .float-delay {
+                display: none;
+            }
+
+            /* Adjust floating badge position */
+            .about-badge {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Better hero height on mobile (accounts for address bar) */
+            header.min-h-screen {
+                min-height: calc(100vh - 60px);
+                min-height: calc(100dvh - 60px);
+            }
+
+            /* Reduce section padding on mobile */
+            section {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            /* Smaller floating background blobs */
+            .float,
+            .float-delay {
+                width: 200px !important;
+                height: 200px !important;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            /* Tablet adjustments */
+            .modern-card {
+                padding: 1.75rem;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
-<body class="antialiased">
-    <header class="relative bg-[var(--color-header-bg)] text-white py-20 md:py-32 text-center overflow-hidden rounded-b-3xl shadow-lg">
-        <div class="header-bg-animation"></div>
-        <div class="relative z-10 px-4">
-            <img src="logo-symbol.png" alt="mancan.digital logo" class="mx-auto mb-6 logo-enhanced" />
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-3 leading-tight tracking-tight text-[var(--color-accent-blue)] main-title-text-shadow">
-                mancan<span id="typed-text" class="text-[var(--color-accent-purple-light)]"></span><span class="typing-cursor"></span>
+<body class="antialiased mesh-bg">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 scroll-top">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 via-blue-500 to-cyan-500 p-2 flex items-center justify-center">
+                        <img src="logo-symbol.png" alt="" class="w-full h-full object-contain" />
+                    </div>
+                    <span class="text-lg font-bold">mancan<span class="gradient-text">.digital</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="desktop-nav hidden md:flex items-center gap-8">
+                    <a href="#about" class="nav-link" data-scroll-to="about">About</a>
+                    <a href="#services" class="nav-link" data-scroll-to="services">Services</a>
+                    <a href="#mission" class="nav-link" data-scroll-to="mission">Mission</a>
+                    <a href="#strategy" class="nav-link" data-scroll-to="strategy">Strategy</a>
+                    <a href="#contact" class="nav-link" data-scroll-to="contact">Contact</a>
+                </div>
+
+                <!-- Right side controls -->
+                <div class="flex items-center gap-3">
+                    <!-- Language toggle -->
+                    <div class="lang-toggle flex items-center gap-1 p-1 rounded-lg">
+                        <button onclick="switchLang('en')" class="lang-btn px-3 py-1.5 rounded-md text-sm font-medium transition-all" data-lang="en">EN</button>
+                        <button onclick="switchLang('pt')" class="lang-btn px-3 py-1.5 rounded-md text-sm font-medium transition-all" data-lang="pt">PT</button>
+                    </div>
+
+                    <!-- Theme toggle -->
+                    <button class="theme-toggle p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors" aria-label="Toggle theme">
+                        <svg class="sun-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        <svg class="moon-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    </button>
+
+                    <!-- Mobile hamburger -->
+                    <button class="hamburger" id="hamburger" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="flex flex-col gap-2 mt-16">
+            <a href="#about" class="text-lg font-medium mobile-link py-3 px-2 rounded-lg hover:bg-[var(--color-bg)] transition-colors" data-scroll-to="about">About</a>
+            <a href="#services" class="text-lg font-medium mobile-link py-3 px-2 rounded-lg hover:bg-[var(--color-bg)] transition-colors" data-scroll-to="services">Services</a>
+            <a href="#mission" class="text-lg font-medium mobile-link py-3 px-2 rounded-lg hover:bg-[var(--color-bg)] transition-colors" data-scroll-to="mission">Mission</a>
+            <a href="#strategy" class="text-lg font-medium mobile-link py-3 px-2 rounded-lg hover:bg-[var(--color-bg)] transition-colors" data-scroll-to="strategy">Strategy</a>
+            <a href="#contact" class="text-lg font-medium mobile-link py-3 px-2 rounded-lg hover:bg-[var(--color-bg)] transition-colors" data-scroll-to="contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <!-- Background decorations -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl float"></div>
+            <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl float-delay"></div>
+            <div class="absolute bottom-1/4 left-1/3 w-64 h-64 bg-cyan-500/15 rounded-full blur-3xl float"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
+            <div class="fade-in">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-500/10 via-blue-500/10 to-cyan-500/10 border border-violet-500/20 mb-8">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span class="text-sm font-medium text-[var(--color-text-muted)]" id="hero-tagline">Available for new projects</span>
+                </div>
+            </div>
+
+            <h1 class="fade-in text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+                <span id="hero-title-1">Transform Your Business</span><br>
+                <span class="gradient-text" id="hero-title-2">With Smart Technology</span>
             </h1>
-            <p class="text-lg md:text-2xl font-light text-gray-300 max-w-2xl mx-auto">
-                Future-Proof Your Business: Intelligent Solutions for Tomorrow's Challenges
+
+            <p class="fade-in text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto mb-10" id="hero-desc">
+                We are an IT consultancy helping businesses achieve operational excellence through AI, automation, and cloud-native solutions.
             </p>
-            <div class="mt-8 flex justify-center space-x-4">
-                <button onclick="switchLang('en')" class="bg-[var(--color-button-primary)] hover:bg-[var(--color-button-hover)] text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] focus:ring-opacity-75">
-                    English 🇺🇸
-                </button>
-                <button onclick="switchLang('pt')" class="bg-[var(--color-button-primary)] hover:bg-[var(--color-button-hover)] text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] focus:ring-opacity-75">
-                    Português 🇧🇷
-                </button>
+
+            <div class="fade-in flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="btn-primary" id="hero-cta">Get Started</a>
+                <a href="#services" class="btn-secondary" id="hero-cta-2">Our Services</a>
             </div>
         </div>
     </header>
-    <main class="container mx-auto px-4 py-16 md:py-28 flex flex-col gap-16">
-        <div id="lang-en" class="lang-section">
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                    About Us: Architects of Digital Transformation
-                </h2>
-                <p class="text-lg text-[var(--color-text-dark)]">
-                    At mancan.digital, we are an IT consultancy focused on helping small businesses reach operational excellence through custom technology solutions. As seasoned engineers and strategists, we leverage **disruptive technologies** like AI, RPA, and **cloud-native solutions** to re-engineer business operations for unparalleled efficiency and growth. We partner with small businesses to unlock their full technological potential.
-                </p>
-            </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
-                    Our Core Services: Driving Innovation
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
-                        <h3 class="card-title">Automation & RPA</h3>
-                        <p class="card-description">Eliminate repetitive manual tasks and streamline operations with intelligent robotic process automation, boosting efficiency and reducing costs.</p>
+    <main>
+        <!-- About Section -->
+        <section id="about" class="py-24 lg:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div class="fade-in">
+                        <span class="section-tag" id="about-tag">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            About Us
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6" id="about-title">Architects of Digital Transformation</h2>
+                        <p class="text-lg text-[var(--color-text-muted)] mb-6" id="about-desc-1">
+                            We are an IT consultancy helping small businesses reach operational excellence through custom technology.
+                        </p>
+                        <p class="text-lg text-[var(--color-text-muted)] mb-8" id="about-desc-2">
+                            We use AI, RPA, and cloud-native solutions to re-engineer operations for efficiency and growth—and partner with you to unlock your full technological potential.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="tech-tag">AI Integration</span>
+                            <span class="tech-tag">RPA</span>
+                            <span class="tech-tag">Cloud Native</span>
+                            <span class="tech-tag">Full Stack</span>
+                        </div>
                     </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-1.5a2.5 2.5 0 0 0 0 5H18"></path><path d="M20 10h2"></path><path d="M2 10h2"></path><path d="M7.5 8H6a2 2 0 0 0 0 5h1.5"></path><path d="M10 0v24"></path><path d="M14 0v24"></path><path d="M0 10h24"></path></svg>
-                        <h3 class="card-title">AI Integration</h3>
-                        <p class="card-description">Leverage machine learning and predictive analytics to inform strategic decisions and autonomously optimize workflows for smarter business outcomes.</p>
-                    </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                        <h3 class="card-title">Full Stack Development</h3>
-                        <p class="card-description">Crafting robust, high-performance web and mobile applications with cutting-edge frameworks and cloud-native principles, ensuring scalability and responsiveness.</p>
-                    </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        <h3 class="card-title">Desktop Applications</h3>
-                        <p class="card-description">Custom software solutions designed to streamline complex business workflows, providing powerful, secure, and intuitive tools tailored to your specific needs.</p>
-                    </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
-                        <h3 class="card-title">IT Consultancy & Strategy</h3>
-                        <p class="card-description">Strategic guidance to optimize your technology investments, ensuring alignment with business goals and maximizing your competitive advantage.</p>
+                    <div class="fade-in relative">
+                        <div class="aspect-square rounded-3xl bg-gradient-to-br from-violet-500/10 via-blue-500/8 to-cyan-500/10 border border-[var(--color-border)] flex items-center justify-center">
+                            <img src="logo-symbol.png" alt="mancan.digital" class="w-1/2 h-1/2 object-contain opacity-90" />
+                        </div>
+                        <!-- Floating badge -->
+                        <div class="about-badge sm:absolute sm:-bottom-6 sm:-left-6 glass rounded-2xl p-4 shadow-lg mt-6 sm:mt-0">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 via-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                </div>
+                                <div>
+                                    <div class="font-bold" id="badge-title">Trusted Partner</div>
+                                    <div class="text-sm text-[var(--color-text-muted)]" id="badge-desc">Since 2019</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    Our Mission: Empowering Digital Futures
-                </h2>
-                <p class="text-lg text-[var(--color-text-dark)]">
-                    Our mission is to empower small businesses by transforming complex processes into streamlined, intelligent, and digital workflows. We are committed to delivering innovative solutions that drive efficiency, foster growth, and build a resilient digital infrastructure for every client.
-                </p>
-            </section>
+        <!-- Services Section -->
+        <section id="services" class="py-24 lg:py-32 bg-[var(--color-bg-alt)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <span class="section-tag" id="services-tag">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        Our Services
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" id="services-title">What We Do</h2>
+                    <p class="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto" id="services-desc">
+                        Comprehensive technology solutions tailored to drive your business forward.
+                    </p>
+                </div>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
-                    Market Strategy: Global Reach, Local Impact
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
-                        <h3 class="card-title">Strategic Partnerships</h3>
-                        <p class="card-description">Collaborating closely with SMBs to deeply understand their unique operational needs and challenges.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+                    <!-- Service 1 -->
+                    <div class="modern-card fade-in">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" id="service-1-title">Automation & RPA</h3>
+                        <p class="text-[var(--color-text-muted)]" id="service-1-desc">Eliminate repetitive manual tasks and streamline operations with intelligent robotic process automation, boosting efficiency and reducing costs.</p>
                     </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
-                        <h3 class="card-title">Result-Driven Relationships</h3>
-                        <p class="card-description">Building long-term, mutually beneficial partnerships focused on measurable outcomes and sustainable growth.</p>
+
+                    <!-- Service 2 -->
+                    <div class="modern-card fade-in">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" id="service-2-title">AI Integration</h3>
+                        <p class="text-[var(--color-text-muted)]" id="service-2-desc">Leverage machine learning and predictive analytics to inform strategic decisions and autonomously optimize workflows for smarter outcomes.</p>
                     </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
-                        <h3 class="card-title">Expansive Footprint</h3>
-                        <p class="card-description">Serving clients across Brazil and LATAM, with a clear vision for global expansion and impact.</p>
+
+                    <!-- Service 3 -->
+                    <div class="modern-card fade-in">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" id="service-3-title">Full Stack Development</h3>
+                        <p class="text-[var(--color-text-muted)]" id="service-3-desc">Crafting robust, high-performance web and mobile applications with cutting-edge frameworks and cloud-native principles.</p>
                     </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        <h3 class="card-title">Innovation Leadership</h3>
-                        <p class="card-description">Continuously integrating the latest advancements in AI, automation, and cloud technologies to keep clients ahead.</p>
+
+                    <!-- Service 4 -->
+                    <div class="modern-card fade-in">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" id="service-4-title">Desktop Applications</h3>
+                        <p class="text-[var(--color-text-muted)]" id="service-4-desc">Custom software solutions designed to streamline complex business workflows with powerful, secure, and intuitive tools.</p>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="modern-card fade-in md:col-span-2 lg:col-span-1">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" id="service-5-title">IT Consultancy & Strategy</h3>
+                        <p class="text-[var(--color-text-muted)]" id="service-5-desc">Strategic guidance to optimize your technology investments, ensuring alignment with business goals and maximizing competitive advantage.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
-                    Connect With Us
-                </h2>
-                <p class="text-lg text-[var(--color-text-dark)] mb-2">
-                    Email: <a href="mailto:info@mancan.digital" class="text-[var(--color-accent-purple-light)] hover:underline flex items-center">
-                        <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                        info@mancan.digital
-                    </a>
-                </p>
-                <p class="text-lg text-[var(--color-accent-blue)]">
-                    <strong class="text-[var(--color-accent-blue)]">Global Reach:</strong> Based in Brazil — Available worldwide.
-                </p>
-            </section>
-        </div>
+        <!-- Mission Section -->
+        <section id="mission" class="py-24 lg:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center fade-in">
+                    <span class="section-tag" id="mission-tag">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        Our Mission
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6" id="mission-title">Empowering Digital Futures</h2>
+                    <p class="text-xl text-[var(--color-text-muted)] leading-relaxed" id="mission-desc">
+                        We empower small businesses by turning complex processes into streamlined, intelligent workflows. We deliver solutions that drive efficiency, foster growth, and build a resilient digital foundation for every client.
+                    </p>
+                </div>
 
-        <!-- Portuguese Content -->
-        <div id="lang-pt" class="lang-section" style="display:none">
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                    Sobre Nós: Arquitetos da Transformação Digital
-                </h2>
-                <p class="text-lg text-[var(--color-text-dark)]">
-                    Na mancan.digital, somos uma consultoria de TI focada em ajudar pequenas empresas a alcançar a excelência operacional através de soluções tecnológicas personalizadas. Como engenheiros e estrategistas experientes, utilizamos **tecnologias disruptivas** como IA, RPA e **soluções nativas da nuvem** para reestruturar as operações de negócios, visando eficiência e crescimento incomparáveis. Nós nos unimos a pequenas empresas para desbloquear todo o seu potencial tecnológico.
-                </p>
-            </section>
-
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
-                    Nossos Serviços Principais: Impulsionando a Inovação
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
-                        <h3 class="card-title">Automação e RPA</h3>
-                        <p class="card-description">Elimine tarefas manuais repetitivas e otimize operações com automação robótica de processos inteligente, aumentando a eficiência e reduzindo custos.</p>
+                <!-- Mission pillars -->
+                <div class="grid md:grid-cols-3 gap-8 mt-16">
+                    <div class="text-center fade-in">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-violet-500/15 to-blue-500/10 flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2" id="pillar-1-title">Efficiency</h3>
+                        <p class="text-[var(--color-text-muted)]" id="pillar-1-desc">Streamline your operations with smart automation</p>
                     </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-1.5a2.5 2.5 0 0 0 0 5H18"></path><path d="M20 10h2"></path><path d="M2 10h2"></path><path d="M7.5 8H6a2 2 0 0 0 0 5h1.5"></path><path d="M10 0v24"></path><path d="M14 0v24"></path><path d="M0 10h24"></path></svg>
-                        <h3 class="card-title">Integração com IA</h3>
-                        <p class="card-description">Utilize aprendizado de máquina e análise preditiva para embasar decisões estratégicas e otimizar fluxos de trabalho de forma autônoma, resultando em melhores resultados de negócios.</p>
+                    <div class="text-center fade-in">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-blue-500/15 to-cyan-500/10 flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-[var(--color-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2" id="pillar-2-title">Growth</h3>
+                        <p class="text-[var(--color-text-muted)]" id="pillar-2-desc">Scale your business with the right technology</p>
                     </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                        <h3 class="card-title">Desenvolvimento Full Stack</h3>
-                        <p class="card-description">Construção de aplicações web e móveis robustas e de alto desempenho com frameworks de ponta e princípios cloud-native, garantindo escalabilidade e responsividade.</p>
-                    </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        <h3 class="card-title">Aplicações Desktop</h3>
-                        <p class="card-description">Soluções de software personalizadas projetadas para otimizar fluxos de trabalho de negócios complexos, fornecendo ferramentas poderosas, seguras e intuitivas adaptadas às suas necessidades específicas.</p>
-                    </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
-                        <h3 class="card-title">Consultoria e Estratégia de TI</h3>
-                        <p class="card-description">Orientação estratégica para otimizar seus investimentos em tecnologia, garantindo alinhamento com os objetivos de negócios e maximizando sua vantagem competitiva.</p>
+                    <div class="text-center fade-in">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cyan-500/15 to-violet-500/10 flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2" id="pillar-3-title">Resilience</h3>
+                        <p class="text-[var(--color-text-muted)]" id="pillar-3-desc">Build a robust digital foundation</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    Nossa Missão: Capacitando Futuros Digitais
-                </h2>
-                <p class="text-lg text-[var(--color-text-dark)]">
-                    Nossa missão é capacitar pequenas empresas transformando processos complexos em fluxos de trabalho digitais, inteligentes e otimizados. Estamos comprometidos em entregar soluções inovadoras que impulsionam a eficiência, promovem o crescimento e constroem uma infraestrutura digital resiliente para cada cliente.
-                </p>
-            </section>
+        <!-- Strategy Section -->
+        <section id="strategy" class="py-24 lg:py-32 bg-[var(--color-bg-alt)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 fade-in">
+                    <span class="section-tag" id="strategy-tag">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                        Our Strategy
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" id="strategy-title">Global Reach, Local Impact</h2>
+                    <p class="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto" id="strategy-desc">
+                        Our approach combines deep local understanding with global best practices.
+                    </p>
+                </div>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
-                    Estratégia de Mercado: Alcance Global, Impacto Local
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
-                        <h3 class="card-title">Parcerias Estratégicas</h3>
-                        <p class="card-description">Colaborando de perto com PMEs para entender profundamente suas necessidades e desafios operacionais únicos.</p>
+                <div class="grid md:grid-cols-2 gap-6 stagger-children">
+                    <div class="modern-card fade-in">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" id="strategy-1-title">Strategic Partnerships</h3>
+                        <p class="text-[var(--color-text-muted)]" id="strategy-1-desc">Collaborating closely with SMBs to deeply understand their unique operational needs and challenges.</p>
                     </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
-                        <h3 class="card-title">Relações Orientadas a Resultados</h3>
-                        <p class="card-description">Construindo parcerias de longo prazo e mutuamente benéficas, focadas em resultados mensuráveis e crescimento sustentável.</p>
+
+                    <div class="modern-card fade-in">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" id="strategy-2-title">Result-Driven Relationships</h3>
+                        <p class="text-[var(--color-text-muted)]" id="strategy-2-desc">Building long-term, mutually beneficial partnerships focused on measurable outcomes and sustainable growth.</p>
                     </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
-                        <h3 class="card-title">Presença Abrangente</h3>
-                        <p class="card-description">Atendendo clientes no Brasil e na América Latina, com uma clara visão de expansão e impacto global.</p>
+
+                    <div class="modern-card fade-in">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" id="strategy-3-title">Expansive Footprint</h3>
+                        <p class="text-[var(--color-text-muted)]" id="strategy-3-desc">Serving clients across Brazil and LATAM, with a clear vision for global expansion and impact.</p>
                     </div>
-                    <div class="card">
-                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        <h3 class="card-title">Liderança em Inovação</h3>
-                        <p class="card-description">Integrando continuamente os mais recentes avanços em IA, automação, e tecnologias de nuvem para manter clientes à frente.</p>
+
+                    <div class="modern-card fade-in">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" id="strategy-4-title">Innovation Leadership</h3>
+                        <p class="text-[var(--color-text-muted)]" id="strategy-4-desc">Continuously integrating the latest advancements in AI, automation, and cloud technologies to keep clients ahead.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
-                    Fale Conosco
-                </h2>
-                <p class="text-lg text-[var(--color-text-dark)] mb-2">
-                    Email: <a href="mailto:info@mancan.digital" class="text-[var(--color-accent-purple-light)] hover:underline flex items-center">
-                        <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                        info@mancan.digital
-                    </a>
-                </p>
-                <p class="text-lg text-[var(--color-accent-blue)]">
-                    <strong class="text-[var(--color-accent-blue)]">Alcance Global:</strong> Com sede no Brasil — Disponível mundialmente.
-                </p>
-            </section>
-        </div>
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 lg:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12 fade-in">
+                        <span class="section-tag" id="contact-tag">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            Contact
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" id="contact-title">Let's Work Together</h2>
+                        <p class="text-lg text-[var(--color-text-muted)]" id="contact-desc">
+                            Ready to transform your business? Get in touch with us today.
+                        </p>
+                    </div>
+
+                    <div class="modern-card fade-in text-center">
+                        <div class="flex flex-col items-center gap-6">
+                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500 via-blue-500 to-cyan-500 flex items-center justify-center">
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <a href="mailto:info@mancan.digital" class="text-xl sm:text-2xl md:text-3xl font-bold gradient-text hover:opacity-80 transition-opacity break-all sm:break-normal">
+                                    info@mancan.digital
+                                </a>
+                                <p class="text-[var(--color-text-muted)] mt-3" id="contact-location">Based in Brazil. Available worldwide.</p>
+                            </div>
+                            <a href="mailto:info@mancan.digital" class="btn-primary mt-4" id="contact-cta">Send us an email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-[var(--color-header-bg)] text-gray-400 py-8 text-center text-sm rounded-t-3xl shadow-inner">
-        <p>&copy; 2025 mancan.digital. All rights reserved. Empowering your digital future.</p>
+    <!-- Footer -->
+    <footer class="py-12 border-t border-[var(--color-border)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 via-blue-500 to-cyan-500 p-1.5 flex items-center justify-center">
+                        <img src="logo-symbol.png" alt="" class="w-full h-full object-contain" />
+                    </div>
+                    <span class="font-semibold">mancan<span class="gradient-text">.digital</span></span>
+                </div>
+                <p class="text-sm text-[var(--color-text-muted)]">
+                    &copy; 2025 mancan.digital. All rights reserved.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="mailto:info@mancan.digital" class="footer-link text-sm">Email</a>
+                    <a href="#" class="footer-link text-sm scroll-top" id="footer-top">Back to top</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Language switching functionality
-        function switchLang(lang) {
-            const langEn = document.getElementById('lang-en');
-            const langPt = document.getElementById('lang-pt');
-
-            if (langEn) {
-                langEn.style.display = lang === 'en' ? 'contents' : 'none';
-            } else {
-                console.warn("Element with ID 'lang-en' not found.");
+        // Language content
+        const translations = {
+            en: {
+                'hero-tagline': 'Available for new projects',
+                'hero-title-1': 'Transform Your Business',
+                'hero-title-2': 'With Smart Technology',
+                'hero-desc': 'We are an IT consultancy helping businesses achieve operational excellence through AI, automation, and cloud-native solutions.',
+                'hero-cta': 'Get Started',
+                'hero-cta-2': 'Our Services',
+                'about-tag': 'About Us',
+                'about-title': 'Architects of Digital Transformation',
+                'about-desc-1': 'We are an IT consultancy helping small businesses reach operational excellence through custom technology.',
+                'about-desc-2': 'We use AI, RPA, and cloud-native solutions to re-engineer operations for efficiency and growth—and partner with you to unlock your full technological potential.',
+                'badge-title': 'Trusted Partner',
+                'badge-desc': 'Since 2019',
+                'services-tag': 'Our Services',
+                'services-title': 'What We Do',
+                'services-desc': 'Comprehensive technology solutions tailored to drive your business forward.',
+                'service-1-title': 'Automation & RPA',
+                'service-1-desc': 'Eliminate repetitive manual tasks and streamline operations with intelligent robotic process automation, boosting efficiency and reducing costs.',
+                'service-2-title': 'AI Integration',
+                'service-2-desc': 'Leverage machine learning and predictive analytics to inform strategic decisions and autonomously optimize workflows for smarter outcomes.',
+                'service-3-title': 'Full Stack Development',
+                'service-3-desc': 'Crafting robust, high-performance web and mobile applications with cutting-edge frameworks and cloud-native principles.',
+                'service-4-title': 'Desktop Applications',
+                'service-4-desc': 'Custom software solutions designed to streamline complex business workflows with powerful, secure, and intuitive tools.',
+                'service-5-title': 'IT Consultancy & Strategy',
+                'service-5-desc': 'Strategic guidance to optimize your technology investments, ensuring alignment with business goals and maximizing competitive advantage.',
+                'mission-tag': 'Our Mission',
+                'mission-title': 'Empowering Digital Futures',
+                'mission-desc': 'We empower small businesses by turning complex processes into streamlined, intelligent workflows. We deliver solutions that drive efficiency, foster growth, and build a resilient digital foundation for every client.',
+                'pillar-1-title': 'Efficiency',
+                'pillar-1-desc': 'Streamline your operations with smart automation',
+                'pillar-2-title': 'Growth',
+                'pillar-2-desc': 'Scale your business with the right technology',
+                'pillar-3-title': 'Resilience',
+                'pillar-3-desc': 'Build a robust digital foundation',
+                'strategy-tag': 'Our Strategy',
+                'strategy-title': 'Global Reach, Local Impact',
+                'strategy-desc': 'Our approach combines deep local understanding with global best practices.',
+                'strategy-1-title': 'Strategic Partnerships',
+                'strategy-1-desc': 'Collaborating closely with SMBs to deeply understand their unique operational needs and challenges.',
+                'strategy-2-title': 'Result-Driven Relationships',
+                'strategy-2-desc': 'Building long-term, mutually beneficial partnerships focused on measurable outcomes and sustainable growth.',
+                'strategy-3-title': 'Expansive Footprint',
+                'strategy-3-desc': 'Serving clients across Brazil and LATAM, with a clear vision for global expansion and impact.',
+                'strategy-4-title': 'Innovation Leadership',
+                'strategy-4-desc': 'Continuously integrating the latest advancements in AI, automation, and cloud technologies to keep clients ahead.',
+                'contact-tag': 'Contact',
+                'contact-title': "Let's Work Together",
+                'contact-desc': 'Ready to transform your business? Get in touch with us today.',
+                'contact-location': 'Based in Brazil. Available worldwide.',
+                'contact-cta': 'Send us an email',
+                'footer-top': 'Back to top'
+            },
+            pt: {
+                'hero-tagline': 'Disponível para novos projetos',
+                'hero-title-1': 'Transforme Seu Negócio',
+                'hero-title-2': 'Com Tecnologia Inteligente',
+                'hero-desc': 'Somos uma consultoria de TI ajudando empresas a alcançar excelência operacional através de IA, automação e soluções cloud-native.',
+                'hero-cta': 'Começar',
+                'hero-cta-2': 'Nossos Serviços',
+                'about-tag': 'Sobre Nós',
+                'about-title': 'Arquitetos da Transformação Digital',
+                'about-desc-1': 'Somos uma consultoria de TI que ajuda pequenas empresas a alcançar excelência operacional com tecnologia personalizada.',
+                'about-desc-2': 'Utilizamos IA, RPA e soluções cloud-native para reestruturar operações e desbloquear todo o potencial tecnológico do seu negócio.',
+                'badge-title': 'Parceiro Confiável',
+                'badge-desc': 'Desde 2019',
+                'services-tag': 'Nossos Serviços',
+                'services-title': 'O Que Fazemos',
+                'services-desc': 'Soluções tecnológicas completas personalizadas para impulsionar seu negócio.',
+                'service-1-title': 'Automação e RPA',
+                'service-1-desc': 'Elimine tarefas manuais repetitivas e otimize operações com automação robótica de processos inteligente, aumentando a eficiência e reduzindo custos.',
+                'service-2-title': 'Integração com IA',
+                'service-2-desc': 'Utilize aprendizado de máquina e análise preditiva para embasar decisões estratégicas e otimizar fluxos de trabalho de forma autônoma.',
+                'service-3-title': 'Desenvolvimento Full Stack',
+                'service-3-desc': 'Construção de aplicações web e móveis robustas e de alto desempenho com frameworks de ponta e princípios cloud-native.',
+                'service-4-title': 'Aplicações Desktop',
+                'service-4-desc': 'Soluções de software personalizadas projetadas para otimizar fluxos de trabalho complexos com ferramentas poderosas, seguras e intuitivas.',
+                'service-5-title': 'Consultoria e Estratégia de TI',
+                'service-5-desc': 'Orientação estratégica para otimizar seus investimentos em tecnologia, garantindo alinhamento com os objetivos de negócios.',
+                'mission-tag': 'Nossa Missão',
+                'mission-title': 'Capacitando Futuros Digitais',
+                'mission-desc': 'Capacitamos pequenas empresas transformando processos complexos em fluxos digitais e inteligentes. Entregamos soluções que impulsionam eficiência, crescimento e uma infraestrutura digital resiliente.',
+                'pillar-1-title': 'Eficiência',
+                'pillar-1-desc': 'Otimize suas operações com automação inteligente',
+                'pillar-2-title': 'Crescimento',
+                'pillar-2-desc': 'Escale seu negócio com a tecnologia certa',
+                'pillar-3-title': 'Resiliência',
+                'pillar-3-desc': 'Construa uma base digital robusta',
+                'strategy-tag': 'Nossa Estratégia',
+                'strategy-title': 'Alcance Global, Impacto Local',
+                'strategy-desc': 'Nossa abordagem combina profundo entendimento local com melhores práticas globais.',
+                'strategy-1-title': 'Parcerias Estratégicas',
+                'strategy-1-desc': 'Colaborando de perto com PMEs para entender profundamente suas necessidades e desafios operacionais únicos.',
+                'strategy-2-title': 'Relações Orientadas a Resultados',
+                'strategy-2-desc': 'Construindo parcerias de longo prazo focadas em resultados mensuráveis e crescimento sustentável.',
+                'strategy-3-title': 'Presença Abrangente',
+                'strategy-3-desc': 'Atendendo clientes no Brasil e na América Latina, com uma clara visão de expansão e impacto global.',
+                'strategy-4-title': 'Liderança em Inovação',
+                'strategy-4-desc': 'Integrando continuamente os mais recentes avanços em IA, automação e tecnologias de nuvem.',
+                'contact-tag': 'Contato',
+                'contact-title': 'Vamos Trabalhar Juntos',
+                'contact-desc': 'Pronto para transformar seu negócio? Entre em contato conosco hoje.',
+                'contact-location': 'Sede no Brasil. Atendimento mundial.',
+                'contact-cta': 'Envie-nos um email',
+                'footer-top': 'Voltar ao topo'
             }
-
-            if (langPt) {
-                langPt.style.display = lang === 'pt' ? 'contents' : 'none';
-            } else {
-                console.warn("Element with ID 'lang-pt' not found.");
-            }
-        }
-
-        // Initialize language to Portuguese on load
-        document.addEventListener('DOMContentLoaded', () => {
-            switchLang('pt'); // Set Portuguese as default
-            initTypingEffect(); // Initialize typing effect after DOM is loaded
-        });
-
-        // Intersection Observer for scroll animations
-        const sections = document.querySelectorAll('.section-animate');
-
-        const observerOptions = {
-            root: null, // viewport
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of the section is visible
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Stop observing once animated
+        let currentLang = 'pt';
+
+        function switchLang(lang) {
+            currentLang = lang;
+            const content = translations[lang];
+
+            // Update all translatable elements
+            Object.keys(content).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (el.tagName === 'SPAN' && el.querySelector('svg')) {
+                        // Preserve SVG icon in section tags
+                        const svg = el.querySelector('svg').outerHTML;
+                        el.innerHTML = svg + ' ' + content[id];
+                    } else {
+                        el.textContent = content[id];
+                    }
                 }
             });
-        }, observerOptions);
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.getAttribute('data-lang') === lang;
+                btn.classList.toggle('active', isActive);
+                btn.style.color = isActive ? 'var(--color-text)' : 'var(--color-text-muted)';
+            });
 
-        // Typing Effect Logic
-        function initTypingEffect() {
-            const typedTextSpan = document.getElementById('typed-text');
-            const words = [".digital"]; // The text to be typed
-            let wordIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            let typingSpeed = 150; // Speed of typing
-            let deletingSpeed = 100; // Speed of deleting
-            let pauseBeforeDelete = 1500; // Pause before deleting
-            let pauseBeforeType = 500; // Pause before typing next word
+            // Update HTML lang attribute
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+        }
 
-            function type() {
-                const currentWord = words[wordIndex];
-                if (typedTextSpan) { // Null check for typedTextSpan
-                    if (isDeleting) {
-                        typedTextSpan.textContent = currentWord.substring(0, charIndex - 1);
-                        charIndex--;
-                    } else {
-                        typedTextSpan.textContent = currentWord.substring(0, charIndex + 1);
-                        charIndex++;
-                    }
-                } else {
-                    console.warn("Element with ID 'typed-text' not found.");
-                    return; // Stop the typing effect if element is not found
-                }
+        // Theme toggle
+        function initTheme() {
+            const saved = localStorage.getItem('mancan-theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (prefersDark ? 'dark' : 'light');
+            applyTheme(theme);
+        }
 
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            if (sunIcon && moonIcon) {
+                sunIcon.classList.toggle('hidden', theme === 'dark');
+                moonIcon.classList.toggle('hidden', theme !== 'dark');
+            }
+        }
 
-                let currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
+        // Mobile navigation
+        function initMobileNav() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileNav = document.getElementById('mobile-nav');
+            const mobileOverlay = document.getElementById('mobile-overlay');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
 
-                if (!isDeleting && charIndex === currentWord.length) {
-                    currentSpeed = pauseBeforeDelete;
-                    isDeleting = true;
-                } else if (isDeleting && charIndex === 0) {
-                    currentSpeed = pauseBeforeType;
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length; // Loop back to the first word
-                }
-
-                setTimeout(type, currentSpeed);
+            function toggleNav() {
+                hamburger.classList.toggle('open');
+                mobileNav.classList.toggle('open');
+                mobileOverlay.classList.toggle('open');
+                document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
             }
 
-            type(); // Start the typing effect
+            function closeNav() {
+                hamburger.classList.remove('open');
+                mobileNav.classList.remove('open');
+                mobileOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            hamburger.addEventListener('click', toggleNav);
+            mobileOverlay.addEventListener('click', closeNav);
+            mobileLinks.forEach(link => link.addEventListener('click', closeNav));
         }
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }
+
+        // Smooth scroll
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"], [data-scroll-to]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = link.getAttribute('data-scroll-to') || link.getAttribute('href').substring(1);
+                    const section = document.getElementById(target);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            document.querySelectorAll('.scroll-top').forEach(el => {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
+
+        // Active nav link
+        function initActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link[data-scroll-to]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    if (scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-scroll-to') === current) {
+                        link.classList.add('active');
+                    }
+                });
+            }, { passive: true });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            switchLang('pt');
+            initMobileNav();
+            initScrollAnimations();
+            initSmoothScroll();
+            initActiveNav();
+
+            // Theme toggle
+            document.querySelector('.theme-toggle').addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme');
+                const next = current === 'dark' ? 'light' : 'dark';
+                applyTheme(next);
+                localStorage.setItem('mancan-theme', next);
+            });
+        });
     </script>
 </body>
 </html>
