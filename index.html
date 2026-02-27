@@ -1,322 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mancan.digital - Next-Gen IT Solutions</title>
-    <meta name="description" content="IT consultancy helping businesses achieve operational excellence through AI, RPA, and cloud-native solutions.">
-    <link rel="icon" type="image/x-icon" href="logo-symbol.png">
+    <title>mancan.digital - Technology Consulting for Operational Growth</title>
+    <meta
+        name="description"
+        content="Technology consulting that automates operations, builds custom systems, and turns AI into business results."
+    />
+    <link rel="icon" type="image/x-icon" href="logo-symbol.png" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+        rel="stylesheet"
+    />
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Manrope', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'Manrope', 'system-ui', 'sans-serif'],
                     },
-                }
-            }
-        }
+                },
+            },
+        };
     </script>
     <style>
         :root {
-            --color-bg: #fafafa;
-            --color-bg-alt: #ffffff;
-            --color-text: #1a1a2e;
-            --color-text-muted: #64748b;
-            --color-primary: #8B5CF6;
-            --color-secondary: #3B82F6;
-            --color-accent: #06B6D4;
-            --color-border: #e2e8f0;
-            --gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #06B6D4 100%);
-            --gradient-mesh: radial-gradient(at 40% 20%, hsla(270, 91%, 65%, 0.12) 0px, transparent 50%),
-                            radial-gradient(at 80% 0%, hsla(217, 91%, 60%, 0.1) 0px, transparent 50%),
-                            radial-gradient(at 0% 80%, hsla(187, 94%, 43%, 0.08) 0px, transparent 50%);
+            --brand-violet-1: #6A1B9A;
+            --brand-violet-2: #8E3FBB;
+            --brand-blue: #454CFF;
+            --brand-navy: #09247B;
+            --brand-ink: #08142f;
+            --brand-surface: #f7f8fc;
+            --brand-surface-2: #ffffff;
+            --brand-border: #dbe4ff;
+            --brand-muted: #5f6c95;
+            --brand-muted-2: #7c88af;
+            --brand-grid: rgba(9, 36, 123, 0.08);
+            --gradient-primary: linear-gradient(135deg, #6A1B9A 0%, #454CFF 50%, #09247B 100%);
+            --gradient-soft: linear-gradient(135deg, rgba(106, 27, 154, 0.08) 0%, rgba(69, 76, 255, 0.08) 50%, rgba(9, 36, 123, 0.1) 100%);
+            --shadow-sm: 0 14px 40px rgba(9, 36, 123, 0.08);
+            --shadow-lg: 0 30px 80px rgba(9, 36, 123, 0.16);
+            --ring: rgba(69, 76, 255, 0.18);
         }
 
         [data-theme="dark"] {
-            --color-bg: #0d0d14;
-            --color-bg-alt: #13131d;
-            --color-text: #f0f0f5;
-            --color-text-muted: #a0a0b8;
-            --color-primary: #A78BFA;
-            --color-secondary: #60A5FA;
-            --color-accent: #22D3EE;
-            --color-border: #2a2a3d;
-            --gradient-primary: linear-gradient(135deg, #A78BFA 0%, #60A5FA 50%, #22D3EE 100%);
-            --gradient-mesh: radial-gradient(at 40% 20%, hsla(270, 91%, 65%, 0.15) 0px, transparent 50%),
-                            radial-gradient(at 80% 0%, hsla(217, 91%, 60%, 0.12) 0px, transparent 50%),
-                            radial-gradient(at 0% 80%, hsla(187, 94%, 43%, 0.1) 0px, transparent 50%);
+            --brand-ink: #eef2ff;
+            --brand-surface: #07112a;
+            --brand-surface-2: #0c1737;
+            --brand-border: rgba(152, 172, 255, 0.18);
+            --brand-muted: #b4c0ef;
+            --brand-muted-2: #95a4db;
+            --brand-grid: rgba(180, 192, 239, 0.08);
+            --gradient-soft: linear-gradient(135deg, rgba(106, 27, 154, 0.22) 0%, rgba(69, 76, 255, 0.2) 50%, rgba(9, 36, 123, 0.35) 100%);
+            --shadow-sm: 0 16px 42px rgba(0, 0, 0, 0.28);
+            --shadow-lg: 0 36px 90px rgba(0, 0, 0, 0.38);
+            --ring: rgba(142, 63, 187, 0.28);
         }
 
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
+            margin: 0;
+            font-family: 'Manrope', system-ui, sans-serif;
+            color: var(--brand-ink);
+            background:
+                linear-gradient(180deg, rgba(247, 248, 252, 0.88) 0%, rgba(247, 248, 252, 1) 35%, rgba(255, 255, 255, 1) 100%),
+                linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px),
+                linear-gradient(var(--brand-grid) 1px, transparent 1px);
+            background-size: auto, 28px 28px, 28px 28px;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Mesh gradient background */
-        .mesh-bg {
-            background: var(--gradient-mesh);
-            background-attachment: fixed;
+        [data-theme="dark"] body {
+            background:
+                radial-gradient(circle at top right, rgba(106, 27, 154, 0.18), transparent 32%),
+                radial-gradient(circle at top left, rgba(69, 76, 255, 0.14), transparent 28%),
+                linear-gradient(180deg, #050b1b 0%, #07112a 38%, #08142f 100%),
+                linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px),
+                linear-gradient(var(--brand-grid) 1px, transparent 1px);
+            background-size: auto, auto, auto, 28px 28px, 28px 28px;
         }
 
-        /* Glass morphism */
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Space Grotesk', 'Manrope', system-ui, sans-serif;
+            letter-spacing: -0.03em;
         }
 
-        [data-theme="dark"] .glass {
-            background: rgba(19, 19, 29, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        /* Gradient text */
-        .gradient-text {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        img {
+            display: block;
+            max-width: 100%;
         }
 
-        /* Modern cards */
-        .modern-card {
-            background: var(--color-bg-alt);
-            border: 1px solid var(--color-border);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .shell {
             position: relative;
-            overflow: hidden;
+            isolation: isolate;
         }
 
-        .modern-card::before {
+        .shell::before,
+        .shell::after {
             content: '';
-            position: absolute;
+            position: fixed;
+            inset: auto;
+            width: 32rem;
+            height: 32rem;
+            border-radius: 9999px;
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .shell::before {
+            top: -10rem;
+            right: -10rem;
+            background: rgba(69, 76, 255, 0.45);
+        }
+
+        .shell::after {
+            top: 20rem;
+            left: -10rem;
+            background: rgba(106, 27, 154, 0.28);
+        }
+
+        .site-nav {
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            z-index: 60;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            background: rgba(247, 248, 252, 0.84);
+            border-bottom: 1px solid rgba(219, 228, 255, 0.8);
         }
 
-        .modern-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.2);
-            border-color: var(--color-primary);
+        [data-theme="dark"] .site-nav {
+            background: rgba(7, 17, 42, 0.84);
+            border-bottom-color: rgba(152, 172, 255, 0.12);
         }
 
-        [data-theme="dark"] .modern-card {
-            background: var(--color-bg-alt);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        [data-theme="dark"] .modern-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
-        }
-
-        .modern-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Icon container */
-        .icon-box {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.1) 50%, rgba(6, 182, 212, 0.1) 100%);
-            display: flex;
+        .brand-mark {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        [data-theme="dark"] .icon-box {
-            background: linear-gradient(135deg, rgba(167, 139, 250, 0.2) 0%, rgba(96, 165, 250, 0.15) 50%, rgba(34, 211, 238, 0.1) 100%);
-        }
-
-        .modern-card:hover .icon-box {
+            width: 3rem;
+            height: 3rem;
+            padding: 0.6rem;
+            border-radius: 1rem;
             background: var(--gradient-primary);
+            box-shadow: 0 10px 30px rgba(69, 76, 255, 0.25);
         }
 
-        .modern-card:hover .icon-box svg {
-            color: white;
+        .brand-wordmark {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: -0.03em;
         }
 
-        /* Animated gradient border */
-        .gradient-border {
-            position: relative;
-            background: var(--color-bg-alt);
-            border-radius: 24px;
-        }
-
-        .gradient-border::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 26px;
+        .brand-gradient {
             background: var(--gradient-primary);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .gradient-border:hover::before {
-            opacity: 1;
-        }
-
-        /* Hero floating elements */
-        .float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .float-delay {
-            animation: float 6s ease-in-out infinite;
-            animation-delay: -3s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Fade in animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Stagger children */
-        .stagger-children > *:nth-child(1) { transition-delay: 0.1s; }
-        .stagger-children > *:nth-child(2) { transition-delay: 0.2s; }
-        .stagger-children > *:nth-child(3) { transition-delay: 0.3s; }
-        .stagger-children > *:nth-child(4) { transition-delay: 0.4s; }
-        .stagger-children > *:nth-child(5) { transition-delay: 0.5s; }
-
-        /* Button styles */
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 0.875rem 2rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
-        }
-
-        [data-theme="dark"] .btn-primary {
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35);
-        }
-
-        [data-theme="dark"] .btn-primary:hover {
-            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--color-text);
-            padding: 0.875rem 2rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            border: 2px solid var(--color-border);
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--color-primary);
-            color: var(--color-primary);
-        }
-
-        /* Nav styles */
         .nav-link {
             position: relative;
-            color: var(--color-text-muted);
-            font-weight: 500;
-            font-size: 0.9375rem;
-            padding: 0.5rem 0;
+            font-size: 0.94rem;
+            font-weight: 600;
+            color: var(--brand-muted);
             transition: color 0.2s ease;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--color-text);
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--brand-ink);
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: width 0.3s ease;
-            border-radius: 1px;
-        }
-
-        .nav-link:hover::after, .nav-link.active::after {
+            bottom: -0.5rem;
             width: 100%;
+            height: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            background: var(--gradient-primary);
+            transition: transform 0.25s ease;
         }
 
-        /* Section styles */
-        .section-tag {
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        .lang-toggle,
+        .theme-toggle {
+            border: 1px solid var(--brand-border);
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: var(--shadow-sm);
+        }
+
+        [data-theme="dark"] .lang-toggle,
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(12, 23, 55, 0.75);
+        }
+
+        .lang-btn {
+            border-radius: 9999px;
+            padding: 0.45rem 0.75rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--brand-muted);
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--gradient-primary);
+            color: #fff;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        .theme-toggle {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(59, 130, 246, 0.1) 50%, rgba(6, 182, 212, 0.08) 100%);
-            border-radius: 100px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--color-primary);
-            margin-bottom: 1rem;
+            justify-content: center;
+            width: 2.7rem;
+            height: 2.7rem;
+            border-radius: 9999px;
+            color: var(--brand-ink);
+            transition: transform 0.2s ease;
         }
 
-        [data-theme="dark"] .section-tag {
-            background: linear-gradient(135deg, rgba(167, 139, 250, 0.15) 0%, rgba(96, 165, 250, 0.12) 50%, rgba(34, 211, 238, 0.1) 100%);
+        .theme-toggle:hover {
+            transform: translateY(-1px);
         }
 
-        /* Mobile nav */
         .mobile-nav {
             position: fixed;
             top: 0;
             right: -100%;
-            width: 100%;
-            max-width: 320px;
+            width: min(22rem, 100%);
             height: 100vh;
-            background: var(--color-bg-alt);
-            z-index: 100;
-            transition: right 0.3s ease;
-            padding: 2rem;
-            box-shadow: -10px 0 50px rgba(0, 0, 0, 0.1);
+            padding: 6rem 1.5rem 2rem;
+            background: rgba(247, 248, 252, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-left: 1px solid var(--brand-border);
+            transition: right 0.25s ease;
+            z-index: 80;
+        }
+
+        [data-theme="dark"] .mobile-nav {
+            background: rgba(7, 17, 42, 0.96);
         }
 
         .mobile-nav.open {
@@ -326,11 +283,11 @@
         .mobile-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 90;
+            background: rgba(8, 20, 47, 0.46);
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.25s ease;
+            z-index: 70;
         }
 
         .mobile-overlay.open {
@@ -338,26 +295,34 @@
             pointer-events: all;
         }
 
-        /* Hamburger */
         .hamburger {
             display: none;
+            width: 2.8rem;
+            height: 2.8rem;
+            padding: 0;
+            border: 1px solid var(--brand-border);
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.72);
+            align-items: center;
+            justify-content: center;
             flex-direction: column;
-            gap: 5px;
-            padding: 8px;
-            cursor: pointer;
+            gap: 0.28rem;
+        }
+
+        [data-theme="dark"] .hamburger {
+            background: rgba(12, 23, 55, 0.72);
         }
 
         .hamburger span {
-            display: block;
-            width: 24px;
+            width: 1.1rem;
             height: 2px;
-            background: var(--color-text);
-            border-radius: 2px;
-            transition: all 0.3s ease;
+            border-radius: 9999px;
+            background: var(--brand-ink);
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
         .hamburger.open span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: translateY(6px) rotate(45deg);
         }
 
         .hamburger.open span:nth-child(2) {
@@ -365,626 +330,1315 @@
         }
 
         .hamburger.open span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+            transform: translateY(-6px) rotate(-45deg);
         }
 
-        @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            .desktop-nav { display: none; }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 0.85rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(69, 76, 255, 0.14);
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--brand-navy);
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
-        /* Smooth scroll offset for fixed nav */
-        section[id] {
-            scroll-margin-top: 80px;
+        [data-theme="dark"] .eyebrow {
+            background: rgba(12, 23, 55, 0.82);
+            color: #cbd5ff;
         }
 
-        /* Footer links */
+        .eyebrow-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, var(--brand-violet-2), var(--brand-blue));
+            box-shadow: 0 0 0 6px rgba(69, 76, 255, 0.12);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-panel,
+        .surface-panel,
+        .capability-card,
+        .timeline-card,
+        .value-card,
+        .cta-shell {
+            border: 1px solid var(--brand-border);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow-sm);
+        }
+
+        [data-theme="dark"] .hero-panel,
+        [data-theme="dark"] .surface-panel,
+        [data-theme="dark"] .capability-card,
+        [data-theme="dark"] .timeline-card,
+        [data-theme="dark"] .value-card,
+        [data-theme="dark"] .cta-shell {
+            background: rgba(12, 23, 55, 0.78);
+        }
+
+        .hero-copy {
+            max-width: 38rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.8rem, 5vw, 5.4rem);
+            line-height: 0.98;
+            margin: 1.2rem 0 1.25rem;
+        }
+
+        .hero-sub {
+            font-size: clamp(1.05rem, 1.5vw, 1.32rem);
+            color: var(--brand-muted);
+            max-width: 35rem;
+        }
+
+        .pain-line {
+            margin-top: 1.25rem;
+            font-size: 0.96rem;
+            font-weight: 600;
+            color: var(--brand-muted-2);
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.95rem 1.35rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: #fff;
+            box-shadow: 0 16px 28px rgba(69, 76, 255, 0.24);
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--brand-border);
+            background: rgba(255, 255, 255, 0.74);
+            color: var(--brand-ink);
+        }
+
+        [data-theme="dark"] .btn-secondary {
+            background: rgba(12, 23, 55, 0.74);
+        }
+
+        .hero-chip,
+        .trust-pill,
+        .meta-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            border-radius: 9999px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: var(--brand-navy);
+            background: rgba(69, 76, 255, 0.07);
+            border: 1px solid rgba(69, 76, 255, 0.1);
+            padding: 0.55rem 0.8rem;
+        }
+
+        [data-theme="dark"] .hero-chip,
+        [data-theme="dark"] .trust-pill,
+        [data-theme="dark"] .meta-chip {
+            color: #d8deff;
+            background: rgba(69, 76, 255, 0.12);
+            border-color: rgba(152, 172, 255, 0.14);
+        }
+
+        .chip-dot {
+            width: 0.4rem;
+            height: 0.4rem;
+            border-radius: 9999px;
+            background: var(--brand-violet-2);
+        }
+
+        .swipe-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .board {
+            position: relative;
+            border-radius: 2rem;
+            padding: 2rem;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(247, 248, 252, 0.96)),
+                linear-gradient(135deg, rgba(106, 27, 154, 0.08), rgba(69, 76, 255, 0.08));
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .board {
+            background:
+                linear-gradient(180deg, rgba(12, 23, 55, 0.95), rgba(7, 17, 42, 0.95)),
+                linear-gradient(135deg, rgba(106, 27, 154, 0.18), rgba(69, 76, 255, 0.15));
+        }
+
+        .board::before,
+        .board::after {
+            content: '';
+            position: absolute;
+            inset: 1.25rem;
+            border-radius: 1.4rem;
+            border: 1px solid rgba(69, 76, 255, 0.08);
+            pointer-events: none;
+        }
+
+        .board::after {
+            inset: auto 2rem 2rem auto;
+            width: 9rem;
+            height: 9rem;
+            border-radius: 9999px;
+            border: none;
+            background: radial-gradient(circle, rgba(69, 76, 255, 0.22), transparent 60%);
+        }
+
+        .board-wire {
+            position: absolute;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, rgba(106, 27, 154, 0.38), rgba(69, 76, 255, 0.12));
+        }
+
+        .wire-1 {
+            top: 26%;
+            left: 14%;
+            width: 48%;
+            height: 2px;
+            transform: rotate(-26deg);
+        }
+
+        .wire-2 {
+            top: 55%;
+            left: 30%;
+            width: 44%;
+            height: 2px;
+            transform: rotate(-28deg);
+        }
+
+        .wire-3 {
+            top: 24%;
+            right: 10%;
+            width: 12rem;
+            height: 12rem;
+            border: 2px solid rgba(69, 76, 255, 0.16);
+            background: none;
+        }
+
+        .badge-node {
+            position: absolute;
+            padding: 0.55rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border: 1px solid rgba(69, 76, 255, 0.16);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow-sm);
+        }
+
+        [data-theme="dark"] .badge-node {
+            background: rgba(12, 23, 55, 0.92);
+        }
+
+        .node-ai { top: 10%; right: 8%; }
+        .node-automation { top: 42%; left: 5%; }
+        .node-apps { bottom: 10%; right: 6%; }
+        .node-advisory { bottom: 16%; left: 13%; }
+
+        .logo-plate {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.65rem;
+            border-radius: 2rem;
+            background: var(--gradient-primary);
+            box-shadow: 0 18px 40px rgba(9, 36, 123, 0.22);
+        }
+
+        .logo-core {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            border-radius: 1.5rem;
+            background:
+                radial-gradient(circle at top left, rgba(142, 63, 187, 0.18), transparent 42%),
+                linear-gradient(180deg, rgba(9, 36, 123, 0.96), rgba(8, 20, 47, 0.98));
+            border: 1px solid rgba(219, 228, 255, 0.12);
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--brand-navy);
+            background: rgba(69, 76, 255, 0.08);
+            border: 1px solid rgba(69, 76, 255, 0.12);
+        }
+
+        [data-theme="dark"] .section-label {
+            color: #d8deff;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .capability-card,
+        .timeline-card,
+        .value-card,
+        .cta-shell {
+            border-radius: 1.5rem;
+        }
+
+        .capability-card {
+            position: relative;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .capability-card::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .capability-card ul {
+            margin: 1rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .capability-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-top: 0.85rem;
+            color: var(--brand-muted);
+            font-weight: 600;
+        }
+
+        .capability-card li::before {
+            content: '';
+            flex: 0 0 0.5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            margin-top: 0.45rem;
+            border-radius: 9999px;
+            background: var(--gradient-primary);
+        }
+
+        .best-for {
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--brand-border);
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--brand-navy);
+        }
+
+        [data-theme="dark"] .best-for {
+            color: #d8deff;
+        }
+
+        .engagement-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .surface-panel {
+            border-radius: 1.6rem;
+            padding: 1.5rem;
+        }
+
+        .outcome-card {
+            padding: 1.5rem;
+            border-radius: 1.4rem;
+            border: 1px solid var(--brand-border);
+            background: var(--gradient-soft);
+        }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+            margin-top: 2.25rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 2.4rem;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(106, 27, 154, 0.35), rgba(69, 76, 255, 0.4), rgba(9, 36, 123, 0.35));
+        }
+
+        .timeline-card {
+            position: relative;
+            padding: 1.7rem;
+        }
+
+        .step-index {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            background: var(--gradient-primary);
+            color: #fff;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            box-shadow: 0 12px 24px rgba(69, 76, 255, 0.22);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            padding: 1.7rem;
+        }
+
+        .value-icon {
+            width: 3rem;
+            height: 3rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            background: var(--gradient-soft);
+            color: var(--brand-navy);
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .value-icon {
+            color: #d8deff;
+        }
+
+        .cta-shell {
+            position: relative;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .cta-shell::before {
+            content: '';
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr);
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
         .footer-link {
-            color: var(--color-text-muted);
+            color: var(--brand-muted);
+            font-weight: 600;
             transition: color 0.2s ease;
         }
 
         .footer-link:hover {
-            color: var(--color-text);
+            color: var(--brand-ink);
         }
 
-        /* Language toggle */
-        .lang-toggle {
-            background: rgba(0, 0, 0, 0.05);
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 65;
+            padding: 0.8rem 1rem calc(0.8rem + env(safe-area-inset-bottom));
+            background: rgba(247, 248, 252, 0.94);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-top: 1px solid rgba(219, 228, 255, 0.85);
+            box-shadow: 0 -12px 24px rgba(9, 36, 123, 0.08);
         }
 
-        [data-theme="dark"] .lang-toggle {
-            background: rgba(255, 255, 255, 0.08);
+        [data-theme="dark"] .mobile-cta-bar {
+            background: rgba(7, 17, 42, 0.94);
+            border-top-color: rgba(152, 172, 255, 0.12);
         }
 
-        .lang-btn.active {
-            background: white;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        section[id] {
+            scroll-margin-top: 6rem;
         }
 
-        [data-theme="dark"] .lang-btn.active {
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Dark mode enhancements */
-        [data-theme="dark"] body {
-            background: var(--color-bg);
-        }
-
-        [data-theme="dark"] .mesh-bg {
-            background-color: var(--color-bg);
-        }
-
-        [data-theme="dark"] .float,
-        [data-theme="dark"] .float-delay {
-            opacity: 0.7;
-        }
-
-        [data-theme="dark"] footer {
-            background: var(--color-bg-alt);
-            border-top-color: var(--color-border);
-        }
-
-        /* Tech tags in about section */
-        .tech-tag {
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            background: var(--color-bg);
-            border: 1px solid var(--color-border);
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        .tech-tag:hover {
-            border-color: var(--color-primary);
-            color: var(--color-primary);
-        }
-
-        [data-theme="dark"] .tech-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--color-border);
-        }
-
-        [data-theme="dark"] .tech-tag:hover {
-            background: rgba(167, 139, 250, 0.1);
-            border-color: var(--color-primary);
-        }
-
-        /* Mobile responsive improvements */
-        @media (max-width: 640px) {
-            .modern-card {
-                padding: 1.5rem;
-                border-radius: 16px;
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
 
-            .icon-box {
-                width: 48px;
-                height: 48px;
-                border-radius: 12px;
-                margin-bottom: 1rem;
+            .timeline {
+                grid-template-columns: 1fr;
             }
 
-            .section-tag {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.875rem;
-                width: 100%;
-                text-align: center;
-            }
-
-            /* Hide floating decorations on small screens */
-            .float,
-            .float-delay {
+            .timeline::before {
                 display: none;
-            }
-
-            /* Adjust floating badge position */
-            .about-badge {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                margin-top: 1.5rem;
             }
         }
 
         @media (max-width: 768px) {
-            /* Better hero height on mobile (accounts for address bar) */
-            header.min-h-screen {
-                min-height: calc(100vh - 60px);
-                min-height: calc(100dvh - 60px);
+            body {
+                padding-bottom: 6.25rem;
             }
 
-            /* Reduce section padding on mobile */
-            section {
-                padding-top: 4rem;
-                padding-bottom: 4rem;
+            .desktop-nav {
+                display: none;
             }
 
-            /* Smaller floating background blobs */
-            .float,
-            .float-delay {
-                width: 200px !important;
-                height: 200px !important;
+            .hamburger {
+                display: inline-flex;
+            }
+
+            .desktop-mobile-hide {
+                display: none;
+            }
+
+            .mobile-only {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: clamp(2.2rem, 12vw, 3.8rem);
+            }
+
+            .hero-copy {
+                max-width: none;
+            }
+
+            .hero-panel {
+                margin-top: 0.25rem;
+            }
+
+            .board {
+                padding: 1.25rem;
+            }
+
+            .board .min-h-\[24rem\] {
+                min-height: 13rem;
+            }
+
+            .board-desc {
+                display: none;
+            }
+
+            .swipe-row {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 0.25rem;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .swipe-row::-webkit-scrollbar {
+                display: none;
+            }
+
+            .swipe-row > * {
+                flex: 0 0 auto;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
+
+            .section-stack {
+                padding-top: 4.5rem;
+                padding-bottom: 4.5rem;
+            }
+
+            .mobile-nav .nav-link {
+                display: block;
+                padding: 0.7rem 0;
+                font-size: 1rem;
+            }
+
+            .mobile-nav .nav-link::after {
+                bottom: 0.15rem;
+            }
+
+            .mobile-cta-bar {
+                display: block;
             }
         }
 
-        @media (min-width: 641px) and (max-width: 1024px) {
-            /* Tablet adjustments */
-            .modern-card {
-                padding: 1.75rem;
+        @media (max-width: 640px) {
+            .brand-wordmark {
+                display: none;
+            }
+
+            .board {
+                padding: 1.4rem;
+            }
+
+            .pain-line {
+                font-size: 0.9rem;
+            }
+
+            .badge-node {
+                position: static;
+                display: inline-flex;
+                margin: 0.35rem 0.35rem 0 0;
+            }
+
+            .board-wire {
+                display: none;
             }
         }
 
-        /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
+            *,
+            *::before,
+            *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
             }
         }
     </style>
 </head>
-<body class="antialiased mesh-bg">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 md:h-20">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 scroll-top">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 via-blue-500 to-cyan-500 p-2 flex items-center justify-center">
-                        <img src="logo-symbol.png" alt="" class="w-full h-full object-contain" />
-                    </div>
-                    <span class="text-lg font-bold">mancan<span class="gradient-text">.digital</span></span>
-                </a>
+<body class="antialiased">
+    <div class="shell">
+        <nav class="site-nav">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between gap-4 h-20">
+                    <a href="#" class="flex items-center gap-3 scroll-top">
+                        <span class="brand-mark">
+                            <img src="logo-symbol.png" alt="mancan.digital" class="w-full h-full object-contain" />
+                        </span>
+                        <span class="brand-wordmark">mancan<span class="brand-gradient">.digital</span></span>
+                    </a>
 
-                <!-- Desktop Navigation -->
-                <div class="desktop-nav hidden md:flex items-center gap-8">
-                    <a href="#about" class="nav-link" data-scroll-to="about">About</a>
-                    <a href="#services" class="nav-link" data-scroll-to="services">Services</a>
-                    <a href="#mission" class="nav-link" data-scroll-to="mission">Mission</a>
-                    <a href="#strategy" class="nav-link" data-scroll-to="strategy">Strategy</a>
-                    <a href="#contact" class="nav-link" data-scroll-to="contact">Contact</a>
+                    <div class="desktop-nav hidden md:flex items-center gap-7">
+                        <a href="#about" class="nav-link" data-scroll-to="about" data-i18n="nav-about">About</a>
+                        <a href="#capabilities" class="nav-link" data-scroll-to="capabilities" data-i18n="nav-capabilities">Capabilities</a>
+                        <a href="#process" class="nav-link" data-scroll-to="process" data-i18n="nav-process">Process</a>
+                        <a href="#why-us" class="nav-link" data-scroll-to="why-us" data-i18n="nav-why">Why Us</a>
+                        <a href="#contact" class="nav-link" data-scroll-to="contact" data-i18n="nav-contact">Contact</a>
+                    </div>
+
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <div class="lang-toggle desktop-mobile-hide flex items-center gap-1 rounded-full p-1">
+                            <button type="button" onclick="switchLang('en')" class="lang-btn" data-lang="en">EN</button>
+                            <button type="button" onclick="switchLang('pt')" class="lang-btn" data-lang="pt">PT</button>
+                        </div>
+
+                        <button type="button" class="theme-toggle" aria-label="Toggle theme">
+                            <svg class="sun-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                            <svg class="moon-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                            </svg>
+                        </button>
+
+                        <button type="button" class="hamburger" id="hamburger" aria-label="Open menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
                 </div>
+            </div>
+        </nav>
 
-                <!-- Right side controls -->
-                <div class="flex items-center gap-3">
-                    <!-- Language toggle -->
-                    <div class="lang-toggle flex items-center gap-1 p-1 rounded-lg">
-                        <button onclick="switchLang('en')" class="lang-btn px-3 py-1.5 rounded-md text-sm font-medium transition-all" data-lang="en">EN</button>
-                        <button onclick="switchLang('pt')" class="lang-btn px-3 py-1.5 rounded-md text-sm font-medium transition-all" data-lang="pt">PT</button>
-                    </div>
-
-                    <!-- Theme toggle -->
-                    <button class="theme-toggle p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors" aria-label="Toggle theme">
-                        <svg class="sun-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                        <svg class="moon-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-                    </button>
-
-                    <!-- Mobile hamburger -->
-                    <button class="hamburger" id="hamburger" aria-label="Menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+        <div class="mobile-overlay" id="mobile-overlay"></div>
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="flex flex-col gap-4">
+                <a href="#about" class="nav-link mobile-link text-lg" data-scroll-to="about" data-i18n="nav-about">About</a>
+                <a href="#capabilities" class="nav-link mobile-link text-lg" data-scroll-to="capabilities" data-i18n="nav-capabilities">Capabilities</a>
+                <a href="#process" class="nav-link mobile-link text-lg" data-scroll-to="process" data-i18n="nav-process">Process</a>
+                <a href="#why-us" class="nav-link mobile-link text-lg" data-scroll-to="why-us" data-i18n="nav-why">Why Us</a>
+                <a href="#contact" class="nav-link mobile-link text-lg" data-scroll-to="contact" data-i18n="nav-contact">Contact</a>
+            </div>
+            <div class="mobile-only mt-8 pt-6 border-t border-[var(--brand-border)]">
+                <div class="lang-toggle inline-flex items-center gap-1 rounded-full p-1">
+                    <button type="button" onclick="switchLang('en')" class="lang-btn" data-lang="en">EN</button>
+                    <button type="button" onclick="switchLang('pt')" class="lang-btn" data-lang="pt">PT</button>
+                </div>
+                <div class="grid gap-3 mt-5">
+                    <a href="mailto:info@mancan.digital" class="btn-primary mobile-link" data-i18n="contact-cta-primary">Email Us</a>
+                    <a href="#contact" class="btn-secondary mobile-link" data-scroll-to="contact" data-i18n="hero-cta-primary">Book a Discovery Call</a>
                 </div>
             </div>
         </div>
-    </nav>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-overlay" id="mobile-overlay"></div>
-    <div class="mobile-nav" id="mobile-nav">
-        <div class="flex flex-col gap-2 mt-16">
-            <a href="#about" class="text-lg font-medium mobile-link py-3 px-2 rounded-lg hover:bg-[var(--color-bg)] transition-colors" data-scroll-to="about">About</a>
-            <a href="#services" class="text-lg font-medium mobile-link py-3 px-2 rounded-lg hover:bg-[var(--color-bg)] transition-colors" data-scroll-to="services">Services</a>
-            <a href="#mission" class="text-lg font-medium mobile-link py-3 px-2 rounded-lg hover:bg-[var(--color-bg)] transition-colors" data-scroll-to="mission">Mission</a>
-            <a href="#strategy" class="text-lg font-medium mobile-link py-3 px-2 rounded-lg hover:bg-[var(--color-bg)] transition-colors" data-scroll-to="strategy">Strategy</a>
-            <a href="#contact" class="text-lg font-medium mobile-link py-3 px-2 rounded-lg hover:bg-[var(--color-bg)] transition-colors" data-scroll-to="contact">Contact</a>
+        <header class="pt-10 pb-8 sm:pt-14 sm:pb-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="hero-grid">
+                    <div class="hero-copy fade-in">
+                        <span class="eyebrow">
+                            <span class="eyebrow-dot"></span>
+                            <span data-i18n="hero-eyebrow">Technology consulting for modern operators</span>
+                        </span>
+                        <h1 class="hero-title">
+                            <span data-i18n="hero-title-1">Technology consulting that automates operations,</span>
+                            <span class="brand-gradient" data-i18n="hero-title-2">builds custom systems, and turns AI into business results.</span>
+                        </h1>
+                        <p class="hero-sub" data-i18n="hero-desc">
+                            We help B2B teams modernize workflows, connect tools, and ship practical software that improves execution.
+                        </p>
+                        <p class="pain-line" data-i18n="hero-pain">
+                            What we solve: manual workflows, disconnected tools, slow delivery, and weak operational visibility.
+                        </p>
+
+                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                            <a href="#contact" class="btn-primary" id="hero-cta-primary" data-scroll-to="contact" data-i18n="hero-cta-primary">Book a Discovery Call</a>
+                            <a href="#capabilities" class="btn-secondary" id="hero-cta-secondary" data-scroll-to="capabilities" data-i18n="hero-cta-secondary">Explore Capabilities</a>
+                        </div>
+
+                        <div class="mt-8 swipe-row">
+                            <span class="hero-chip"><span class="chip-dot"></span><span data-i18n="hero-chip-1">Advisory + execution</span></span>
+                            <span class="hero-chip"><span class="chip-dot"></span><span data-i18n="hero-chip-2">Built for measurable outcomes</span></span>
+                            <span class="hero-chip"><span class="chip-dot"></span><span data-i18n="hero-chip-3">Bilingual delivery EN/PT</span></span>
+                        </div>
+                    </div>
+
+                    <div class="hero-panel board fade-in">
+                        <span class="board-wire wire-1"></span>
+                        <span class="board-wire wire-2"></span>
+                        <span class="board-wire wire-3"></span>
+
+                        <span class="badge-node node-ai" data-i18n="hero-node-1">AI</span>
+                        <span class="badge-node node-automation" data-i18n="hero-node-2">Automation</span>
+                        <span class="badge-node node-apps" data-i18n="hero-node-3">Custom Apps</span>
+                        <span class="badge-node node-advisory" data-i18n="hero-node-4">Advisory</span>
+
+                        <div class="relative z-10 min-h-[24rem] flex flex-col items-center justify-center text-center">
+                            <div class="w-36 h-36 sm:w-44 sm:h-44 logo-plate">
+                                <div class="logo-core">
+                                    <img src="logo-symbol.png" alt="mancan.digital logo" class="w-full h-full object-contain" />
+                                </div>
+                            </div>
+                            <div class="mt-8 max-w-xs">
+                                <div class="text-sm font-extrabold uppercase tracking-[0.16em] text-[var(--brand-muted-2)]" data-i18n="board-kicker">Networked delivery model</div>
+                                <p class="board-desc mt-3 text-base font-semibold text-[var(--brand-muted)]" data-i18n="board-desc">
+                                    Strategy, automation, software delivery, and AI implementation aligned in one execution layer.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="pb-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="surface-panel fade-in">
+                        <div class="swipe-row">
+                            <span class="trust-pill" data-i18n="trust-1">Since 2019</span>
+                            <span class="trust-pill" data-i18n="trust-2">Brazil-based, global delivery</span>
+                            <span class="trust-pill" data-i18n="trust-3">AI + automation + custom software</span>
+                            <span class="trust-pill" data-i18n="trust-4">Designed for operational efficiency</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="section-stack py-20 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] gap-8 items-start">
+                        <div class="fade-in">
+                            <span class="section-label">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                <span data-i18n="about-tag">Positioning</span>
+                            </span>
+                            <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="about-title">Consulting built for teams that need clarity, speed, and durable systems.</h2>
+                            <p class="mt-6 text-lg text-[var(--brand-muted)]" data-i18n="about-desc-1">
+                                mancan.digital combines strategic advisory with hands-on delivery, so clients do not need separate partners for planning and execution.
+                            </p>
+                            <p class="mt-4 text-lg text-[var(--brand-muted)]" data-i18n="about-desc-2">
+                                We diagnose operational friction, design fit-for-purpose technology, and implement systems that improve throughput, visibility, and decision-making.
+                            </p>
+                        </div>
+
+                        <div class="surface-panel fade-in">
+                            <div class="grid gap-4">
+                                <div class="meta-chip w-fit"><span class="chip-dot"></span><span data-i18n="about-chip-1">Partnered delivery from strategy to implementation</span></div>
+                                <div class="meta-chip w-fit"><span class="chip-dot"></span><span data-i18n="about-chip-2">Custom-fit architecture for each engagement</span></div>
+                                <div class="meta-chip w-fit"><span class="chip-dot"></span><span data-i18n="about-chip-3">Practical systems over generic transformation talk</span></div>
+                            </div>
+                            <div class="mt-6 grid sm:grid-cols-2 gap-4">
+                                <div class="outcome-card">
+                                    <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="about-stat-1-label">Focus</div>
+                                    <div class="mt-2 text-xl font-bold" data-i18n="about-stat-1-value">Operational efficiency</div>
+                                </div>
+                                <div class="outcome-card">
+                                    <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="about-stat-2-label">Delivery model</div>
+                                    <div class="mt-2 text-xl font-bold" data-i18n="about-stat-2-value">Advisory + build</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="capabilities" class="section-stack py-20 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl fade-in">
+                        <span class="section-label">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
+                            <span data-i18n="capabilities-tag">Capabilities</span>
+                        </span>
+                        <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="capabilities-title">A capability matrix that covers advisory, automation, and delivery.</h2>
+                        <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="capabilities-desc">
+                            We structure engagements around the work buyers actually need: strategic direction, process automation, and custom software execution.
+                        </p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-3 gap-6 mt-12">
+                        <article class="capability-card fade-in">
+                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cap-1-kicker">Cluster 01</div>
+                            <h3 class="mt-3 text-2xl font-bold" data-i18n="cap-1-title">Consulting &amp; Strategy</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-1-desc">Define the right systems, priorities, and execution path before resources are wasted.</p>
+                            <ul>
+                                <li><span data-i18n="cap-1-item-1">Digital transformation planning</span></li>
+                                <li><span data-i18n="cap-1-item-2">Systems assessment</span></li>
+                                <li><span data-i18n="cap-1-item-3">Solution architecture</span></li>
+                                <li><span data-i18n="cap-1-item-4">Technology roadmap design</span></li>
+                            </ul>
+                            <div class="best-for" data-i18n="cap-1-fit">Best for: teams aligning operations and technology</div>
+                        </article>
+
+                        <article class="capability-card fade-in">
+                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cap-2-kicker">Cluster 02</div>
+                            <h3 class="mt-3 text-2xl font-bold" data-i18n="cap-2-title">Automation &amp; AI</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-2-desc">Remove operational drag with practical automation and AI that improve speed and accuracy.</p>
+                            <ul>
+                                <li><span data-i18n="cap-2-item-1">RPA and workflow automation</span></li>
+                                <li><span data-i18n="cap-2-item-2">AI integration</span></li>
+                                <li><span data-i18n="cap-2-item-3">Process optimization</span></li>
+                                <li><span data-i18n="cap-2-item-4">Decision support systems</span></li>
+                            </ul>
+                            <div class="best-for" data-i18n="cap-2-fit">Best for: teams reducing manual work and operational latency</div>
+                        </article>
+
+                        <article class="capability-card fade-in">
+                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cap-3-kicker">Cluster 03</div>
+                            <h3 class="mt-3 text-2xl font-bold" data-i18n="cap-3-title">Software Delivery</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-3-desc">Build custom systems that fit real workflows, not off-the-shelf compromises.</p>
+                            <ul>
+                                <li><span data-i18n="cap-3-item-1">Full-stack web applications</span></li>
+                                <li><span data-i18n="cap-3-item-2">Desktop and internal tools</span></li>
+                                <li><span data-i18n="cap-3-item-3">Cloud-native platforms</span></li>
+                                <li><span data-i18n="cap-3-item-4">Systems integrations</span></li>
+                            </ul>
+                            <div class="best-for" data-i18n="cap-3-fit">Best for: teams needing custom software and connected systems</div>
+                        </article>
+                    </div>
+
+                    <div class="engagement-row fade-in">
+                        <span class="trust-pill" data-i18n="engagement-label">Engagement formats</span>
+                        <span class="trust-pill" data-i18n="engagement-1">Advisory</span>
+                        <span class="trust-pill" data-i18n="engagement-2">Project delivery</span>
+                        <span class="trust-pill" data-i18n="engagement-3">Ongoing partnership</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-stack py-20 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="surface-panel fade-in">
+                        <div class="max-w-3xl">
+                            <span class="section-label">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                <span data-i18n="outcomes-tag">Outcomes</span>
+                            </span>
+                            <h2 class="mt-5 text-3xl sm:text-4xl font-bold" data-i18n="outcomes-title">Outcomes we deliver when execution and consulting stay connected.</h2>
+                            <p class="mt-4 text-lg text-[var(--brand-muted)]" data-i18n="outcomes-desc">
+                                The objective is not abstract transformation. It is operational leverage, stronger decisions, and a foundation your team can scale on.
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-4 mt-10">
+                            <div class="outcome-card">
+                                <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="outcome-1-kicker">Outcome 01</div>
+                                <h3 class="mt-3 text-xl font-bold" data-i18n="outcome-1-title">Faster operations</h3>
+                                <p class="mt-2 text-[var(--brand-muted)] font-semibold" data-i18n="outcome-1-desc">Reduce handoffs, repeated manual tasks, and avoidable delays across core workflows.</p>
+                            </div>
+                            <div class="outcome-card">
+                                <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="outcome-2-kicker">Outcome 02</div>
+                                <h3 class="mt-3 text-xl font-bold" data-i18n="outcome-2-title">Better decisions</h3>
+                                <p class="mt-2 text-[var(--brand-muted)] font-semibold" data-i18n="outcome-2-desc">Improve visibility, system coherence, and confidence in day-to-day operational choices.</p>
+                            </div>
+                            <div class="outcome-card">
+                                <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="outcome-3-kicker">Outcome 03</div>
+                                <h3 class="mt-3 text-xl font-bold" data-i18n="outcome-3-title">Scalable digital foundations</h3>
+                                <p class="mt-2 text-[var(--brand-muted)] font-semibold" data-i18n="outcome-3-desc">Build systems that can support growth instead of becoming the next bottleneck.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="process" class="section-stack py-20 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl fade-in">
+                        <span class="section-label">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                            </svg>
+                            <span data-i18n="process-tag">How We Work</span>
+                        </span>
+                        <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="process-title">A simple engagement model that moves from diagnosis to implementation.</h2>
+                        <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="process-desc">
+                            We keep the process visible and practical so buyers know how strategy becomes working systems.
+                        </p>
+                    </div>
+
+                    <div class="timeline">
+                        <article class="timeline-card fade-in">
+                            <span class="step-index">01</span>
+                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="process-1-kicker">Assess</div>
+                            <h3 class="mt-3 text-2xl font-bold" data-i18n="process-1-title">Assess</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="process-1-desc">Audit workflows, systems, bottlenecks, and business priorities to define the real constraints.</p>
+                        </article>
+                        <article class="timeline-card fade-in">
+                            <span class="step-index">02</span>
+                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="process-2-kicker">Design</div>
+                            <h3 class="mt-3 text-2xl font-bold" data-i18n="process-2-title">Design</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="process-2-desc">Define solution architecture, automation targets, integration paths, and implementation scope.</p>
+                        </article>
+                        <article class="timeline-card fade-in">
+                            <span class="step-index">03</span>
+                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="process-3-kicker">Implement</div>
+                            <h3 class="mt-3 text-2xl font-bold" data-i18n="process-3-title">Implement</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="process-3-desc">Deliver software, automations, integrations, and iterative improvements that hold up in real operations.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="why-us" class="section-stack py-20 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl fade-in">
+                        <span class="section-label">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <span data-i18n="why-tag">Why Clients Choose Us</span>
+                        </span>
+                        <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="why-title">A consultancy model designed for buyers who need working outcomes, not presentation decks.</h2>
+                        <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="why-desc">
+                            The value is in combining business context, technical depth, and execution accountability in the same engagement.
+                        </p>
+                    </div>
+
+                    <div class="value-grid">
+                        <article class="value-card fade-in">
+                            <div class="value-icon">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold" data-i18n="why-1-title">Business-first consulting</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="why-1-desc">Recommendations are anchored in operational constraints, business priorities, and delivery reality.</p>
+                        </article>
+
+                        <article class="value-card fade-in">
+                            <div class="value-icon">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold" data-i18n="why-2-title">Custom-fit delivery</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="why-2-desc">Solutions are shaped around your workflows, tool stack, and team maturity instead of generic templates.</p>
+                        </article>
+
+                        <article class="value-card fade-in">
+                            <div class="value-icon">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold" data-i18n="why-3-title">Long-term partnership</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="why-3-desc">We stay focused on continuity, maintainability, and improvement after the initial launch.</p>
+                        </article>
+
+                        <article class="value-card fade-in">
+                            <div class="value-icon">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold" data-i18n="why-4-title">Global-ready execution</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="why-4-desc">Brazil-based delivery with bilingual communication and execution quality built for international clients.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section-stack py-20 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="cta-shell fade-in">
+                        <div class="contact-grid">
+                            <div>
+                                <span class="section-label">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                    <span data-i18n="contact-tag">Start a Conversation</span>
+                                </span>
+                                <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="contact-title">Bring the problem, the current stack, and the target timeline.</h2>
+                                <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="contact-desc">
+                                    We can scope an advisory engagement, a delivery project, or a hybrid path depending on where your team is today.
+                                </p>
+                                <p class="mt-5 text-base font-semibold text-[var(--brand-muted-2)]" data-i18n="contact-note">
+                                    Tell us your challenge, your current stack, and your target timeline.
+                                </p>
+                                <p class="mt-2 text-base font-semibold text-[var(--brand-muted-2)]" data-i18n="contact-response">
+                                    Typical first reply within 1 business day.
+                                </p>
+                            </div>
+
+                            <div class="surface-panel flex flex-col justify-between">
+                                <div>
+                                    <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="contact-card-label">Primary contact</div>
+                                    <a href="mailto:info@mancan.digital" class="mt-3 block text-2xl sm:text-3xl font-bold brand-gradient break-all">info@mancan.digital</a>
+                                    <p class="mt-4 text-base font-semibold text-[var(--brand-muted)]" data-i18n="contact-location">Brazil-based, available worldwide.</p>
+                                </div>
+
+                                <div class="mt-8 grid gap-3">
+                                    <a href="mailto:info@mancan.digital" class="btn-primary" id="contact-cta-primary" data-i18n="contact-cta-primary">Email Us</a>
+                                    <a href="mailto:info@mancan.digital?subject=Discovery%20Call%20Request" class="btn-secondary" id="contact-cta-secondary" data-i18n="contact-cta-secondary">Schedule a Discovery Call</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="py-12 border-t border-[var(--brand-border)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-3">
+                        <span class="brand-mark !w-10 !h-10 !rounded-xl !p-2">
+                            <img src="logo-symbol.png" alt="" class="w-full h-full object-contain" />
+                        </span>
+                        <span class="brand-wordmark !block">mancan<span class="brand-gradient">.digital</span></span>
+                    </div>
+                    <p class="text-sm font-semibold text-[var(--brand-muted)]">&copy; 2026 mancan.digital. All rights reserved.</p>
+                    <div class="flex items-center gap-6">
+                        <a href="mailto:info@mancan.digital" class="footer-link text-sm" data-i18n="footer-email">Email</a>
+                        <a href="#" class="footer-link text-sm scroll-top" data-i18n="footer-top">Back to top</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="mobile-cta-bar">
+            <div class="grid grid-cols-2 gap-3">
+                <a href="mailto:info@mancan.digital" class="btn-secondary" data-i18n="contact-cta-primary">Email Us</a>
+                <a href="#contact" class="btn-primary" data-scroll-to="contact" data-i18n="hero-cta-primary">Book a Discovery Call</a>
+            </div>
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <header class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-        <!-- Background decorations -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl float"></div>
-            <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl float-delay"></div>
-            <div class="absolute bottom-1/4 left-1/3 w-64 h-64 bg-cyan-500/15 rounded-full blur-3xl float"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
-            <div class="fade-in">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-500/10 via-blue-500/10 to-cyan-500/10 border border-violet-500/20 mb-8">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                    <span class="text-sm font-medium text-[var(--color-text-muted)]" id="hero-tagline">Available for new projects</span>
-                </div>
-            </div>
-
-            <h1 class="fade-in text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-                <span id="hero-title-1">Transform Your Business</span><br>
-                <span class="gradient-text" id="hero-title-2">With Smart Technology</span>
-            </h1>
-
-            <p class="fade-in text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto mb-10" id="hero-desc">
-                We are an IT consultancy helping businesses achieve operational excellence through AI, automation, and cloud-native solutions.
-            </p>
-
-            <div class="fade-in flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#contact" class="btn-primary" id="hero-cta">Get Started</a>
-                <a href="#services" class="btn-secondary" id="hero-cta-2">Our Services</a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <!-- About Section -->
-        <section id="about" class="py-24 lg:py-32">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                    <div class="fade-in">
-                        <span class="section-tag" id="about-tag">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                            About Us
-                        </span>
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6" id="about-title">Architects of Digital Transformation</h2>
-                        <p class="text-lg text-[var(--color-text-muted)] mb-6" id="about-desc-1">
-                            We are an IT consultancy helping small businesses reach operational excellence through custom technology.
-                        </p>
-                        <p class="text-lg text-[var(--color-text-muted)] mb-8" id="about-desc-2">
-                            We use AI, RPA, and cloud-native solutions to re-engineer operations for efficiency and growth—and partner with you to unlock your full technological potential.
-                        </p>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="tech-tag">AI Integration</span>
-                            <span class="tech-tag">RPA</span>
-                            <span class="tech-tag">Cloud Native</span>
-                            <span class="tech-tag">Full Stack</span>
-                        </div>
-                    </div>
-                    <div class="fade-in relative">
-                        <div class="aspect-square rounded-3xl bg-gradient-to-br from-violet-500/10 via-blue-500/8 to-cyan-500/10 border border-[var(--color-border)] flex items-center justify-center">
-                            <img src="logo-symbol.png" alt="mancan.digital" class="w-1/2 h-1/2 object-contain opacity-90" />
-                        </div>
-                        <!-- Floating badge -->
-                        <div class="about-badge sm:absolute sm:-bottom-6 sm:-left-6 glass rounded-2xl p-4 shadow-lg mt-6 sm:mt-0">
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 via-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                </div>
-                                <div>
-                                    <div class="font-bold" id="badge-title">Trusted Partner</div>
-                                    <div class="text-sm text-[var(--color-text-muted)]" id="badge-desc">Since 2019</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="py-24 lg:py-32 bg-[var(--color-bg-alt)]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 fade-in">
-                    <span class="section-tag" id="services-tag">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                        Our Services
-                    </span>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" id="services-title">What We Do</h2>
-                    <p class="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto" id="services-desc">
-                        Comprehensive technology solutions tailored to drive your business forward.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
-                    <!-- Service 1 -->
-                    <div class="modern-card fade-in">
-                        <div class="icon-box">
-                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3" id="service-1-title">Automation & RPA</h3>
-                        <p class="text-[var(--color-text-muted)]" id="service-1-desc">Eliminate repetitive manual tasks and streamline operations with intelligent robotic process automation, boosting efficiency and reducing costs.</p>
-                    </div>
-
-                    <!-- Service 2 -->
-                    <div class="modern-card fade-in">
-                        <div class="icon-box">
-                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3" id="service-2-title">AI Integration</h3>
-                        <p class="text-[var(--color-text-muted)]" id="service-2-desc">Leverage machine learning and predictive analytics to inform strategic decisions and autonomously optimize workflows for smarter outcomes.</p>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div class="modern-card fade-in">
-                        <div class="icon-box">
-                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3" id="service-3-title">Full Stack Development</h3>
-                        <p class="text-[var(--color-text-muted)]" id="service-3-desc">Crafting robust, high-performance web and mobile applications with cutting-edge frameworks and cloud-native principles.</p>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div class="modern-card fade-in">
-                        <div class="icon-box">
-                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3" id="service-4-title">Desktop Applications</h3>
-                        <p class="text-[var(--color-text-muted)]" id="service-4-desc">Custom software solutions designed to streamline complex business workflows with powerful, secure, and intuitive tools.</p>
-                    </div>
-
-                    <!-- Service 5 -->
-                    <div class="modern-card fade-in md:col-span-2 lg:col-span-1">
-                        <div class="icon-box">
-                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3" id="service-5-title">IT Consultancy & Strategy</h3>
-                        <p class="text-[var(--color-text-muted)]" id="service-5-desc">Strategic guidance to optimize your technology investments, ensuring alignment with business goals and maximizing competitive advantage.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mission Section -->
-        <section id="mission" class="py-24 lg:py-32">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto text-center fade-in">
-                    <span class="section-tag" id="mission-tag">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        Our Mission
-                    </span>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6" id="mission-title">Empowering Digital Futures</h2>
-                    <p class="text-xl text-[var(--color-text-muted)] leading-relaxed" id="mission-desc">
-                        We empower small businesses by turning complex processes into streamlined, intelligent workflows. We deliver solutions that drive efficiency, foster growth, and build a resilient digital foundation for every client.
-                    </p>
-                </div>
-
-                <!-- Mission pillars -->
-                <div class="grid md:grid-cols-3 gap-8 mt-16">
-                    <div class="text-center fade-in">
-                        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-violet-500/15 to-blue-500/10 flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" id="pillar-1-title">Efficiency</h3>
-                        <p class="text-[var(--color-text-muted)]" id="pillar-1-desc">Streamline your operations with smart automation</p>
-                    </div>
-                    <div class="text-center fade-in">
-                        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-blue-500/15 to-cyan-500/10 flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-[var(--color-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" id="pillar-2-title">Growth</h3>
-                        <p class="text-[var(--color-text-muted)]" id="pillar-2-desc">Scale your business with the right technology</p>
-                    </div>
-                    <div class="text-center fade-in">
-                        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cyan-500/15 to-violet-500/10 flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" id="pillar-3-title">Resilience</h3>
-                        <p class="text-[var(--color-text-muted)]" id="pillar-3-desc">Build a robust digital foundation</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Strategy Section -->
-        <section id="strategy" class="py-24 lg:py-32 bg-[var(--color-bg-alt)]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 fade-in">
-                    <span class="section-tag" id="strategy-tag">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-                        Our Strategy
-                    </span>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" id="strategy-title">Global Reach, Local Impact</h2>
-                    <p class="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto" id="strategy-desc">
-                        Our approach combines deep local understanding with global best practices.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6 stagger-children">
-                    <div class="modern-card fade-in">
-                        <div class="icon-box">
-                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3" id="strategy-1-title">Strategic Partnerships</h3>
-                        <p class="text-[var(--color-text-muted)]" id="strategy-1-desc">Collaborating closely with SMBs to deeply understand their unique operational needs and challenges.</p>
-                    </div>
-
-                    <div class="modern-card fade-in">
-                        <div class="icon-box">
-                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3" id="strategy-2-title">Result-Driven Relationships</h3>
-                        <p class="text-[var(--color-text-muted)]" id="strategy-2-desc">Building long-term, mutually beneficial partnerships focused on measurable outcomes and sustainable growth.</p>
-                    </div>
-
-                    <div class="modern-card fade-in">
-                        <div class="icon-box">
-                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3" id="strategy-3-title">Expansive Footprint</h3>
-                        <p class="text-[var(--color-text-muted)]" id="strategy-3-desc">Serving clients across Brazil and LATAM, with a clear vision for global expansion and impact.</p>
-                    </div>
-
-                    <div class="modern-card fade-in">
-                        <div class="icon-box">
-                            <svg class="w-6 h-6 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3" id="strategy-4-title">Innovation Leadership</h3>
-                        <p class="text-[var(--color-text-muted)]" id="strategy-4-desc">Continuously integrating the latest advancements in AI, automation, and cloud technologies to keep clients ahead.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-24 lg:py-32">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-12 fade-in">
-                        <span class="section-tag" id="contact-tag">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            Contact
-                        </span>
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" id="contact-title">Let's Work Together</h2>
-                        <p class="text-lg text-[var(--color-text-muted)]" id="contact-desc">
-                            Ready to transform your business? Get in touch with us today.
-                        </p>
-                    </div>
-
-                    <div class="modern-card fade-in text-center">
-                        <div class="flex flex-col items-center gap-6">
-                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500 via-blue-500 to-cyan-500 flex items-center justify-center">
-                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            </div>
-                            <div>
-                                <a href="mailto:info@mancan.digital" class="text-xl sm:text-2xl md:text-3xl font-bold gradient-text hover:opacity-80 transition-opacity break-all sm:break-normal">
-                                    info@mancan.digital
-                                </a>
-                                <p class="text-[var(--color-text-muted)] mt-3" id="contact-location">Based in Brazil. Available worldwide.</p>
-                            </div>
-                            <a href="mailto:info@mancan.digital" class="btn-primary mt-4" id="contact-cta">Send us an email</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-12 border-t border-[var(--color-border)]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 via-blue-500 to-cyan-500 p-1.5 flex items-center justify-center">
-                        <img src="logo-symbol.png" alt="" class="w-full h-full object-contain" />
-                    </div>
-                    <span class="font-semibold">mancan<span class="gradient-text">.digital</span></span>
-                </div>
-                <p class="text-sm text-[var(--color-text-muted)]">
-                    &copy; 2025 mancan.digital. All rights reserved.
-                </p>
-                <div class="flex items-center gap-6">
-                    <a href="mailto:info@mancan.digital" class="footer-link text-sm">Email</a>
-                    <a href="#" class="footer-link text-sm scroll-top" id="footer-top">Back to top</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        // Language content
         const translations = {
             en: {
-                'hero-tagline': 'Available for new projects',
-                'hero-title-1': 'Transform Your Business',
-                'hero-title-2': 'With Smart Technology',
-                'hero-desc': 'We are an IT consultancy helping businesses achieve operational excellence through AI, automation, and cloud-native solutions.',
-                'hero-cta': 'Get Started',
-                'hero-cta-2': 'Our Services',
-                'about-tag': 'About Us',
-                'about-title': 'Architects of Digital Transformation',
-                'about-desc-1': 'We are an IT consultancy helping small businesses reach operational excellence through custom technology.',
-                'about-desc-2': 'We use AI, RPA, and cloud-native solutions to re-engineer operations for efficiency and growth—and partner with you to unlock your full technological potential.',
-                'badge-title': 'Trusted Partner',
-                'badge-desc': 'Since 2019',
-                'services-tag': 'Our Services',
-                'services-title': 'What We Do',
-                'services-desc': 'Comprehensive technology solutions tailored to drive your business forward.',
-                'service-1-title': 'Automation & RPA',
-                'service-1-desc': 'Eliminate repetitive manual tasks and streamline operations with intelligent robotic process automation, boosting efficiency and reducing costs.',
-                'service-2-title': 'AI Integration',
-                'service-2-desc': 'Leverage machine learning and predictive analytics to inform strategic decisions and autonomously optimize workflows for smarter outcomes.',
-                'service-3-title': 'Full Stack Development',
-                'service-3-desc': 'Crafting robust, high-performance web and mobile applications with cutting-edge frameworks and cloud-native principles.',
-                'service-4-title': 'Desktop Applications',
-                'service-4-desc': 'Custom software solutions designed to streamline complex business workflows with powerful, secure, and intuitive tools.',
-                'service-5-title': 'IT Consultancy & Strategy',
-                'service-5-desc': 'Strategic guidance to optimize your technology investments, ensuring alignment with business goals and maximizing competitive advantage.',
-                'mission-tag': 'Our Mission',
-                'mission-title': 'Empowering Digital Futures',
-                'mission-desc': 'We empower small businesses by turning complex processes into streamlined, intelligent workflows. We deliver solutions that drive efficiency, foster growth, and build a resilient digital foundation for every client.',
-                'pillar-1-title': 'Efficiency',
-                'pillar-1-desc': 'Streamline your operations with smart automation',
-                'pillar-2-title': 'Growth',
-                'pillar-2-desc': 'Scale your business with the right technology',
-                'pillar-3-title': 'Resilience',
-                'pillar-3-desc': 'Build a robust digital foundation',
-                'strategy-tag': 'Our Strategy',
-                'strategy-title': 'Global Reach, Local Impact',
-                'strategy-desc': 'Our approach combines deep local understanding with global best practices.',
-                'strategy-1-title': 'Strategic Partnerships',
-                'strategy-1-desc': 'Collaborating closely with SMBs to deeply understand their unique operational needs and challenges.',
-                'strategy-2-title': 'Result-Driven Relationships',
-                'strategy-2-desc': 'Building long-term, mutually beneficial partnerships focused on measurable outcomes and sustainable growth.',
-                'strategy-3-title': 'Expansive Footprint',
-                'strategy-3-desc': 'Serving clients across Brazil and LATAM, with a clear vision for global expansion and impact.',
-                'strategy-4-title': 'Innovation Leadership',
-                'strategy-4-desc': 'Continuously integrating the latest advancements in AI, automation, and cloud technologies to keep clients ahead.',
-                'contact-tag': 'Contact',
-                'contact-title': "Let's Work Together",
-                'contact-desc': 'Ready to transform your business? Get in touch with us today.',
-                'contact-location': 'Based in Brazil. Available worldwide.',
-                'contact-cta': 'Send us an email',
+                'nav-about': 'About',
+                'nav-capabilities': 'Capabilities',
+                'nav-process': 'Process',
+                'nav-why': 'Why Us',
+                'nav-contact': 'Contact',
+                'hero-eyebrow': 'Technology consulting for modern operators',
+                'hero-title-1': 'Technology consulting that automates operations,',
+                'hero-title-2': 'builds custom systems, and turns AI into business results.',
+                'hero-desc': 'We help B2B teams modernize workflows, connect tools, and ship practical software that improves execution.',
+                'hero-pain': 'What we solve: manual workflows, disconnected tools, slow delivery, and weak operational visibility.',
+                'hero-cta-primary': 'Book a Discovery Call',
+                'hero-cta-secondary': 'Explore Capabilities',
+                'hero-chip-1': 'Advisory + execution',
+                'hero-chip-2': 'Built for measurable outcomes',
+                'hero-chip-3': 'Bilingual delivery EN/PT',
+                'hero-node-1': 'AI',
+                'hero-node-2': 'Automation',
+                'hero-node-3': 'Custom Apps',
+                'hero-node-4': 'Advisory',
+                'board-kicker': 'Networked delivery model',
+                'board-desc': 'Strategy, automation, software delivery, and AI implementation aligned in one execution layer.',
+                'trust-1': 'Since 2019',
+                'trust-2': 'Brazil-based, global delivery',
+                'trust-3': 'AI + automation + custom software',
+                'trust-4': 'Designed for operational efficiency',
+                'about-tag': 'Positioning',
+                'about-title': 'Consulting built for teams that need clarity, speed, and durable systems.',
+                'about-desc-1': 'mancan.digital combines strategic advisory with hands-on delivery, so clients do not need separate partners for planning and execution.',
+                'about-desc-2': 'We diagnose operational friction, design fit-for-purpose technology, and implement systems that improve throughput, visibility, and decision-making.',
+                'about-chip-1': 'Partnered delivery from strategy to implementation',
+                'about-chip-2': 'Custom-fit architecture for each engagement',
+                'about-chip-3': 'Practical systems over generic transformation talk',
+                'about-stat-1-label': 'Focus',
+                'about-stat-1-value': 'Operational efficiency',
+                'about-stat-2-label': 'Delivery model',
+                'about-stat-2-value': 'Advisory + build',
+                'capabilities-tag': 'Capabilities',
+                'capabilities-title': 'A capability matrix that covers advisory, automation, and delivery.',
+                'capabilities-desc': 'We structure engagements around the work buyers actually need: strategic direction, process automation, and custom software execution.',
+                'cap-1-kicker': 'Cluster 01',
+                'cap-1-title': 'Consulting & Strategy',
+                'cap-1-desc': 'Define the right systems, priorities, and execution path before resources are wasted.',
+                'cap-1-item-1': 'Digital transformation planning',
+                'cap-1-item-2': 'Systems assessment',
+                'cap-1-item-3': 'Solution architecture',
+                'cap-1-item-4': 'Technology roadmap design',
+                'cap-1-fit': 'Best for: teams aligning operations and technology',
+                'cap-2-kicker': 'Cluster 02',
+                'cap-2-title': 'Automation & AI',
+                'cap-2-desc': 'Remove operational drag with practical automation and AI that improve speed and accuracy.',
+                'cap-2-item-1': 'RPA and workflow automation',
+                'cap-2-item-2': 'AI integration',
+                'cap-2-item-3': 'Process optimization',
+                'cap-2-item-4': 'Decision support systems',
+                'cap-2-fit': 'Best for: teams reducing manual work and operational latency',
+                'cap-3-kicker': 'Cluster 03',
+                'cap-3-title': 'Software Delivery',
+                'cap-3-desc': 'Build custom systems that fit real workflows, not off-the-shelf compromises.',
+                'cap-3-item-1': 'Full-stack web applications',
+                'cap-3-item-2': 'Desktop and internal tools',
+                'cap-3-item-3': 'Cloud-native platforms',
+                'cap-3-item-4': 'Systems integrations',
+                'cap-3-fit': 'Best for: teams needing custom software and connected systems',
+                'engagement-label': 'Engagement formats',
+                'engagement-1': 'Advisory',
+                'engagement-2': 'Project delivery',
+                'engagement-3': 'Ongoing partnership',
+                'outcomes-tag': 'Outcomes',
+                'outcomes-title': 'Outcomes we deliver when execution and consulting stay connected.',
+                'outcomes-desc': 'The objective is not abstract transformation. It is operational leverage, stronger decisions, and a foundation your team can scale on.',
+                'outcome-1-kicker': 'Outcome 01',
+                'outcome-1-title': 'Faster operations',
+                'outcome-1-desc': 'Reduce handoffs, repeated manual tasks, and avoidable delays across core workflows.',
+                'outcome-2-kicker': 'Outcome 02',
+                'outcome-2-title': 'Better decisions',
+                'outcome-2-desc': 'Improve visibility, system coherence, and confidence in day-to-day operational choices.',
+                'outcome-3-kicker': 'Outcome 03',
+                'outcome-3-title': 'Scalable digital foundations',
+                'outcome-3-desc': 'Build systems that can support growth instead of becoming the next bottleneck.',
+                'process-tag': 'How We Work',
+                'process-title': 'A simple engagement model that moves from diagnosis to implementation.',
+                'process-desc': 'We keep the process visible and practical so buyers know how strategy becomes working systems.',
+                'process-1-kicker': 'Assess',
+                'process-1-title': 'Assess',
+                'process-1-desc': 'Audit workflows, systems, bottlenecks, and business priorities to define the real constraints.',
+                'process-2-kicker': 'Design',
+                'process-2-title': 'Design',
+                'process-2-desc': 'Define solution architecture, automation targets, integration paths, and implementation scope.',
+                'process-3-kicker': 'Implement',
+                'process-3-title': 'Implement',
+                'process-3-desc': 'Deliver software, automations, integrations, and iterative improvements that hold up in real operations.',
+                'why-tag': 'Why Clients Choose Us',
+                'why-title': 'A consultancy model designed for buyers who need working outcomes, not presentation decks.',
+                'why-desc': 'The value is in combining business context, technical depth, and execution accountability in the same engagement.',
+                'why-1-title': 'Business-first consulting',
+                'why-1-desc': 'Recommendations are anchored in operational constraints, business priorities, and delivery reality.',
+                'why-2-title': 'Custom-fit delivery',
+                'why-2-desc': 'Solutions are shaped around your workflows, tool stack, and team maturity instead of generic templates.',
+                'why-3-title': 'Long-term partnership',
+                'why-3-desc': 'We stay focused on continuity, maintainability, and improvement after the initial launch.',
+                'why-4-title': 'Global-ready execution',
+                'why-4-desc': 'Brazil-based delivery with bilingual communication and execution quality built for international clients.',
+                'contact-tag': 'Start a Conversation',
+                'contact-title': 'Bring the problem, the current stack, and the target timeline.',
+                'contact-desc': 'We can scope an advisory engagement, a delivery project, or a hybrid path depending on where your team is today.',
+                'contact-note': 'Tell us your challenge, your current stack, and your target timeline.',
+                'contact-response': 'Typical first reply within 1 business day.',
+                'contact-card-label': 'Primary contact',
+                'contact-location': 'Brazil-based, available worldwide.',
+                'contact-cta-primary': 'Email Us',
+                'contact-cta-secondary': 'Schedule a Discovery Call',
+                'footer-email': 'Email',
                 'footer-top': 'Back to top'
             },
             pt: {
-                'hero-tagline': 'Disponível para novos projetos',
-                'hero-title-1': 'Transforme Seu Negócio',
-                'hero-title-2': 'Com Tecnologia Inteligente',
-                'hero-desc': 'Somos uma consultoria de TI ajudando empresas a alcançar excelência operacional através de IA, automação e soluções cloud-native.',
-                'hero-cta': 'Começar',
-                'hero-cta-2': 'Nossos Serviços',
-                'about-tag': 'Sobre Nós',
-                'about-title': 'Arquitetos da Transformação Digital',
-                'about-desc-1': 'Somos uma consultoria de TI que ajuda pequenas empresas a alcançar excelência operacional com tecnologia personalizada.',
-                'about-desc-2': 'Utilizamos IA, RPA e soluções cloud-native para reestruturar operações e desbloquear todo o potencial tecnológico do seu negócio.',
-                'badge-title': 'Parceiro Confiável',
-                'badge-desc': 'Desde 2019',
-                'services-tag': 'Nossos Serviços',
-                'services-title': 'O Que Fazemos',
-                'services-desc': 'Soluções tecnológicas completas personalizadas para impulsionar seu negócio.',
-                'service-1-title': 'Automação e RPA',
-                'service-1-desc': 'Elimine tarefas manuais repetitivas e otimize operações com automação robótica de processos inteligente, aumentando a eficiência e reduzindo custos.',
-                'service-2-title': 'Integração com IA',
-                'service-2-desc': 'Utilize aprendizado de máquina e análise preditiva para embasar decisões estratégicas e otimizar fluxos de trabalho de forma autônoma.',
-                'service-3-title': 'Desenvolvimento Full Stack',
-                'service-3-desc': 'Construção de aplicações web e móveis robustas e de alto desempenho com frameworks de ponta e princípios cloud-native.',
-                'service-4-title': 'Aplicações Desktop',
-                'service-4-desc': 'Soluções de software personalizadas projetadas para otimizar fluxos de trabalho complexos com ferramentas poderosas, seguras e intuitivas.',
-                'service-5-title': 'Consultoria e Estratégia de TI',
-                'service-5-desc': 'Orientação estratégica para otimizar seus investimentos em tecnologia, garantindo alinhamento com os objetivos de negócios.',
-                'mission-tag': 'Nossa Missão',
-                'mission-title': 'Capacitando Futuros Digitais',
-                'mission-desc': 'Capacitamos pequenas empresas transformando processos complexos em fluxos digitais e inteligentes. Entregamos soluções que impulsionam eficiência, crescimento e uma infraestrutura digital resiliente.',
-                'pillar-1-title': 'Eficiência',
-                'pillar-1-desc': 'Otimize suas operações com automação inteligente',
-                'pillar-2-title': 'Crescimento',
-                'pillar-2-desc': 'Escale seu negócio com a tecnologia certa',
-                'pillar-3-title': 'Resiliência',
-                'pillar-3-desc': 'Construa uma base digital robusta',
-                'strategy-tag': 'Nossa Estratégia',
-                'strategy-title': 'Alcance Global, Impacto Local',
-                'strategy-desc': 'Nossa abordagem combina profundo entendimento local com melhores práticas globais.',
-                'strategy-1-title': 'Parcerias Estratégicas',
-                'strategy-1-desc': 'Colaborando de perto com PMEs para entender profundamente suas necessidades e desafios operacionais únicos.',
-                'strategy-2-title': 'Relações Orientadas a Resultados',
-                'strategy-2-desc': 'Construindo parcerias de longo prazo focadas em resultados mensuráveis e crescimento sustentável.',
-                'strategy-3-title': 'Presença Abrangente',
-                'strategy-3-desc': 'Atendendo clientes no Brasil e na América Latina, com uma clara visão de expansão e impacto global.',
-                'strategy-4-title': 'Liderança em Inovação',
-                'strategy-4-desc': 'Integrando continuamente os mais recentes avanços em IA, automação e tecnologias de nuvem.',
-                'contact-tag': 'Contato',
-                'contact-title': 'Vamos Trabalhar Juntos',
-                'contact-desc': 'Pronto para transformar seu negócio? Entre em contato conosco hoje.',
-                'contact-location': 'Sede no Brasil. Atendimento mundial.',
-                'contact-cta': 'Envie-nos um email',
+                'nav-about': 'Sobre',
+                'nav-capabilities': 'Capacidades',
+                'nav-process': 'Processo',
+                'nav-why': 'Diferenciais',
+                'nav-contact': 'Contato',
+                'hero-eyebrow': 'Consultoria de tecnologia para operadores modernos',
+                'hero-title-1': 'Consultoria de tecnologia que automatiza operações,',
+                'hero-title-2': 'constrói sistemas sob medida e transforma IA em resultado de negócio.',
+                'hero-desc': 'Ajudamos equipes B2B a modernizar fluxos, conectar ferramentas e entregar software prático que melhora a execução.',
+                'hero-pain': 'O que resolvemos: fluxos manuais, ferramentas desconectadas, entrega lenta e baixa visibilidade operacional.',
+                'hero-cta-primary': 'Agendar uma discovery call',
+                'hero-cta-secondary': 'Explorar capacidades',
+                'hero-chip-1': 'Consultoria + execução',
+                'hero-chip-2': 'Projetado para resultados mensuráveis',
+                'hero-chip-3': 'Atendimento bilíngue EN/PT',
+                'hero-node-1': 'IA',
+                'hero-node-2': 'Automação',
+                'hero-node-3': 'Apps sob medida',
+                'hero-node-4': 'Consultoria',
+                'board-kicker': 'Modelo de entrega conectado',
+                'board-desc': 'Estratégia, automação, desenvolvimento e implementação de IA alinhados em uma única camada de execução.',
+                'trust-1': 'Desde 2019',
+                'trust-2': 'Base no Brasil, entrega global',
+                'trust-3': 'IA + automação + software sob medida',
+                'trust-4': 'Desenhado para eficiência operacional',
+                'about-tag': 'Posicionamento',
+                'about-title': 'Consultoria feita para equipes que precisam de clareza, velocidade e sistemas duráveis.',
+                'about-desc-1': 'A mancan.digital combina consultoria estratégica com entrega prática, para que o cliente não precise de parceiros separados para planejar e executar.',
+                'about-desc-2': 'Diagnosticamos atritos operacionais, desenhamos tecnologia aderente ao contexto e implementamos sistemas que aumentam throughput, visibilidade e capacidade de decisão.',
+                'about-chip-1': 'Entrega parceira da estratégia à implementação',
+                'about-chip-2': 'Arquitetura sob medida para cada projeto',
+                'about-chip-3': 'Sistemas práticos em vez de discurso genérico de transformação',
+                'about-stat-1-label': 'Foco',
+                'about-stat-1-value': 'Eficiência operacional',
+                'about-stat-2-label': 'Modelo de entrega',
+                'about-stat-2-value': 'Consultoria + build',
+                'capabilities-tag': 'Capacidades',
+                'capabilities-title': 'Uma matriz de capacidades que cobre consultoria, automação e entrega.',
+                'capabilities-desc': 'Estruturamos os projetos em torno do que compradores realmente precisam: direção estratégica, automação de processos e execução de software.',
+                'cap-1-kicker': 'Cluster 01',
+                'cap-1-title': 'Consultoria e Estratégia',
+                'cap-1-desc': 'Defina os sistemas certos, as prioridades e o caminho de execução antes de desperdiçar recursos.',
+                'cap-1-item-1': 'Planejamento de transformação digital',
+                'cap-1-item-2': 'Avaliação de sistemas',
+                'cap-1-item-3': 'Arquitetura de solução',
+                'cap-1-item-4': 'Desenho de roadmap tecnológico',
+                'cap-1-fit': 'Ideal para: equipes alinhando operação e tecnologia',
+                'cap-2-kicker': 'Cluster 02',
+                'cap-2-title': 'Automação e IA',
+                'cap-2-desc': 'Remova atrito operacional com automação prática e IA aplicada para ganhar velocidade e precisão.',
+                'cap-2-item-1': 'RPA e automação de workflow',
+                'cap-2-item-2': 'Integração com IA',
+                'cap-2-item-3': 'Otimização de processos',
+                'cap-2-item-4': 'Sistemas de apoio à decisão',
+                'cap-2-fit': 'Ideal para: equipes reduzindo trabalho manual e latência operacional',
+                'cap-3-kicker': 'Cluster 03',
+                'cap-3-title': 'Entrega de Software',
+                'cap-3-desc': 'Construa sistemas sob medida para fluxos reais, sem compromissos de prateleira.',
+                'cap-3-item-1': 'Aplicações web full-stack',
+                'cap-3-item-2': 'Ferramentas desktop e internas',
+                'cap-3-item-3': 'Plataformas cloud-native',
+                'cap-3-item-4': 'Integrações entre sistemas',
+                'cap-3-fit': 'Ideal para: equipes que precisam de software sob medida e sistemas conectados',
+                'engagement-label': 'Formatos de atuação',
+                'engagement-1': 'Consultoria',
+                'engagement-2': 'Entrega de projeto',
+                'engagement-3': 'Parceria contínua',
+                'outcomes-tag': 'Resultados',
+                'outcomes-title': 'Os resultados aparecem quando execução e consultoria permanecem conectadas.',
+                'outcomes-desc': 'O objetivo não é uma transformação abstrata. É alavancagem operacional, decisões melhores e uma base que escala com sua equipe.',
+                'outcome-1-kicker': 'Resultado 01',
+                'outcome-1-title': 'Operações mais rápidas',
+                'outcome-1-desc': 'Reduza handoffs, tarefas manuais repetidas e atrasos evitáveis nos fluxos centrais.',
+                'outcome-2-kicker': 'Resultado 02',
+                'outcome-2-title': 'Decisões melhores',
+                'outcome-2-desc': 'Aumente visibilidade, coerência entre sistemas e confiança nas decisões operacionais do dia a dia.',
+                'outcome-3-kicker': 'Resultado 03',
+                'outcome-3-title': 'Fundação digital escalável',
+                'outcome-3-desc': 'Construa sistemas capazes de sustentar crescimento sem virar o próximo gargalo.',
+                'process-tag': 'Como Trabalhamos',
+                'process-title': 'Um modelo simples de atuação que vai do diagnóstico à implementação.',
+                'process-desc': 'Mantemos o processo visível e prático para que a estratégia vire sistema funcional.',
+                'process-1-kicker': 'Avaliar',
+                'process-1-title': 'Avaliar',
+                'process-1-desc': 'Auditamos fluxos, sistemas, gargalos e prioridades de negócio para definir as restrições reais.',
+                'process-2-kicker': 'Desenhar',
+                'process-2-title': 'Desenhar',
+                'process-2-desc': 'Definimos arquitetura, metas de automação, caminhos de integração e o escopo de implementação.',
+                'process-3-kicker': 'Implementar',
+                'process-3-title': 'Implementar',
+                'process-3-desc': 'Entregamos software, automações, integrações e melhorias iterativas que funcionam na operação real.',
+                'why-tag': 'Por Que Escolhem',
+                'why-title': 'Um modelo de consultoria pensado para compradores que precisam de resultado funcional, não apenas apresentação.',
+                'why-desc': 'O valor está em unir contexto de negócio, profundidade técnica e responsabilidade de execução no mesmo projeto.',
+                'why-1-title': 'Consultoria orientada ao negócio',
+                'why-1-desc': 'As recomendações partem das restrições operacionais, prioridades do negócio e realidade de entrega.',
+                'why-2-title': 'Entrega sob medida',
+                'why-2-desc': 'As soluções são moldadas aos seus fluxos, stack e maturidade do time, e não a templates genéricos.',
+                'why-3-title': 'Parceria de longo prazo',
+                'why-3-desc': 'Mantemos foco em continuidade, manutenção e evolução depois do lançamento inicial.',
+                'why-4-title': 'Execução pronta para o mercado global',
+                'why-4-desc': 'Entrega baseada no Brasil com comunicação bilíngue e padrão de execução preparado para clientes internacionais.',
+                'contact-tag': 'Inicie uma Conversa',
+                'contact-title': 'Traga o problema, o stack atual e o prazo desejado.',
+                'contact-desc': 'Podemos estruturar uma consultoria, um projeto de entrega ou um modelo híbrido conforme o estágio da sua operação.',
+                'contact-note': 'Conte seu desafio, o stack atual e o prazo que você busca.',
+                'contact-response': 'Primeira resposta em até 1 dia útil, em média.',
+                'contact-card-label': 'Contato principal',
+                'contact-location': 'Base no Brasil, atendimento global.',
+                'contact-cta-primary': 'Enviar e-mail',
+                'contact-cta-secondary': 'Agendar uma discovery call',
+                'footer-email': 'E-mail',
                 'footer-top': 'Voltar ao topo'
             }
         };
@@ -995,32 +1649,20 @@
             currentLang = lang;
             const content = translations[lang];
 
-            // Update all translatable elements
-            Object.keys(content).forEach(id => {
-                const el = document.getElementById(id);
-                if (el) {
-                    if (el.tagName === 'SPAN' && el.querySelector('svg')) {
-                        // Preserve SVG icon in section tags
-                        const svg = el.querySelector('svg').outerHTML;
-                        el.innerHTML = svg + ' ' + content[id];
-                    } else {
-                        el.textContent = content[id];
-                    }
-                }
+            Object.keys(content).forEach((key) => {
+                document.querySelectorAll(`[data-i18n="${key}"]`).forEach((el) => {
+                    el.textContent = content[key];
+                });
             });
 
-            // Update language buttons
-            document.querySelectorAll('.lang-btn').forEach(btn => {
+            document.querySelectorAll('.lang-btn').forEach((btn) => {
                 const isActive = btn.getAttribute('data-lang') === lang;
                 btn.classList.toggle('active', isActive);
-                btn.style.color = isActive ? 'var(--color-text)' : 'var(--color-text-muted)';
             });
 
-            // Update HTML lang attribute
             document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
         }
 
-        // Theme toggle
         function initTheme() {
             const saved = localStorage.getItem('mancan-theme');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -1032,13 +1674,13 @@
             document.documentElement.setAttribute('data-theme', theme);
             const sunIcon = document.querySelector('.sun-icon');
             const moonIcon = document.querySelector('.moon-icon');
+
             if (sunIcon && moonIcon) {
                 sunIcon.classList.toggle('hidden', theme === 'dark');
                 moonIcon.classList.toggle('hidden', theme !== 'dark');
             }
         }
 
-        // Mobile navigation
         function initMobileNav() {
             const hamburger = document.getElementById('hamburger');
             const mobileNav = document.getElementById('mobile-nav');
@@ -1061,25 +1703,26 @@
 
             hamburger.addEventListener('click', toggleNav);
             mobileOverlay.addEventListener('click', closeNav);
-            mobileLinks.forEach(link => link.addEventListener('click', closeNav));
+            mobileLinks.forEach((link) => link.addEventListener('click', closeNav));
         }
 
-        // Scroll animations
         function initScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                },
+                { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+            );
 
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
         }
 
-        // Smooth scroll
         function initSmoothScroll() {
-            document.querySelectorAll('a[href^="#"], [data-scroll-to]').forEach(link => {
+            document.querySelectorAll('a[href^="#"], [data-scroll-to]').forEach((link) => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const target = link.getAttribute('data-scroll-to') || link.getAttribute('href').substring(1);
@@ -1090,7 +1733,7 @@
                 });
             });
 
-            document.querySelectorAll('.scroll-top').forEach(el => {
+            document.querySelectorAll('.scroll-top').forEach((el) => {
                 el.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1098,30 +1741,30 @@
             });
         }
 
-        // Active nav link
         function initActiveNav() {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link[data-scroll-to]');
 
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
-                    if (scrollY >= sectionTop) {
-                        current = section.getAttribute('id');
-                    }
-                });
+            window.addEventListener(
+                'scroll',
+                () => {
+                    let current = '';
 
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('data-scroll-to') === current) {
-                        link.classList.add('active');
-                    }
-                });
-            }, { passive: true });
+                    sections.forEach((section) => {
+                        const sectionTop = section.offsetTop - 110;
+                        if (window.scrollY >= sectionTop) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+
+                    navLinks.forEach((link) => {
+                        link.classList.toggle('active', link.getAttribute('data-scroll-to') === current);
+                    });
+                },
+                { passive: true }
+            );
         }
 
-        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             initTheme();
             switchLang('pt');
@@ -1130,13 +1773,15 @@
             initSmoothScroll();
             initActiveNav();
 
-            // Theme toggle
-            document.querySelector('.theme-toggle').addEventListener('click', () => {
-                const current = document.documentElement.getAttribute('data-theme');
-                const next = current === 'dark' ? 'light' : 'dark';
-                applyTheme(next);
-                localStorage.setItem('mancan-theme', next);
-            });
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const current = document.documentElement.getAttribute('data-theme');
+                    const next = current === 'dark' ? 'light' : 'dark';
+                    applyTheme(next);
+                    localStorage.setItem('mancan-theme', next);
+                });
+            }
         });
     </script>
 </body>
