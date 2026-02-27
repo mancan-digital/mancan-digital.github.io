@@ -66,6 +66,8 @@
 
         html {
             scroll-behavior: smooth;
+            width: 100%;
+            overflow-x: clip;
         }
 
         body {
@@ -79,6 +81,8 @@
             background-size: auto, 28px 28px, 28px 28px;
             overflow-x: hidden;
             line-height: 1.6;
+            width: 100%;
+            max-width: 100vw;
         }
 
         [data-theme="dark"] body {
@@ -112,6 +116,9 @@
         .shell {
             position: relative;
             isolation: isolate;
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: clip;
         }
 
         .shell::before,
@@ -260,16 +267,20 @@
         .mobile-nav {
             position: fixed;
             top: 0;
-            right: -100%;
+            right: 0;
             width: min(22rem, 100%);
             height: 100vh;
+            height: 100dvh;
             padding: 6rem 1.5rem 2rem;
             background: rgba(247, 248, 252, 0.96);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-left: 1px solid var(--brand-border);
-            transition: right 0.25s ease;
             z-index: 80;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            transform: translateX(105%);
+            transition: transform 0.25s ease;
         }
 
         [data-theme="dark"] .mobile-nav {
@@ -277,7 +288,7 @@
         }
 
         .mobile-nav.open {
-            right: 0;
+            transform: translateX(0);
         }
 
         .mobile-overlay {
@@ -368,6 +379,11 @@
             align-items: center;
         }
 
+        .hero-grid > *,
+        .contact-grid > * {
+            min-width: 0;
+        }
+
         .hero-panel,
         .surface-panel,
         .capability-card,
@@ -396,6 +412,7 @@
             font-size: clamp(2.8rem, 5vw, 5.4rem);
             line-height: 0.98;
             margin: 1.2rem 0 1.25rem;
+            overflow-wrap: anywhere;
         }
 
         .hero-sub {
@@ -475,7 +492,7 @@
             background: var(--brand-violet-2);
         }
 
-        .swipe-row {
+        .chip-row {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
@@ -844,6 +861,12 @@
                 padding-bottom: 6.25rem;
             }
 
+            .max-w-7xl,
+            .max-w-3xl,
+            .max-w-xs {
+                max-width: 100%;
+            }
+
             .desktop-nav {
                 display: none;
             }
@@ -861,7 +884,8 @@
             }
 
             .hero-title {
-                font-size: clamp(2.2rem, 12vw, 3.8rem);
+                font-size: clamp(1.95rem, 9.5vw, 3rem);
+                line-height: 1.02;
             }
 
             .hero-copy {
@@ -884,20 +908,14 @@
                 display: none;
             }
 
-            .swipe-row {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                padding-bottom: 0.25rem;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
+            .chip-row {
+                flex-direction: column;
+                align-items: stretch;
             }
 
-            .swipe-row::-webkit-scrollbar {
-                display: none;
-            }
-
-            .swipe-row > * {
-                flex: 0 0 auto;
+            .chip-row > * {
+                width: 100%;
+                justify-content: flex-start;
             }
 
             .value-grid {
@@ -940,6 +958,10 @@
 
             .pain-line {
                 font-size: 0.9rem;
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 8.8vw, 2.5rem);
             }
 
             .badge-node {
@@ -1044,10 +1066,10 @@
                             <span class="brand-gradient" data-i18n="hero-title-2">builds custom systems, and turns AI into business results.</span>
                         </h1>
                         <p class="hero-sub" data-i18n="hero-desc">
-                            We help B2B teams modernize workflows, connect tools, and ship practical software that improves execution.
+                            We modernize workflows, connect tools, and deliver software that improves execution.
                         </p>
                         <p class="pain-line" data-i18n="hero-pain">
-                            What we solve: manual workflows, disconnected tools, slow delivery, and weak operational visibility.
+                            Manual workflows, disconnected tools, slow delivery.
                         </p>
 
                         <div class="mt-8 flex flex-col sm:flex-row gap-3">
@@ -1055,7 +1077,7 @@
                             <a href="#capabilities" class="btn-secondary" id="hero-cta-secondary" data-scroll-to="capabilities" data-i18n="hero-cta-secondary">Explore Capabilities</a>
                         </div>
 
-                        <div class="mt-8 swipe-row">
+                        <div class="mt-8 chip-row">
                             <span class="hero-chip"><span class="chip-dot"></span><span data-i18n="hero-chip-1">Advisory + execution</span></span>
                             <span class="hero-chip"><span class="chip-dot"></span><span data-i18n="hero-chip-2">Built for measurable outcomes</span></span>
                             <span class="hero-chip"><span class="chip-dot"></span><span data-i18n="hero-chip-3">Bilingual delivery EN/PT</span></span>
@@ -1094,7 +1116,7 @@
             <section class="pb-8">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="surface-panel fade-in">
-                        <div class="swipe-row">
+                        <div class="chip-row">
                             <span class="trust-pill" data-i18n="trust-1">Since 2019</span>
                             <span class="trust-pill" data-i18n="trust-2">Brazil-based, global delivery</span>
                             <span class="trust-pill" data-i18n="trust-3">AI + automation + custom software</span>
@@ -1116,10 +1138,7 @@
                             </span>
                             <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="about-title">Consulting built for teams that need clarity, speed, and durable systems.</h2>
                             <p class="mt-6 text-lg text-[var(--brand-muted)]" data-i18n="about-desc-1">
-                                mancan.digital combines strategic advisory with hands-on delivery, so clients do not need separate partners for planning and execution.
-                            </p>
-                            <p class="mt-4 text-lg text-[var(--brand-muted)]" data-i18n="about-desc-2">
-                                We diagnose operational friction, design fit-for-purpose technology, and implement systems that improve throughput, visibility, and decision-making.
+                                We combine strategic advisory and hands-on delivery to diagnose friction, design the right solution, and implement it.
                             </p>
                         </div>
 
@@ -1155,7 +1174,7 @@
                         </span>
                         <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="capabilities-title">A capability matrix that covers advisory, automation, and delivery.</h2>
                         <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="capabilities-desc">
-                            We structure engagements around the work buyers actually need: strategic direction, process automation, and custom software execution.
+                            Three capability areas: strategy, automation, and custom software delivery.
                         </p>
                     </div>
 
@@ -1163,12 +1182,11 @@
                         <article class="capability-card fade-in">
                             <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cap-1-kicker">Cluster 01</div>
                             <h3 class="mt-3 text-2xl font-bold" data-i18n="cap-1-title">Consulting &amp; Strategy</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-1-desc">Define the right systems, priorities, and execution path before resources are wasted.</p>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-1-desc">Define the right systems, priorities, and execution path.</p>
                             <ul>
                                 <li><span data-i18n="cap-1-item-1">Digital transformation planning</span></li>
                                 <li><span data-i18n="cap-1-item-2">Systems assessment</span></li>
                                 <li><span data-i18n="cap-1-item-3">Solution architecture</span></li>
-                                <li><span data-i18n="cap-1-item-4">Technology roadmap design</span></li>
                             </ul>
                             <div class="best-for" data-i18n="cap-1-fit">Best for: teams aligning operations and technology</div>
                         </article>
@@ -1176,12 +1194,11 @@
                         <article class="capability-card fade-in">
                             <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cap-2-kicker">Cluster 02</div>
                             <h3 class="mt-3 text-2xl font-bold" data-i18n="cap-2-title">Automation &amp; AI</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-2-desc">Remove operational drag with practical automation and AI that improve speed and accuracy.</p>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-2-desc">Reduce operational drag with practical automation and AI.</p>
                             <ul>
                                 <li><span data-i18n="cap-2-item-1">RPA and workflow automation</span></li>
                                 <li><span data-i18n="cap-2-item-2">AI integration</span></li>
                                 <li><span data-i18n="cap-2-item-3">Process optimization</span></li>
-                                <li><span data-i18n="cap-2-item-4">Decision support systems</span></li>
                             </ul>
                             <div class="best-for" data-i18n="cap-2-fit">Best for: teams reducing manual work and operational latency</div>
                         </article>
@@ -1189,12 +1206,11 @@
                         <article class="capability-card fade-in">
                             <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cap-3-kicker">Cluster 03</div>
                             <h3 class="mt-3 text-2xl font-bold" data-i18n="cap-3-title">Software Delivery</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-3-desc">Build custom systems that fit real workflows, not off-the-shelf compromises.</p>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-3-desc">Build custom systems that fit real workflows.</p>
                             <ul>
                                 <li><span data-i18n="cap-3-item-1">Full-stack web applications</span></li>
                                 <li><span data-i18n="cap-3-item-2">Desktop and internal tools</span></li>
                                 <li><span data-i18n="cap-3-item-3">Cloud-native platforms</span></li>
-                                <li><span data-i18n="cap-3-item-4">Systems integrations</span></li>
                             </ul>
                             <div class="best-for" data-i18n="cap-3-fit">Best for: teams needing custom software and connected systems</div>
                         </article>
@@ -1221,7 +1237,7 @@
                             </span>
                             <h2 class="mt-5 text-3xl sm:text-4xl font-bold" data-i18n="outcomes-title">Outcomes we deliver when execution and consulting stay connected.</h2>
                             <p class="mt-4 text-lg text-[var(--brand-muted)]" data-i18n="outcomes-desc">
-                                The objective is not abstract transformation. It is operational leverage, stronger decisions, and a foundation your team can scale on.
+                                The goal is simple: faster operations, better decisions, and a foundation that scales.
                             </p>
                         </div>
 
@@ -1257,7 +1273,7 @@
                         </span>
                         <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="process-title">A simple engagement model that moves from diagnosis to implementation.</h2>
                         <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="process-desc">
-                            We keep the process visible and practical so buyers know how strategy becomes working systems.
+                            A clear path from diagnosis to working systems.
                         </p>
                     </div>
 
@@ -1295,7 +1311,7 @@
                         </span>
                         <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="why-title">A consultancy model designed for buyers who need working outcomes, not presentation decks.</h2>
                         <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="why-desc">
-                            The value is in combining business context, technical depth, and execution accountability in the same engagement.
+                            Business context, technical depth, and execution in one engagement.
                         </p>
                     </div>
 
@@ -1356,10 +1372,7 @@
                                 </span>
                                 <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="contact-title">Bring the problem, the current stack, and the target timeline.</h2>
                                 <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="contact-desc">
-                                    We can scope an advisory engagement, a delivery project, or a hybrid path depending on where your team is today.
-                                </p>
-                                <p class="mt-5 text-base font-semibold text-[var(--brand-muted-2)]" data-i18n="contact-note">
-                                    Tell us your challenge, your current stack, and your target timeline.
+                                    We can scope advisory, delivery, or a hybrid engagement based on your current stage.
                                 </p>
                                 <p class="mt-2 text-base font-semibold text-[var(--brand-muted-2)]" data-i18n="contact-response">
                                     Typical first reply within 1 business day.
@@ -1420,8 +1433,8 @@
                 'hero-eyebrow': 'Technology consulting for modern operators',
                 'hero-title-1': 'Technology consulting that automates operations,',
                 'hero-title-2': 'builds custom systems, and turns AI into business results.',
-                'hero-desc': 'We help B2B teams modernize workflows, connect tools, and ship practical software that improves execution.',
-                'hero-pain': 'What we solve: manual workflows, disconnected tools, slow delivery, and weak operational visibility.',
+                'hero-desc': 'We modernize workflows, connect tools, and deliver software that improves execution.',
+                'hero-pain': 'Manual workflows, disconnected tools, slow delivery.',
                 'hero-cta-primary': 'Book a Discovery Call',
                 'hero-cta-secondary': 'Explore Capabilities',
                 'hero-chip-1': 'Advisory + execution',
@@ -1439,8 +1452,8 @@
                 'trust-4': 'Designed for operational efficiency',
                 'about-tag': 'Positioning',
                 'about-title': 'Consulting built for teams that need clarity, speed, and durable systems.',
-                'about-desc-1': 'mancan.digital combines strategic advisory with hands-on delivery, so clients do not need separate partners for planning and execution.',
-                'about-desc-2': 'We diagnose operational friction, design fit-for-purpose technology, and implement systems that improve throughput, visibility, and decision-making.',
+                'about-desc-1': 'We combine strategic advisory and hands-on delivery to diagnose friction, design the right solution, and implement it.',
+                'about-desc-2': 'We design and deliver systems that improve throughput, visibility, and decision-making.',
                 'about-chip-1': 'Partnered delivery from strategy to implementation',
                 'about-chip-2': 'Custom-fit architecture for each engagement',
                 'about-chip-3': 'Practical systems over generic transformation talk',
@@ -1450,10 +1463,10 @@
                 'about-stat-2-value': 'Advisory + build',
                 'capabilities-tag': 'Capabilities',
                 'capabilities-title': 'A capability matrix that covers advisory, automation, and delivery.',
-                'capabilities-desc': 'We structure engagements around the work buyers actually need: strategic direction, process automation, and custom software execution.',
+                'capabilities-desc': 'Three capability areas: strategy, automation, and custom software delivery.',
                 'cap-1-kicker': 'Cluster 01',
                 'cap-1-title': 'Consulting & Strategy',
-                'cap-1-desc': 'Define the right systems, priorities, and execution path before resources are wasted.',
+                'cap-1-desc': 'Define the right systems, priorities, and execution path.',
                 'cap-1-item-1': 'Digital transformation planning',
                 'cap-1-item-2': 'Systems assessment',
                 'cap-1-item-3': 'Solution architecture',
@@ -1461,7 +1474,7 @@
                 'cap-1-fit': 'Best for: teams aligning operations and technology',
                 'cap-2-kicker': 'Cluster 02',
                 'cap-2-title': 'Automation & AI',
-                'cap-2-desc': 'Remove operational drag with practical automation and AI that improve speed and accuracy.',
+                'cap-2-desc': 'Reduce operational drag with practical automation and AI.',
                 'cap-2-item-1': 'RPA and workflow automation',
                 'cap-2-item-2': 'AI integration',
                 'cap-2-item-3': 'Process optimization',
@@ -1469,7 +1482,7 @@
                 'cap-2-fit': 'Best for: teams reducing manual work and operational latency',
                 'cap-3-kicker': 'Cluster 03',
                 'cap-3-title': 'Software Delivery',
-                'cap-3-desc': 'Build custom systems that fit real workflows, not off-the-shelf compromises.',
+                'cap-3-desc': 'Build custom systems that fit real workflows.',
                 'cap-3-item-1': 'Full-stack web applications',
                 'cap-3-item-2': 'Desktop and internal tools',
                 'cap-3-item-3': 'Cloud-native platforms',
@@ -1481,7 +1494,7 @@
                 'engagement-3': 'Ongoing partnership',
                 'outcomes-tag': 'Outcomes',
                 'outcomes-title': 'Outcomes we deliver when execution and consulting stay connected.',
-                'outcomes-desc': 'The objective is not abstract transformation. It is operational leverage, stronger decisions, and a foundation your team can scale on.',
+                'outcomes-desc': 'The goal is simple: faster operations, better decisions, and a foundation that scales.',
                 'outcome-1-kicker': 'Outcome 01',
                 'outcome-1-title': 'Faster operations',
                 'outcome-1-desc': 'Reduce handoffs, repeated manual tasks, and avoidable delays across core workflows.',
@@ -1493,7 +1506,7 @@
                 'outcome-3-desc': 'Build systems that can support growth instead of becoming the next bottleneck.',
                 'process-tag': 'How We Work',
                 'process-title': 'A simple engagement model that moves from diagnosis to implementation.',
-                'process-desc': 'We keep the process visible and practical so buyers know how strategy becomes working systems.',
+                'process-desc': 'A clear path from diagnosis to working systems.',
                 'process-1-kicker': 'Assess',
                 'process-1-title': 'Assess',
                 'process-1-desc': 'Audit workflows, systems, bottlenecks, and business priorities to define the real constraints.',
@@ -1505,7 +1518,7 @@
                 'process-3-desc': 'Deliver software, automations, integrations, and iterative improvements that hold up in real operations.',
                 'why-tag': 'Why Clients Choose Us',
                 'why-title': 'A consultancy model designed for buyers who need working outcomes, not presentation decks.',
-                'why-desc': 'The value is in combining business context, technical depth, and execution accountability in the same engagement.',
+                'why-desc': 'Business context, technical depth, and execution in one engagement.',
                 'why-1-title': 'Business-first consulting',
                 'why-1-desc': 'Recommendations are anchored in operational constraints, business priorities, and delivery reality.',
                 'why-2-title': 'Custom-fit delivery',
@@ -1516,8 +1529,8 @@
                 'why-4-desc': 'Brazil-based delivery with bilingual communication and execution quality built for international clients.',
                 'contact-tag': 'Start a Conversation',
                 'contact-title': 'Bring the problem, the current stack, and the target timeline.',
-                'contact-desc': 'We can scope an advisory engagement, a delivery project, or a hybrid path depending on where your team is today.',
-                'contact-note': 'Tell us your challenge, your current stack, and your target timeline.',
+                'contact-desc': 'We can scope advisory, delivery, or a hybrid engagement based on your current stage.',
+                'contact-note': 'Tell us your challenge, stack, and target timeline.',
                 'contact-response': 'Typical first reply within 1 business day.',
                 'contact-card-label': 'Primary contact',
                 'contact-location': 'Brazil-based, available worldwide.',
@@ -1535,8 +1548,8 @@
                 'hero-eyebrow': 'Consultoria de tecnologia para operadores modernos',
                 'hero-title-1': 'Consultoria de tecnologia que automatiza operações,',
                 'hero-title-2': 'constrói sistemas sob medida e transforma IA em resultado de negócio.',
-                'hero-desc': 'Ajudamos equipes B2B a modernizar fluxos, conectar ferramentas e entregar software prático que melhora a execução.',
-                'hero-pain': 'O que resolvemos: fluxos manuais, ferramentas desconectadas, entrega lenta e baixa visibilidade operacional.',
+                'hero-desc': 'Modernizamos fluxos, conectamos ferramentas e entregamos software que melhora a execução.',
+                'hero-pain': 'Fluxos manuais, ferramentas desconectadas, entrega lenta.',
                 'hero-cta-primary': 'Agendar uma discovery call',
                 'hero-cta-secondary': 'Explorar capacidades',
                 'hero-chip-1': 'Consultoria + execução',
@@ -1554,8 +1567,8 @@
                 'trust-4': 'Desenhado para eficiência operacional',
                 'about-tag': 'Posicionamento',
                 'about-title': 'Consultoria feita para equipes que precisam de clareza, velocidade e sistemas duráveis.',
-                'about-desc-1': 'A mancan.digital combina consultoria estratégica com entrega prática, para que o cliente não precise de parceiros separados para planejar e executar.',
-                'about-desc-2': 'Diagnosticamos atritos operacionais, desenhamos tecnologia aderente ao contexto e implementamos sistemas que aumentam throughput, visibilidade e capacidade de decisão.',
+                'about-desc-1': 'Combinamos consultoria estratégica e entrega prática para diagnosticar atritos, desenhar a solução certa e implementá-la.',
+                'about-desc-2': 'Desenhamos e entregamos sistemas que aumentam throughput, visibilidade e capacidade de decisão.',
                 'about-chip-1': 'Entrega parceira da estratégia à implementação',
                 'about-chip-2': 'Arquitetura sob medida para cada projeto',
                 'about-chip-3': 'Sistemas práticos em vez de discurso genérico de transformação',
@@ -1565,10 +1578,10 @@
                 'about-stat-2-value': 'Consultoria + build',
                 'capabilities-tag': 'Capacidades',
                 'capabilities-title': 'Uma matriz de capacidades que cobre consultoria, automação e entrega.',
-                'capabilities-desc': 'Estruturamos os projetos em torno do que compradores realmente precisam: direção estratégica, automação de processos e execução de software.',
+                'capabilities-desc': 'Três áreas principais: estratégia, automação e entrega de software sob medida.',
                 'cap-1-kicker': 'Cluster 01',
                 'cap-1-title': 'Consultoria e Estratégia',
-                'cap-1-desc': 'Defina os sistemas certos, as prioridades e o caminho de execução antes de desperdiçar recursos.',
+                'cap-1-desc': 'Defina os sistemas certos, as prioridades e o caminho de execução.',
                 'cap-1-item-1': 'Planejamento de transformação digital',
                 'cap-1-item-2': 'Avaliação de sistemas',
                 'cap-1-item-3': 'Arquitetura de solução',
@@ -1576,7 +1589,7 @@
                 'cap-1-fit': 'Ideal para: equipes alinhando operação e tecnologia',
                 'cap-2-kicker': 'Cluster 02',
                 'cap-2-title': 'Automação e IA',
-                'cap-2-desc': 'Remova atrito operacional com automação prática e IA aplicada para ganhar velocidade e precisão.',
+                'cap-2-desc': 'Reduza atrito operacional com automação prática e IA.',
                 'cap-2-item-1': 'RPA e automação de workflow',
                 'cap-2-item-2': 'Integração com IA',
                 'cap-2-item-3': 'Otimização de processos',
@@ -1584,7 +1597,7 @@
                 'cap-2-fit': 'Ideal para: equipes reduzindo trabalho manual e latência operacional',
                 'cap-3-kicker': 'Cluster 03',
                 'cap-3-title': 'Entrega de Software',
-                'cap-3-desc': 'Construa sistemas sob medida para fluxos reais, sem compromissos de prateleira.',
+                'cap-3-desc': 'Construa sistemas sob medida para fluxos reais.',
                 'cap-3-item-1': 'Aplicações web full-stack',
                 'cap-3-item-2': 'Ferramentas desktop e internas',
                 'cap-3-item-3': 'Plataformas cloud-native',
@@ -1596,7 +1609,7 @@
                 'engagement-3': 'Parceria contínua',
                 'outcomes-tag': 'Resultados',
                 'outcomes-title': 'Os resultados aparecem quando execução e consultoria permanecem conectadas.',
-                'outcomes-desc': 'O objetivo não é uma transformação abstrata. É alavancagem operacional, decisões melhores e uma base que escala com sua equipe.',
+                'outcomes-desc': 'O objetivo é simples: operações mais rápidas, decisões melhores e uma base que escala.',
                 'outcome-1-kicker': 'Resultado 01',
                 'outcome-1-title': 'Operações mais rápidas',
                 'outcome-1-desc': 'Reduza handoffs, tarefas manuais repetidas e atrasos evitáveis nos fluxos centrais.',
@@ -1608,7 +1621,7 @@
                 'outcome-3-desc': 'Construa sistemas capazes de sustentar crescimento sem virar o próximo gargalo.',
                 'process-tag': 'Como Trabalhamos',
                 'process-title': 'Um modelo simples de atuação que vai do diagnóstico à implementação.',
-                'process-desc': 'Mantemos o processo visível e prático para que a estratégia vire sistema funcional.',
+                'process-desc': 'Um caminho claro do diagnóstico ao sistema funcionando.',
                 'process-1-kicker': 'Avaliar',
                 'process-1-title': 'Avaliar',
                 'process-1-desc': 'Auditamos fluxos, sistemas, gargalos e prioridades de negócio para definir as restrições reais.',
@@ -1620,7 +1633,7 @@
                 'process-3-desc': 'Entregamos software, automações, integrações e melhorias iterativas que funcionam na operação real.',
                 'why-tag': 'Por Que Escolhem',
                 'why-title': 'Um modelo de consultoria pensado para compradores que precisam de resultado funcional, não apenas apresentação.',
-                'why-desc': 'O valor está em unir contexto de negócio, profundidade técnica e responsabilidade de execução no mesmo projeto.',
+                'why-desc': 'Contexto de negócio, profundidade técnica e execução no mesmo projeto.',
                 'why-1-title': 'Consultoria orientada ao negócio',
                 'why-1-desc': 'As recomendações partem das restrições operacionais, prioridades do negócio e realidade de entrega.',
                 'why-2-title': 'Entrega sob medida',
@@ -1631,8 +1644,8 @@
                 'why-4-desc': 'Entrega baseada no Brasil com comunicação bilíngue e padrão de execução preparado para clientes internacionais.',
                 'contact-tag': 'Inicie uma Conversa',
                 'contact-title': 'Traga o problema, o stack atual e o prazo desejado.',
-                'contact-desc': 'Podemos estruturar uma consultoria, um projeto de entrega ou um modelo híbrido conforme o estágio da sua operação.',
-                'contact-note': 'Conte seu desafio, o stack atual e o prazo que você busca.',
+                'contact-desc': 'Podemos estruturar consultoria, entrega ou um modelo híbrido conforme o seu estágio atual.',
+                'contact-note': 'Conte seu desafio, stack e prazo desejado.',
                 'contact-response': 'Primeira resposta em até 1 dia útil, em média.',
                 'contact-card-label': 'Contato principal',
                 'contact-location': 'Base no Brasil, atendimento global.',
@@ -1665,8 +1678,7 @@
 
         function initTheme() {
             const saved = localStorage.getItem('mancan-theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = saved || (prefersDark ? 'dark' : 'light');
+            const theme = saved || 'dark';
             applyTheme(theme);
         }
 
