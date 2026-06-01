@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="cn-meta-title">Cenna — Lightweight macOS screenshots & screen recording</title>
+    <meta
+        name="description"
+        content="Cenna is a lightweight macOS menu bar app for screenshots and screen recording — native capture speed, deep customization, and memory discipline most tools lack."
+    />
+    <link rel="icon" type="image/x-icon" href="../logo-symbol.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+        rel="stylesheet"
+    />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'Manrope', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="antialiased">
+    <div class="shell">
+        <nav class="site-nav">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between gap-4 h-20">
+                    <a href="../index.html" class="flex items-center gap-3">
+                        <span class="brand-mark">
+                            <img src="../logo-symbol.png" alt="mancan.digital" class="w-full h-full object-contain" />
+                        </span>
+                        <span class="brand-wordmark">mancan<span class="brand-gradient">.digital</span></span>
+                    </a>
+
+                    <div class="desktop-nav hidden md:flex items-center gap-7">
+                        <a href="../index.html#about" class="nav-link" data-i18n="nav-about">About</a>
+                        <a href="../index.html#services" class="nav-link" data-i18n="nav-services">Services</a>
+                        <a href="../index.html#products" class="nav-link" data-i18n="nav-products">Products</a>
+                        <a href="../index.html#contact" class="nav-link" data-i18n="nav-contact">Contact</a>
+                    </div>
+
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <div class="lang-toggle desktop-mobile-hide flex items-center gap-1 rounded-full p-1">
+                            <button type="button" onclick="switchLang('en')" class="lang-btn" data-lang="en">EN</button>
+                            <button type="button" onclick="switchLang('pt')" class="lang-btn" data-lang="pt">PT</button>
+                        </div>
+
+                        <button type="button" class="theme-toggle" aria-label="Toggle theme">
+                            <svg class="sun-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                            <svg class="moon-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                            </svg>
+                        </button>
+
+                        <button type="button" class="hamburger" id="hamburger" aria-label="Open menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="mobile-overlay" id="mobile-overlay"></div>
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="flex flex-col gap-4">
+                <a href="../index.html#about" class="nav-link mobile-link text-lg" data-i18n="nav-about">About</a>
+                <a href="../index.html#services" class="nav-link mobile-link text-lg" data-i18n="nav-services">Services</a>
+                <a href="../index.html#products" class="nav-link mobile-link text-lg" data-i18n="nav-products">Products</a>
+                <a href="../index.html#contact" class="nav-link mobile-link text-lg" data-i18n="nav-contact">Contact</a>
+            </div>
+            <div class="mobile-only mt-8 pt-6 border-t border-[var(--brand-border)]">
+                <div class="lang-toggle inline-flex items-center gap-1 rounded-full p-1">
+                    <button type="button" onclick="switchLang('en')" class="lang-btn" data-lang="en">EN</button>
+                    <button type="button" onclick="switchLang('pt')" class="lang-btn" data-lang="pt">PT</button>
+                </div>
+                <div class="grid gap-3 mt-5">
+                    <a href="../index.html#contact" class="btn-primary mobile-link" data-i18n="cn-cta-access">Get early access</a>
+                    <a href="mailto:info@mancan.digital" class="btn-secondary mobile-link" data-i18n="cn-cta-email">Email us</a>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <header class="pt-10 pb-8 sm:pt-14 sm:pb-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <a href="../index.html#products" class="footer-link text-sm font-semibold" data-i18n="cn-back">← mancan.digital</a>
+                    <div class="hero-grid mt-6">
+                        <div class="hero-copy fade-in">
+                            <span class="eyebrow">
+                                <span class="eyebrow-dot"></span>
+                                <span data-i18n="cn-hero-eyebrow">Product · macOS capture & recording</span>
+                            </span>
+                            <h1 class="hero-title">
+                                <span data-i18n="prod-cenna-title">Cenna</span>
+                            </h1>
+                            <p class="text-xl sm:text-2xl font-bold brand-gradient mt-2" data-i18n="prod-cenna-tagline">Native speed. Without native limits.</p>
+                            <p class="hero-sub mt-4" data-i18n="prod-cenna-desc">A lightweight macOS menu bar app for screenshots and screen recording — native capture, real customization, and memory discipline most tools lack.</p>
+
+                            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                                <a href="../index.html#contact" class="btn-primary" data-i18n="cn-cta-access">Get early access</a>
+                                <a href="mailto:info@mancan.digital" class="btn-secondary" data-i18n="cn-cta-email">Email us</a>
+                            </div>
+                            <p class="mt-4 text-sm font-semibold text-[var(--brand-muted-2)]" data-i18n="cn-download-note">Free beta · macOS 13+ · coming soon</p>
+
+                            <div class="mt-8 chip-row">
+                                <span class="trust-pill" data-i18n="prod-cenna-use-1">Demos & product tours</span>
+                                <span class="trust-pill" data-i18n="prod-cenna-use-2">Support & bug reports</span>
+                                <span class="trust-pill" data-i18n="prod-cenna-use-3">Docs & async updates</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-panel fade-in flex items-center justify-center">
+                            <img
+                                src="assets/cenna-icon.png"
+                                alt="Cenna app icon"
+                                class="w-40 h-40 sm:w-52 sm:h-52 object-contain"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="section-stack py-16 sm:py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl fade-in">
+                        <span class="section-label"><span data-i18n="cn-overview-label">Overview</span></span>
+                        <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="cn-overview-1">Most screenshot tools promise "simple capture," then keep a heavy pipeline alive in the background, decode huge images in-process, and turn ordinary screenshots into a memory event. Cenna takes the opposite approach.</p>
+                        <p class="mt-4 text-lg text-[var(--brand-muted)]" data-i18n="cn-overview-2">It leans on macOS-native capture paths and keeps full-resolution screenshot data off the long-lived UI path, so it feels fast and stays realistic to keep running all day. Native where it matters, custom where it matters, efficient everywhere.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-stack py-16 sm:py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl fade-in">
+                        <span class="section-label"><span data-i18n="cn-shots-label">Screenshots</span></span>
+                    </div>
+                    <div class="surface-panel mt-8 flex flex-col items-center fade-in">
+                        <img
+                            src="assets/cenna-hero.png"
+                            alt="Cenna settings and capture workflow"
+                            class="max-w-full rounded-2xl"
+                        />
+                        <p class="mt-4 text-sm font-semibold text-[var(--brand-muted-2)] text-center" data-i18n="cn-shot-caption">Configurable capture, recording, and post-capture behavior from one menu bar app.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-stack py-16 sm:py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <article class="capability-card fade-in">
+                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cn-features-label">Features</div>
+                            <ul>
+                                <li><span data-i18n="prod-cenna-feat-1">Full-screen and interactive area capture</span></li>
+                                <li><span data-i18n="prod-cenna-feat-2">Built-in annotation editor: arrows, shapes, freehand</span></li>
+                                <li><span data-i18n="prod-cenna-feat-3">Post-capture choice: editor, quick preview, copy, or save</span></li>
+                                <li><span data-i18n="prod-cenna-feat-4">MP4 recording with system audio, mic, and webcam overlay</span></li>
+                                <li><span data-i18n="prod-cenna-feat-5">Timeline editor: split, trim, and speed up segments</span></li>
+                                <li><span data-i18n="prod-cenna-feat-6">Direct paths stay flat at ~15MB RAM, editor ~38MB</span></li>
+                                <li><span data-i18n="prod-cenna-feat-7">Global shortcuts, login item, configurable save folder</span></li>
+                            </ul>
+                        </article>
+
+                        <article class="capability-card fade-in">
+                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cn-memory-label">Memory discipline</div>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cn-memory-desc">Direct capture paths stay flat at ~15MB across an entire burst. The editor settles at ~38MB no matter how many shots run through it. Where many open-source tools sit in the hundreds of MB — and can exceed 1GB — Cenna stays lean.</p>
+                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)] mt-6" data-i18n="cn-usecases-label">Use cases</div>
+                            <div class="engagement-row">
+                                <span class="trust-pill" data-i18n="prod-cenna-use-1">Demos & product tours</span>
+                                <span class="trust-pill" data-i18n="prod-cenna-use-2">Support & bug reports</span>
+                                <span class="trust-pill" data-i18n="prod-cenna-use-3">Docs & async updates</span>
+                            </div>
+                            <div class="best-for" data-i18n="prod-cenna-fit">Best for: teams who want native macOS feel without bloated capture tools</div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-stack py-16 sm:py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl fade-in">
+                        <span class="section-label"><span data-i18n="cn-recording-label">Recording advantage</span></span>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-6 mt-8">
+                        <article class="capability-card fade-in">
+                            <h3 class="text-xl font-bold" data-i18n="cn-rec-1-title">Beyond Apple's defaults</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cn-rec-1-desc">Record full-screen MP4 with system audio, microphone, and a customizable webcam overlay — multiple sizes and shapes — so you appear on top of the video instead of recording screen and camera separately.</p>
+                            <h3 class="text-xl font-bold mt-6" data-i18n="cn-rec-2-title">Quality you control</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cn-rec-2-desc">Pick 30 or 60 fps and 720p, 1080p, 1440p, or native resolution. Trade fidelity for dramatically lower memory when that is the right call.</p>
+                        </article>
+
+                        <article class="capability-card fade-in">
+                            <h3 class="text-xl font-bold" data-i18n="cn-rec-3-title">Edit before you save</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cn-rec-3-desc">Split the timeline at the playhead, trim by deleting (and restoring) segments, and speed up slow sections with 1x–2x presets — per segment or all at once — with an export-accurate preview so what you see is what gets written.</p>
+                            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                                <a href="../index.html#contact" class="btn-primary" data-i18n="cn-cta-access">Get early access</a>
+                                <a href="mailto:info@mancan.digital" class="btn-secondary" data-i18n="cn-cta-email">Email us</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="py-12 border-t border-[var(--brand-border)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <a href="../index.html" class="flex items-center gap-3">
+                        <span class="brand-mark !w-10 !h-10 !rounded-xl !p-2">
+                            <img src="../logo-symbol.png" alt="" class="w-full h-full object-contain" />
+                        </span>
+                        <span class="brand-wordmark !block">mancan<span class="brand-gradient">.digital</span></span>
+                    </a>
+                    <p class="text-sm font-semibold text-[var(--brand-muted)]">&copy; 2026 mancan.digital. All rights reserved.</p>
+                    <div class="flex items-center gap-6">
+                        <a href="../index.html#products" class="footer-link text-sm" data-i18n="nav-products">Products</a>
+                        <a href="mailto:info@mancan.digital" class="footer-link text-sm" data-i18n="footer-email">Email</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../app.js"></script>
+</body>
+</html>
