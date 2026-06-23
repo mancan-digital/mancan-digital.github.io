@@ -196,7 +196,7 @@
                 'contact-location': 'Brazil-based, available worldwide.',
                 'contact-cta-primary': 'Email Us',
                 'contact-cta-secondary': 'Schedule a Discovery Call',
-                'footer-email': 'Email',
+                'footer-email': 'info@mancan.digital',
                 'footer-top': 'Back to top',
                 'nav-book': 'Book a call',
                 'hero-badge': 'Networked delivery model',
@@ -412,7 +412,7 @@
                 'contact-location': 'Base no Brasil, atendimento global.',
                 'contact-cta-primary': 'Enviar e-mail',
                 'contact-cta-secondary': 'Agendar uma discovery call',
-                'footer-email': 'E-mail',
+                'footer-email': 'info@mancan.digital',
                 'footer-top': 'Voltar ao topo',
                 'nav-book': 'Agendar conversa',
                 'hero-badge': 'modelo de entrega em rede',
@@ -540,10 +540,42 @@
             );
         }
 
+        function showToast(message) {
+            let toast = document.getElementById('copy-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'copy-toast';
+                toast.className =
+                    'fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] px-4 py-2.5 rounded-lg ' +
+                    'bg-slate-900 text-white text-sm shadow-lg opacity-0 transition-opacity duration-200 pointer-events-none';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = message;
+            requestAnimationFrame(() => toast.classList.replace('opacity-0', 'opacity-100'));
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => toast.classList.replace('opacity-100', 'opacity-0'), 2200);
+        }
+
+        function initEmailCopy() {
+            document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+                link.addEventListener('click', () => {
+                    const email = link.getAttribute('href').replace('mailto:', '').split('?')[0];
+                    // Copy regardless of mail-client presence — many desktops have no mailto handler.
+                    if (navigator.clipboard) {
+                        navigator.clipboard
+                            .writeText(email)
+                            .then(() => showToast((currentLang === 'pt' ? 'E-mail copiado: ' : 'Email copied: ') + email))
+                            .catch(() => {});
+                    }
+                });
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             switchLang('pt');
             initMobileNav();
             initScrollAnimations();
             initSmoothScroll();
             initActiveNav();
+            initEmailCopy();
         });
