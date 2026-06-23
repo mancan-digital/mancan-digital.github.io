@@ -3,41 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mancan.digital - Technology Consulting for Operational Growth</title>
+    <title>mancan.digital — Technology Consulting for Operational Growth</title>
     <meta
         name="description"
         content="Technology consulting that automates operations, builds custom systems, and turns AI into business results."
     />
     <link rel="icon" type="image/x-icon" href="logo-symbol.png" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     />
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Manrope', 'system-ui', 'sans-serif'],
-                        display: ['Space Grotesk', 'Manrope', 'system-ui', 'sans-serif'],
-                    },
-                },
-            },
-        };
-    </script>
     <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="antialiased">
+<body>
     <div class="shell">
         <nav class="site-nav">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between gap-4 h-20">
+            <div class="max-w-6xl mx-auto px-6 sm:px-8">
+                <div class="flex items-center justify-between gap-4 h-[4.5rem]">
                     <a href="#" class="flex items-center gap-3 scroll-top">
                         <span class="brand-mark">
                             <img src="logo-symbol.png" alt="mancan.digital" class="w-full h-full object-contain" />
                         </span>
-                        <span class="brand-wordmark">mancan<span class="brand-gradient">.digital</span></span>
+                        <span class="brand-wordmark">mancan<span class="text-muted-2">.digital</span></span>
                     </a>
 
                     <div class="desktop-nav hidden md:flex items-center gap-7">
@@ -47,20 +37,13 @@
                         <a href="#contact" class="nav-link" data-scroll-to="contact" data-i18n="nav-contact">Contact</a>
                     </div>
 
-                    <div class="flex items-center gap-2 sm:gap-3">
-                        <div class="lang-toggle desktop-mobile-hide flex items-center gap-1 rounded-full p-1">
+                    <div class="flex items-center gap-3">
+                        <div class="lang-toggle desktop-mobile-hide flex items-center gap-1">
                             <button type="button" onclick="switchLang('en')" class="lang-btn" data-lang="en">EN</button>
                             <button type="button" onclick="switchLang('pt')" class="lang-btn" data-lang="pt">PT</button>
                         </div>
 
-                        <button type="button" class="theme-toggle" aria-label="Toggle theme">
-                            <svg class="sun-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                            <svg class="moon-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
-                        </button>
+                        <a href="#contact" class="btn-primary desktop-mobile-hide !px-4 !py-2.5 !text-[0.85rem]" data-scroll-to="contact" data-i18n="nav-book">Book a call</a>
 
                         <button type="button" class="hamburger" id="hamburger" aria-label="Open menu">
                             <span></span>
@@ -80,67 +63,100 @@
                 <a href="#products" class="nav-link mobile-link text-lg" data-scroll-to="products" data-i18n="nav-products">Products</a>
                 <a href="#contact" class="nav-link mobile-link text-lg" data-scroll-to="contact" data-i18n="nav-contact">Contact</a>
             </div>
-            <div class="mobile-only mt-8 pt-6 border-t border-[var(--brand-border)]">
-                <div class="lang-toggle inline-flex items-center gap-1 rounded-full p-1">
+            <div class="mobile-only mt-8 pt-6" style="border-top:1px solid var(--brand-border)">
+                <div class="lang-toggle inline-flex items-center gap-1">
                     <button type="button" onclick="switchLang('en')" class="lang-btn" data-lang="en">EN</button>
                     <button type="button" onclick="switchLang('pt')" class="lang-btn" data-lang="pt">PT</button>
                 </div>
                 <div class="grid gap-3 mt-5">
-                    <a href="mailto:info@mancan.digital" class="btn-primary mobile-link" data-i18n="contact-cta-primary">Email Us</a>
-                    <a href="#contact" class="btn-secondary mobile-link" data-scroll-to="contact" data-i18n="hero-cta-primary">Book a Discovery Call</a>
+                    <a href="#contact" class="btn-primary mobile-link" data-scroll-to="contact" data-i18n="hero-cta-primary">Book a discovery call</a>
+                    <a href="mailto:info@mancan.digital" class="btn-secondary mobile-link" data-i18n="contact-cta-secondary">info@mancan.digital</a>
                 </div>
             </div>
         </div>
 
-        <header class="pt-10 pb-8 sm:pt-14 sm:pb-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- HERO -->
+        <header>
+            <div class="max-w-6xl mx-auto px-6 sm:px-8 pt-16 pb-14">
                 <div class="hero-grid">
-                    <div class="hero-copy fade-in">
+                    <div class="fade-in">
                         <span class="eyebrow">
                             <span class="eyebrow-dot"></span>
-                            <span data-i18n="hero-eyebrow">Technology consulting</span>
+                            <span data-i18n="hero-badge">Networked delivery model</span>
                         </span>
-                        <h1 class="hero-title">
-                            <span data-i18n="hero-title-1">Technology consulting that automates operations,</span>
-                            <span class="brand-gradient" data-i18n="hero-title-2">builds custom systems, and turns AI into business results.</span>
+                        <h1 class="hero-title mt-6">
+                            <span data-i18n="hero-line-1">Automate operations.</span><br />
+                            <span data-i18n="hero-line-2">Connect systems.</span><br />
+                            <span class="brand-gradient" data-i18n="hero-line-3">Ship custom software.</span>
                         </h1>
                         <p class="hero-sub" data-i18n="hero-desc">
-                            We automate operations, connect systems, and deliver custom software.
+                            Technology consulting that turns AI and automation into business results — for small and mid-size teams that want real control over their data.
                         </p>
 
-                        <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                            <a href="#contact" class="btn-primary" id="hero-cta-primary" data-scroll-to="contact" data-i18n="hero-cta-primary">Book a Discovery Call</a>
-                            <a href="#services" class="btn-secondary" id="hero-cta-secondary" data-scroll-to="services" data-i18n="hero-cta-secondary">Explore Capabilities</a>
+                        <div class="flex flex-wrap gap-3 items-center">
+                            <a href="#contact" class="btn-primary" data-scroll-to="contact" data-i18n="hero-cta-primary">Book a discovery call</a>
+                            <a href="#services" class="btn-secondary" data-scroll-to="services" data-i18n="hero-cta-secondary">Explore capabilities</a>
                         </div>
 
-                        <div class="mt-8 chip-row">
-                            <span class="hero-chip"><span class="chip-dot"></span><span data-i18n="hero-chip-1">Advisory + execution</span></span>
-                            <span class="hero-chip"><span class="chip-dot"></span><span data-i18n="hero-chip-2">Bilingual delivery EN/PT</span></span>
+                        <div class="hero-stats">
+                            <span data-i18n="hero-stat-1">since 2019</span>
+                            <span class="sep">·</span>
+                            <span data-i18n="hero-stat-2">global delivery</span>
+                            <span class="sep">·</span>
+                            <span data-i18n="hero-stat-3">bilingual EN/PT</span>
                         </div>
                     </div>
 
-                    <div class="hero-panel board fade-in">
-                        <span class="board-wire wire-1"></span>
-                        <span class="board-wire wire-2"></span>
-                        <span class="board-wire wire-3"></span>
-
-                        <span class="badge-node node-ai" data-i18n="hero-node-1">AI</span>
-                        <span class="badge-node node-automation" data-i18n="hero-node-2">Automation</span>
-                        <span class="badge-node node-apps" data-i18n="hero-node-3">Custom Apps</span>
-                        <span class="badge-node node-advisory" data-i18n="hero-node-4">Advisory</span>
-
-                        <div class="relative z-10 min-h-[24rem] flex flex-col items-center justify-center text-center">
-                            <div class="w-36 h-36 sm:w-44 sm:h-44 logo-plate">
-                                <div class="logo-core">
-                                    <img src="logo-symbol.png" alt="mancan.digital logo" class="w-full h-full object-contain" />
-                                </div>
-                            </div>
-                            <div class="mt-8 max-w-xs">
-                                <div class="text-sm font-extrabold uppercase tracking-[0.16em] text-[var(--brand-muted-2)]" data-i18n="board-kicker">Networked delivery model</div>
-                                <p class="board-desc mt-3 text-base font-semibold text-[var(--brand-muted)]" data-i18n="board-desc">
-                                    Strategy, automation, software delivery, and AI implementation aligned in one execution layer.
-                                </p>
-                            </div>
+                    <div class="hero-panel fade-in">
+                        <div class="panel-head">
+                            <span>automation.pipeline</span>
+                            <span class="live" data-i18n="hero-live">● live</span>
+                        </div>
+                        <svg viewBox="0 0 460 320" style="width:100%;height:auto;display:block" role="img" aria-label="Automation pipeline diagram">
+                            <defs>
+                                <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0" stop-color="#4d9bff"></stop>
+                                    <stop offset="1" stop-color="#7b5cff"></stop>
+                                </linearGradient>
+                            </defs>
+                            <line x1="78" y1="160" x2="172" y2="92" stroke="url(#edge)" stroke-width="2" stroke-dasharray="8 8" style="animation:flowdash 0.6s linear infinite"></line>
+                            <line x1="78" y1="160" x2="172" y2="228" stroke="url(#edge)" stroke-width="2" stroke-dasharray="8 8" style="animation:flowdash 0.6s linear infinite"></line>
+                            <line x1="208" y1="92" x2="302" y2="160" stroke="url(#edge)" stroke-width="2" stroke-dasharray="8 8" style="animation:flowdash 0.6s linear infinite"></line>
+                            <line x1="208" y1="228" x2="302" y2="160" stroke="url(#edge)" stroke-width="2" stroke-dasharray="8 8" style="animation:flowdash 0.6s linear infinite"></line>
+                            <line x1="338" y1="160" x2="420" y2="160" stroke="url(#edge)" stroke-width="2" stroke-dasharray="8 8" style="animation:flowdash 0.6s linear infinite"></line>
+                            <g>
+                                <circle cx="60" cy="160" r="26" fill="rgba(77,155,255,0.3)" style="transform-box:fill-box;transform-origin:center;animation:pulsering 2.6s ease-in-out infinite"></circle>
+                                <circle cx="60" cy="160" r="17" fill="#0b0f17" stroke="#4d9bff" stroke-width="2"></circle>
+                                <text x="60" y="164" text-anchor="middle" fill="#9ec2ff" font-family="'JetBrains Mono',monospace" font-size="10">IN</text>
+                                <text x="60" y="205" text-anchor="middle" fill="#5b6573" font-family="'JetBrains Mono',monospace" font-size="9" data-i18n="node-data">data</text>
+                            </g>
+                            <g>
+                                <circle cx="190" cy="92" r="24" fill="rgba(77,155,255,0.3)" style="transform-box:fill-box;transform-origin:center;animation:pulsering 2.6s ease-in-out infinite 0.4s"></circle>
+                                <circle cx="190" cy="92" r="17" fill="#0b0f17" stroke="#4d9bff" stroke-width="2"></circle>
+                                <text x="190" y="96" text-anchor="middle" fill="#9ec2ff" font-family="'JetBrains Mono',monospace" font-size="10">RPA</text>
+                                <text x="190" y="58" text-anchor="middle" fill="#5b6573" font-family="'JetBrains Mono',monospace" font-size="9" data-i18n="node-bots">bots</text>
+                            </g>
+                            <g>
+                                <circle cx="190" cy="228" r="24" fill="rgba(123,92,255,0.3)" style="transform-box:fill-box;transform-origin:center;animation:pulsering 2.6s ease-in-out infinite 0.8s"></circle>
+                                <circle cx="190" cy="228" r="17" fill="#0b0f17" stroke="#7b5cff" stroke-width="2"></circle>
+                                <text x="190" y="232" text-anchor="middle" fill="#c3b3ff" font-family="'JetBrains Mono',monospace" font-size="10">AI</text>
+                                <text x="190" y="266" text-anchor="middle" fill="#5b6573" font-family="'JetBrains Mono',monospace" font-size="9" data-i18n="node-models">models</text>
+                            </g>
+                            <g>
+                                <circle cx="320" cy="160" r="24" fill="rgba(77,155,255,0.3)" style="transform-box:fill-box;transform-origin:center;animation:pulsering 2.6s ease-in-out infinite 1.2s"></circle>
+                                <circle cx="320" cy="160" r="17" fill="#0b0f17" stroke="#4d9bff" stroke-width="2"></circle>
+                                <text x="320" y="164" text-anchor="middle" fill="#9ec2ff" font-family="'JetBrains Mono',monospace" font-size="9">SYS</text>
+                                <text x="320" y="201" text-anchor="middle" fill="#5b6573" font-family="'JetBrains Mono',monospace" font-size="9" data-i18n="node-connect">connect</text>
+                            </g>
+                            <g>
+                                <circle cx="430" cy="160" r="22" fill="rgba(123,84,240,0.25)" style="transform-box:fill-box;transform-origin:center;animation:pulsering 2.6s ease-in-out infinite 1.6s"></circle>
+                                <circle cx="430" cy="160" r="15" fill="#0b0f17" stroke="#a78bff" stroke-width="2"></circle>
+                                <text x="430" y="164" text-anchor="middle" fill="#a78bff" font-family="'JetBrains Mono',monospace" font-size="13">✓</text>
+                            </g>
+                        </svg>
+                        <div class="panel-foot">
+                            <span data-i18n="hero-metric-1">throughput ↑ 3.2×</span>
+                            <span data-i18n="hero-metric-2">manual steps ↓ 78%</span>
                         </div>
                     </div>
                 </div>
@@ -148,76 +164,31 @@
         </header>
 
         <main>
-            <section class="pb-8">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="surface-panel fade-in">
-                        <div class="chip-row">
-                            <span class="trust-pill" data-i18n="trust-1">Since 2019</span>
-                            <span class="trust-pill" data-i18n="trust-2">Brazil-based, global delivery</span>
-                            <span class="trust-pill" data-i18n="trust-3">AI + automation + custom software</span>
-                            <span class="trust-pill" data-i18n="trust-4">Designed for operational efficiency</span>
+            <!-- POSITIONING -->
+            <section id="about" class="border-t border-white/[0.06]">
+                <div class="max-w-6xl mx-auto px-6 sm:px-8 py-14">
+                    <div class="section-label mb-5 fade-in" data-i18n="about-tag">Positioning</div>
+                    <div class="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-start">
+                        <h2 class="text-3xl sm:text-4xl font-semibold leading-snug fade-in" data-i18n="about-title">Consulting built for teams that need clarity, speed, and durable systems.</h2>
+                        <div class="flex flex-col gap-3 fade-in">
+                            <div class="flex gap-3 items-start font-display"><span class="text-[var(--accent)] font-bold">→</span><span class="text-[0.95rem] text-muted" data-i18n="about-chip-1">Partnered delivery from strategy to implementation</span></div>
+                            <div class="flex gap-3 items-start font-display"><span class="text-[var(--accent)] font-bold">→</span><span class="text-[0.95rem] text-muted" data-i18n="about-chip-2">Custom-fit architecture for each engagement</span></div>
+                            <div class="flex gap-3 items-start font-display"><span class="text-[var(--accent)] font-bold">→</span><span class="text-[0.95rem] text-muted" data-i18n="about-chip-3">Practical systems over generic transformation talk</span></div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="about" class="section-stack py-20 sm:py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] gap-8 items-start">
-                        <div class="fade-in">
-                            <span class="section-label">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                                <span data-i18n="about-tag">Positioning</span>
-                            </span>
-                            <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="about-title">Consulting built for teams that need clarity, speed, and durable systems.</h2>
-                            <p class="mt-6 text-lg text-[var(--brand-muted)]" data-i18n="about-desc-1">
-                                We combine strategic advisory and hands-on delivery to diagnose friction, design the right solution, and implement it.
-                            </p>
-                        </div>
-
-                        <div class="surface-panel fade-in">
-                            <div class="grid gap-4">
-                                <div class="meta-chip w-fit"><span class="chip-dot"></span><span data-i18n="about-chip-1">Partnered delivery from strategy to implementation</span></div>
-                                <div class="meta-chip w-fit"><span class="chip-dot"></span><span data-i18n="about-chip-2">Custom-fit architecture for each engagement</span></div>
-                                <div class="meta-chip w-fit"><span class="chip-dot"></span><span data-i18n="about-chip-3">Practical systems over generic transformation talk</span></div>
-                            </div>
-                            <div class="mt-6 grid sm:grid-cols-2 gap-4">
-                                <div class="outcome-card">
-                                    <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="about-stat-1-label">Focus</div>
-                                    <div class="mt-2 text-xl font-bold" data-i18n="about-stat-1-value">Operational efficiency</div>
-                                </div>
-                                <div class="outcome-card">
-                                    <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="about-stat-2-label">Delivery model</div>
-                                    <div class="mt-2 text-xl font-bold" data-i18n="about-stat-2-value">Advisory + build</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="services" class="section-stack py-20 sm:py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="max-w-3xl fade-in">
-                        <span class="section-label">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                            </svg>
-                            <span data-i18n="capabilities-tag">Capabilities</span>
-                        </span>
-                        <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="capabilities-title">A capability matrix that covers advisory, automation, and delivery.</h2>
-                        <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="capabilities-desc">
-                            Three capability areas: strategy, automation, and custom software delivery.
-                        </p>
-                    </div>
-
-                    <div class="grid lg:grid-cols-3 gap-6 mt-12">
+            <!-- CAPABILITIES -->
+            <section id="services" class="border-t border-white/[0.06]">
+                <div class="max-w-6xl mx-auto px-6 sm:px-8 py-14">
+                    <div class="section-label mb-3 fade-in" data-i18n="capabilities-tag">Capabilities</div>
+                    <h2 class="text-3xl sm:text-4xl font-semibold leading-tight max-w-3xl mb-9 fade-in" data-i18n="capabilities-title">A capability matrix covering advisory, automation, and delivery.</h2>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
                         <article class="capability-card fade-in">
-                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cap-1-kicker">Cluster 01</div>
-                            <h3 class="mt-3 text-2xl font-bold" data-i18n="cap-1-title">Consulting &amp; Strategy</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-1-desc">Define the right systems, priorities, and execution path.</p>
+                            <div class="product-tag">cluster 01</div>
+                            <h3 class="text-xl font-semibold mb-2" data-i18n="cap-1-title">Consulting &amp; Strategy</h3>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed mb-2" data-i18n="cap-1-desc">Define the right systems, priorities, and execution path.</p>
                             <ul>
                                 <li><span data-i18n="cap-1-item-1">Digital transformation planning</span></li>
                                 <li><span data-i18n="cap-1-item-2">Systems assessment</span></li>
@@ -225,11 +196,10 @@
                             </ul>
                             <div class="best-for" data-i18n="cap-1-fit">Best for: teams aligning operations and technology</div>
                         </article>
-
                         <article class="capability-card fade-in">
-                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cap-2-kicker">Cluster 02</div>
-                            <h3 class="mt-3 text-2xl font-bold" data-i18n="cap-2-title">Automation &amp; AI</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-2-desc">Reduce operational drag with practical automation and AI.</p>
+                            <div class="product-tag">cluster 02</div>
+                            <h3 class="text-xl font-semibold mb-2" data-i18n="cap-2-title">Automation &amp; AI</h3>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed mb-2" data-i18n="cap-2-desc">Reduce operational drag with practical automation and AI.</p>
                             <ul>
                                 <li><span data-i18n="cap-2-item-1">RPA and workflow automation</span></li>
                                 <li><span data-i18n="cap-2-item-2">AI integration</span></li>
@@ -237,11 +207,10 @@
                             </ul>
                             <div class="best-for" data-i18n="cap-2-fit">Best for: teams reducing manual work and operational latency</div>
                         </article>
-
                         <article class="capability-card fade-in">
-                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="cap-3-kicker">Cluster 03</div>
-                            <h3 class="mt-3 text-2xl font-bold" data-i18n="cap-3-title">Software Delivery</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="cap-3-desc">Build custom systems that fit real workflows.</p>
+                            <div class="product-tag">cluster 03</div>
+                            <h3 class="text-xl font-semibold mb-2" data-i18n="cap-3-title">Software Delivery</h3>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed mb-2" data-i18n="cap-3-desc">Build custom systems that fit real workflows.</p>
                             <ul>
                                 <li><span data-i18n="cap-3-item-1">Full-stack web applications</span></li>
                                 <li><span data-i18n="cap-3-item-2">Desktop and internal tools</span></li>
@@ -250,278 +219,135 @@
                             <div class="best-for" data-i18n="cap-3-fit">Best for: teams needing custom software and connected systems</div>
                         </article>
                     </div>
-
-                    <div class="engagement-row fade-in">
-                        <span class="trust-pill" data-i18n="engagement-label">Engagement formats</span>
-                        <span class="trust-pill" data-i18n="engagement-1">Advisory</span>
-                        <span class="trust-pill" data-i18n="engagement-2">Project delivery</span>
-                        <span class="trust-pill" data-i18n="engagement-3">Ongoing partnership</span>
-                    </div>
                 </div>
             </section>
 
-            <section class="section-stack py-20 sm:py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="surface-panel fade-in">
-                        <div class="max-w-3xl">
-                            <span class="section-label">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                                <span data-i18n="outcomes-tag">Outcomes</span>
-                            </span>
-                            <h2 class="mt-5 text-3xl sm:text-4xl font-bold" data-i18n="outcomes-title">Outcomes we deliver when execution and consulting stay connected.</h2>
-                            <p class="mt-4 text-lg text-[var(--brand-muted)]" data-i18n="outcomes-desc">
-                                The goal is simple: faster operations, better decisions, and a foundation that scales.
-                            </p>
-                        </div>
-
-                        <div class="grid md:grid-cols-3 gap-4 mt-10">
-                            <div class="outcome-card">
-                                <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="outcome-1-kicker">Outcome 01</div>
-                                <h3 class="mt-3 text-xl font-bold" data-i18n="outcome-1-title">Faster operations</h3>
-                                <p class="mt-2 text-[var(--brand-muted)] font-semibold" data-i18n="outcome-1-desc">Reduce handoffs, repeated manual tasks, and avoidable delays across core workflows.</p>
-                            </div>
-                            <div class="outcome-card">
-                                <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="outcome-2-kicker">Outcome 02</div>
-                                <h3 class="mt-3 text-xl font-bold" data-i18n="outcome-2-title">Better decisions</h3>
-                                <p class="mt-2 text-[var(--brand-muted)] font-semibold" data-i18n="outcome-2-desc">Improve visibility, system coherence, and confidence in day-to-day operational choices.</p>
-                            </div>
-                            <div class="outcome-card">
-                                <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="outcome-3-kicker">Outcome 03</div>
-                                <h3 class="mt-3 text-xl font-bold" data-i18n="outcome-3-title">Scalable digital foundations</h3>
-                                <p class="mt-2 text-[var(--brand-muted)] font-semibold" data-i18n="outcome-3-desc">Build systems that can support growth instead of becoming the next bottleneck.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="process" class="section-stack py-20 sm:py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="max-w-3xl fade-in">
-                        <span class="section-label">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                            </svg>
-                            <span data-i18n="process-tag">How We Work</span>
-                        </span>
-                        <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="process-title">A simple engagement model that moves from diagnosis to implementation.</h2>
-                        <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="process-desc">
-                            A clear path from diagnosis to working systems.
-                        </p>
-                    </div>
-
+            <!-- HOW WE WORK -->
+            <section id="process" class="border-t border-white/[0.06]">
+                <div class="max-w-6xl mx-auto px-6 sm:px-8 py-14">
+                    <div class="section-label mb-3 fade-in" data-i18n="process-tag">How We Work</div>
+                    <h2 class="text-3xl sm:text-4xl font-semibold leading-tight max-w-2xl mb-10 fade-in" data-i18n="process-title">From diagnosis to working systems.</h2>
                     <div class="timeline">
                         <article class="timeline-card fade-in">
-                            <span class="step-index">01</span>
-                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="process-1-kicker">Assess</div>
-                            <h3 class="mt-3 text-2xl font-bold" data-i18n="process-1-title">Assess</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="process-1-desc">Audit workflows, systems, bottlenecks, and business priorities to define the real constraints.</p>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="step-index">01</span>
+                                <h3 class="text-lg font-semibold" data-i18n="process-1-title">Assess</h3>
+                            </div>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed" data-i18n="process-1-desc">Audit workflows, systems, bottlenecks, and priorities to define the real constraints.</p>
                         </article>
                         <article class="timeline-card fade-in">
-                            <span class="step-index">02</span>
-                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="process-2-kicker">Design</div>
-                            <h3 class="mt-3 text-2xl font-bold" data-i18n="process-2-title">Design</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="process-2-desc">Define solution architecture, automation targets, integration paths, and implementation scope.</p>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="step-index">02</span>
+                                <h3 class="text-lg font-semibold" data-i18n="process-2-title">Design</h3>
+                            </div>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed" data-i18n="process-2-desc">Define solution architecture, automation targets, integration paths, and scope.</p>
                         </article>
                         <article class="timeline-card fade-in">
-                            <span class="step-index">03</span>
-                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="process-3-kicker">Implement</div>
-                            <h3 class="mt-3 text-2xl font-bold" data-i18n="process-3-title">Implement</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="process-3-desc">Deliver software, automations, integrations, and iterative improvements that hold up in real operations.</p>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="step-index">03</span>
+                                <h3 class="text-lg font-semibold" data-i18n="process-3-title">Implement</h3>
+                            </div>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed" data-i18n="process-3-desc">Deliver software, automations, and integrations that hold up in real operations.</p>
                         </article>
                     </div>
                 </div>
             </section>
 
-            <section id="why-us" class="section-stack py-20 sm:py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="max-w-3xl fade-in">
-                        <span class="section-label">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                            <span data-i18n="why-tag">Why Clients Choose Us</span>
-                        </span>
-                        <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="why-title">A consultancy model designed for buyers who need working outcomes, not presentation decks.</h2>
-                        <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="why-desc">
-                            Business context, technical depth, and execution in one engagement.
-                        </p>
-                    </div>
-
-                    <div class="value-grid">
-                        <article class="value-card fade-in">
-                            <div class="value-icon">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold" data-i18n="why-1-title">Business-first consulting</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="why-1-desc">Recommendations are anchored in operational constraints, business priorities, and delivery reality.</p>
-                        </article>
-
-                        <article class="value-card fade-in">
-                            <div class="value-icon">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold" data-i18n="why-2-title">Custom-fit delivery</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="why-2-desc">Solutions are shaped around your workflows, tool stack, and team maturity instead of generic templates.</p>
-                        </article>
-
-                        <article class="value-card fade-in">
-                            <div class="value-icon">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold" data-i18n="why-3-title">Long-term partnership</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="why-3-desc">We stay focused on continuity, maintainability, and improvement after the initial launch.</p>
-                        </article>
-
-                        <article class="value-card fade-in">
-                            <div class="value-icon">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold" data-i18n="why-4-title">Global-ready execution</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="why-4-desc">Brazil-based delivery with bilingual communication and execution quality built for international clients.</p>
-                        </article>
+            <!-- OUTCOMES -->
+            <section class="border-t border-white/[0.06]">
+                <div class="max-w-6xl mx-auto px-6 sm:px-8 py-14">
+                    <div class="section-label mb-3 fade-in" data-i18n="outcomes-tag">Outcomes</div>
+                    <h2 class="text-3xl sm:text-4xl font-semibold leading-tight max-w-3xl mb-9 fade-in" data-i18n="outcomes-title">Faster operations, better decisions, foundations that scale.</h2>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
+                        <div class="outcome-card fade-in">
+                            <div class="outcome-num">01</div>
+                            <h3 class="text-lg font-semibold mb-2" data-i18n="outcome-1-title">Faster operations</h3>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed" data-i18n="outcome-1-desc">Reduce handoffs, repeated manual tasks, and avoidable delays across core workflows.</p>
+                        </div>
+                        <div class="outcome-card fade-in">
+                            <div class="outcome-num">02</div>
+                            <h3 class="text-lg font-semibold mb-2" data-i18n="outcome-2-title">Better decisions</h3>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed" data-i18n="outcome-2-desc">Improve visibility, system coherence, and confidence in day-to-day operational choices.</p>
+                        </div>
+                        <div class="outcome-card fade-in">
+                            <div class="outcome-num">03</div>
+                            <h3 class="text-lg font-semibold mb-2" data-i18n="outcome-3-title">Scalable foundations</h3>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed" data-i18n="outcome-3-desc">Build systems that support growth instead of becoming the next bottleneck.</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section id="products" class="section-stack py-20 sm:py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="max-w-3xl fade-in">
-                        <span class="section-label">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                            </svg>
-                            <span data-i18n="products-tag">Products</span>
-                        </span>
-                        <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="products-title">Products we build and ship ourselves.</h2>
-                        <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="products-desc">Tools born from our own work, refined into products you can use today.</p>
-                    </div>
-
-                    <div class="grid lg:grid-cols-2 gap-6 mt-12">
-                        <article class="capability-card fade-in">
-                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="prod-soundlock-kicker">macOS &middot; Menu bar app</div>
-                            <h3 class="mt-3 text-2xl font-bold" data-i18n="prod-soundlock-title">SoundLock</h3>
-                            <p class="mt-2 text-lg font-semibold brand-gradient" data-i18n="prod-soundlock-tagline">Your audio. Your rules. Always.</p>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="prod-soundlock-desc">A macOS menu bar app that locks your audio device priority so the right output and input are always selected.</p>
+            <!-- PRODUCTS -->
+            <section id="products" class="border-t border-white/[0.06]">
+                <div class="max-w-6xl mx-auto px-6 sm:px-8 py-14">
+                    <div class="section-label mb-3 fade-in" data-i18n="products-tag">Products</div>
+                    <h2 class="text-3xl sm:text-4xl font-semibold leading-tight mb-2 fade-in" data-i18n="products-title">Products we build and ship ourselves.</h2>
+                    <p class="text-muted font-display mb-9 fade-in" data-i18n="products-desc">Tools born from our own work, refined into products you can use today.</p>
+                    <div class="grid lg:grid-cols-2 gap-[18px]">
+                        <article class="product-card fade-in">
+                            <div class="product-tag" data-i18n="prod-soundlock-kicker">macOS · Menu bar app</div>
+                            <h3 class="text-2xl font-bold mb-1" data-i18n="prod-soundlock-title">SoundLock</h3>
+                            <div class="font-display text-[0.9rem] text-[var(--accent-soft)] mb-4" data-i18n="prod-soundlock-tagline">Your audio. Your rules. Always.</div>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed" data-i18n="prod-soundlock-desc">A macOS menu bar app that locks your audio device priority so the right output and input are always selected.</p>
                             <ul>
                                 <li><span data-i18n="prod-soundlock-feat-1">Ranked priority lists with drag-to-reorder</span></li>
                                 <li><span data-i18n="prod-soundlock-feat-2">Offline persistence across restarts</span></li>
-                                <li><span data-i18n="prod-soundlock-feat-3">Volume and mute control from the menu bar</span></li>
-                                <li><span data-i18n="prod-soundlock-feat-4">Guard toggle to lock or unlock at any time</span></li>
-                                <li><span data-i18n="prod-soundlock-feat-5">Launch at login with zero Dock footprint</span></li>
                                 <li><span data-i18n="prod-soundlock-feat-6">CoreAudio event-driven: ~20MB RAM, 0% idle CPU</span></li>
-                                <li><span data-i18n="prod-soundlock-feat-7">Privacy-first: no network, no mic permission, local storage only</span></li>
+                                <li><span data-i18n="prod-soundlock-feat-7">Privacy-first: no network, local storage only</span></li>
                             </ul>
-                            <div class="engagement-row fade-in">
-                                <span class="trust-pill" data-i18n="prod-soundlock-use-1">Pro audio setups</span>
-                                <span class="trust-pill" data-i18n="prod-soundlock-use-2">Multi-device Bluetooth</span>
-                                <span class="trust-pill" data-i18n="prod-soundlock-use-3">Video call mic stability</span>
-                            </div>
-                            <div class="best-for" data-i18n="prod-soundlock-fit">Best for: anyone tired of macOS switching audio devices on its own</div>
-                            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                                <a href="products/soundlock.html" class="btn-primary" data-i18n="prod-soundlock-details">View details</a>
-                                <a href="https://github.com/lucasmancan/SoundLock" target="_blank" rel="noopener" class="btn-secondary" data-i18n="prod-soundlock-cta">View on GitHub</a>
+                            <div class="flex flex-wrap gap-3 mt-auto">
+                                <a href="products/soundlock.html" class="btn-primary !px-4 !py-2.5 !text-[0.85rem]" data-i18n="prod-soundlock-details">View details</a>
+                                <a href="https://github.com/lucasmancan/SoundLock" target="_blank" rel="noopener" class="btn-secondary !px-4 !py-2.5 !text-[0.85rem]" data-i18n="prod-soundlock-cta">View on GitHub</a>
                             </div>
                         </article>
-
-                        <article class="capability-card fade-in">
-                            <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="prod-cenna-kicker">macOS &middot; Capture &amp; recording</div>
-                            <h3 class="mt-3 text-2xl font-bold" data-i18n="prod-cenna-title">Cenna</h3>
-                            <p class="mt-2 text-lg font-semibold brand-gradient" data-i18n="prod-cenna-tagline">Native speed. Without native limits.</p>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="prod-cenna-desc">A lightweight macOS menu bar app for screenshots and screen recording — native capture, real customization, and memory discipline most tools lack.</p>
+                        <article class="product-card fade-in">
+                            <div class="product-tag" data-i18n="prod-cenna-kicker">macOS · Capture &amp; recording</div>
+                            <h3 class="text-2xl font-bold mb-1" data-i18n="prod-cenna-title">Cenna</h3>
+                            <div class="font-display text-[0.9rem] text-[var(--accent-soft)] mb-4" data-i18n="prod-cenna-tagline">Native speed. Without native limits.</div>
+                            <p class="text-[0.92rem] text-muted font-display leading-relaxed" data-i18n="prod-cenna-desc">A lightweight macOS menu bar app for screenshots and screen recording — native capture, real customization, memory discipline.</p>
                             <ul>
                                 <li><span data-i18n="prod-cenna-feat-1">Full-screen and interactive area capture</span></li>
                                 <li><span data-i18n="prod-cenna-feat-2">Built-in annotation editor: arrows, shapes, freehand</span></li>
-                                <li><span data-i18n="prod-cenna-feat-3">Post-capture choice: editor, quick preview, copy, or save</span></li>
-                                <li><span data-i18n="prod-cenna-feat-4">MP4 recording with system audio, mic, and webcam overlay</span></li>
-                                <li><span data-i18n="prod-cenna-feat-5">Timeline editor: split, trim, and speed up segments</span></li>
-                                <li><span data-i18n="prod-cenna-feat-6">Direct paths stay flat at ~15MB RAM, editor ~38MB</span></li>
-                                <li><span data-i18n="prod-cenna-feat-7">Global shortcuts, login item, configurable save folder</span></li>
+                                <li><span data-i18n="prod-cenna-feat-4">MP4 recording with system audio, mic and webcam</span></li>
+                                <li><span data-i18n="prod-cenna-feat-6">Direct paths stay flat at ~15MB RAM</span></li>
                             </ul>
-                            <div class="engagement-row fade-in">
-                                <span class="trust-pill" data-i18n="prod-cenna-use-1">Demos &amp; product tours</span>
-                                <span class="trust-pill" data-i18n="prod-cenna-use-2">Support &amp; bug reports</span>
-                                <span class="trust-pill" data-i18n="prod-cenna-use-3">Docs &amp; async updates</span>
-                            </div>
-                            <div class="best-for" data-i18n="prod-cenna-fit">Best for: teams who want native macOS feel without bloated capture tools</div>
-                            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                                <a href="products/cenna.html" class="btn-primary" data-i18n="prod-cenna-details">View details</a>
-                                <a href="#contact" class="btn-secondary" data-scroll-to="contact" data-i18n="prod-cenna-cta">Get early access</a>
+                            <div class="flex flex-wrap gap-3 mt-auto">
+                                <a href="products/cenna.html" class="btn-primary !px-4 !py-2.5 !text-[0.85rem]" data-i18n="prod-cenna-details">View details</a>
+                                <a href="#contact" class="btn-secondary !px-4 !py-2.5 !text-[0.85rem]" data-scroll-to="contact" data-i18n="prod-cenna-cta">Get early access</a>
                             </div>
                         </article>
                     </div>
                 </div>
             </section>
 
-            <section id="contact" class="section-stack py-20 sm:py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- CONTACT -->
+            <section id="contact" class="border-t border-white/[0.06]">
+                <div class="max-w-6xl mx-auto px-6 sm:px-8 pt-16 pb-10">
                     <div class="cta-shell fade-in">
-                        <div class="contact-grid">
-                            <div>
-                                <span class="section-label">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                    <span data-i18n="contact-tag">Start a Conversation</span>
-                                </span>
-                                <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold" data-i18n="contact-title">Bring the problem, the current stack, and the target timeline.</h2>
-                                <p class="mt-5 text-lg text-[var(--brand-muted)]" data-i18n="contact-desc">
-                                    We can scope advisory, delivery, or a hybrid engagement based on your current stage.
-                                </p>
-                                <p class="mt-2 text-base font-semibold text-[var(--brand-muted-2)]" data-i18n="contact-response">
-                                    Typical first reply within 1 business day.
-                                </p>
-                            </div>
-
-                            <div class="surface-panel flex flex-col justify-between">
-                                <div>
-                                    <div class="text-sm font-extrabold uppercase tracking-[0.12em] text-[var(--brand-muted-2)]" data-i18n="contact-card-label">Primary contact</div>
-                                    <a href="mailto:info@mancan.digital" class="mt-3 block text-2xl sm:text-3xl font-bold brand-gradient break-all">info@mancan.digital</a>
-                                    <p class="mt-4 text-base font-semibold text-[var(--brand-muted)]" data-i18n="contact-location">Brazil-based, available worldwide.</p>
-                                </div>
-
-                                <div class="mt-8 grid gap-3">
-                                    <a href="mailto:info@mancan.digital" class="btn-primary" id="contact-cta-primary" data-i18n="contact-cta-primary">Email Us</a>
-                                    <a href="mailto:info@mancan.digital?subject=Discovery%20Call%20Request" class="btn-secondary" id="contact-cta-secondary" data-i18n="contact-cta-secondary">Schedule a Discovery Call</a>
-                                </div>
-                            </div>
+                        <div class="section-label justify-center mb-4" data-i18n="contact-tag">Start a Conversation</div>
+                        <h2 class="text-3xl sm:text-4xl font-bold leading-tight max-w-2xl mx-auto mb-4" data-i18n="contact-title">Bring the problem and the timeline.</h2>
+                        <p class="text-muted font-display max-w-xl mx-auto mb-8" data-i18n="contact-desc">We can scope advisory, delivery, or a hybrid engagement. Typical first reply within 1 business day.</p>
+                        <div class="flex flex-wrap gap-3 justify-center">
+                            <a href="mailto:info@mancan.digital?subject=Discovery%20Call%20Request" class="btn-primary" data-i18n="contact-cta-secondary">Schedule a discovery call</a>
+                            <a href="mailto:info@mancan.digital" class="btn-secondary">info@mancan.digital</a>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
 
-        <footer class="py-12 border-t border-[var(--brand-border)]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="flex items-center gap-3">
-                        <span class="brand-mark !w-10 !h-10 !rounded-xl !p-2">
-                            <img src="logo-symbol.png" alt="" class="w-full h-full object-contain" />
-                        </span>
-                        <span class="brand-wordmark !block">mancan<span class="brand-gradient">.digital</span></span>
-                    </div>
-                    <p class="text-sm font-semibold text-[var(--brand-muted)]">&copy; 2026 mancan.digital. All rights reserved.</p>
-                    <div class="flex items-center gap-6">
-                        <a href="mailto:info@mancan.digital" class="footer-link text-sm" data-i18n="footer-email">Email</a>
-                        <a href="#" class="footer-link text-sm scroll-top" data-i18n="footer-top">Back to top</a>
-                    </div>
-                </div>
+        <footer class="border-t border-white/[0.06]">
+            <div class="max-w-6xl mx-auto px-6 sm:px-8 py-10 flex flex-wrap justify-between gap-4 items-center">
+                <span class="footer-link" data-i18n="footer-copy">© 2026 mancan.digital — brazil-based, available worldwide.</span>
+                <span class="footer-link !text-[var(--accent-soft)]">EN / PT</span>
             </div>
         </footer>
+
         <div class="mobile-cta-bar">
             <div class="grid grid-cols-2 gap-3">
-                <a href="mailto:info@mancan.digital" class="btn-secondary" data-i18n="contact-cta-primary">Email Us</a>
-                <a href="#contact" class="btn-primary" data-scroll-to="contact" data-i18n="hero-cta-primary">Book a Discovery Call</a>
+                <a href="mailto:info@mancan.digital" class="btn-secondary !py-2.5 !text-[0.85rem]">info@mancan.digital</a>
+                <a href="#contact" class="btn-primary !py-2.5 !text-[0.85rem]" data-scroll-to="contact" data-i18n="hero-cta-primary">Book a call</a>
             </div>
         </div>
     </div>

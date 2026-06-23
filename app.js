@@ -93,7 +93,7 @@
                 'hero-eyebrow': 'Technology consulting',
                 'hero-title-1': 'Automate operations,',
                 'hero-title-2': 'connect systems, and drive results.',
-                'hero-desc': 'We automate operations, connect systems, and deliver custom software.',
+                'hero-desc': 'Technology consulting that turns AI and automation into business results — for small and mid-size teams that want real control over their data.',
                 'hero-pain': 'Manual workflows, disconnected tools, slow delivery.',
                 'hero-cta-primary': 'Book a Discovery Call',
                 'hero-cta-secondary': 'Explore Capabilities',
@@ -188,7 +188,7 @@
                 'why-4-title': 'Global-ready execution',
                 'why-4-desc': 'Brazil-based delivery with bilingual communication and execution quality built for international clients.',
                 'contact-tag': 'Start a Conversation',
-                'contact-title': 'Bring the problem, the current stack, and the target timeline.',
+                'contact-title': 'Bring the problem and the target timeline.',
                 'contact-desc': 'We can scope advisory, delivery, or a hybrid engagement based on your current stage.',
                 'contact-note': 'Tell us your challenge, stack, and target timeline.',
                 'contact-response': 'Typical first reply within 1 business day.',
@@ -197,7 +197,23 @@
                 'contact-cta-primary': 'Email Us',
                 'contact-cta-secondary': 'Schedule a Discovery Call',
                 'footer-email': 'Email',
-                'footer-top': 'Back to top'
+                'footer-top': 'Back to top',
+                'nav-book': 'Book a call',
+                'hero-badge': 'Networked delivery model',
+                'hero-line-1': 'Automate operations.',
+                'hero-line-2': 'Connect systems.',
+                'hero-line-3': 'Ship custom software.',
+                'hero-stat-1': 'since 2019',
+                'hero-stat-2': 'global delivery',
+                'hero-stat-3': 'bilingual EN/PT',
+                'hero-live': '● live',
+                'node-data': 'data',
+                'node-bots': 'bots',
+                'node-models': 'models',
+                'node-connect': 'connect',
+                'hero-metric-1': 'throughput ↑ 3.2×',
+                'hero-metric-2': 'manual steps ↓ 78%',
+                'footer-copy': '© 2026 mancan.digital — brazil-based, available worldwide.'
             },
             pt: {
                 'nav-about': 'Sobre',
@@ -293,7 +309,7 @@
                 'hero-eyebrow': 'Consultoria de tecnologia',
                 'hero-title-1': 'Automatize operações,',
                 'hero-title-2': 'conecte sistemas e gere resultado.',
-                'hero-desc': 'Automatizamos operações, conectamos sistemas e entregamos software sob medida.',
+                'hero-desc': 'Consultoria de tecnologia que transforma IA e automação em resultados de negócio — para pequenas e médias equipes que querem controle real sobre seus dados.',
                 'hero-pain': 'Fluxos manuais, ferramentas desconectadas, entrega lenta.',
                 'hero-cta-primary': 'Agendar uma discovery call',
                 'hero-cta-secondary': 'Explorar capacidades',
@@ -388,7 +404,7 @@
                 'why-4-title': 'Execução pronta para o mercado global',
                 'why-4-desc': 'Entrega baseada no Brasil com comunicação bilíngue e padrão de execução preparado para clientes internacionais.',
                 'contact-tag': 'Inicie uma Conversa',
-                'contact-title': 'Traga o problema, o stack atual e o prazo desejado.',
+                'contact-title': 'Traga o problema e o prazo desejado.',
                 'contact-desc': 'Podemos estruturar consultoria, entrega ou um modelo híbrido conforme o seu estágio atual.',
                 'contact-note': 'Conte seu desafio, stack e prazo desejado.',
                 'contact-response': 'Primeira resposta em até 1 dia útil, em média.',
@@ -397,7 +413,23 @@
                 'contact-cta-primary': 'Enviar e-mail',
                 'contact-cta-secondary': 'Agendar uma discovery call',
                 'footer-email': 'E-mail',
-                'footer-top': 'Voltar ao topo'
+                'footer-top': 'Voltar ao topo',
+                'nav-book': 'Agendar conversa',
+                'hero-badge': 'modelo de entrega em rede',
+                'hero-line-1': 'Automatize operações.',
+                'hero-line-2': 'Conecte sistemas.',
+                'hero-line-3': 'Entregue software sob medida.',
+                'hero-stat-1': 'desde 2019',
+                'hero-stat-2': 'entrega global',
+                'hero-stat-3': 'bilíngue EN/PT',
+                'hero-live': '● ao vivo',
+                'node-data': 'dados',
+                'node-bots': 'bots',
+                'node-models': 'modelos',
+                'node-connect': 'conectar',
+                'hero-metric-1': 'throughput ↑ 3,2×',
+                'hero-metric-2': 'passos manuais ↓ 78%',
+                'footer-copy': '© 2026 mancan.digital — sede no brasil, disponível no mundo todo.'
             }
         };
 
@@ -419,23 +451,6 @@
             });
 
             document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-        }
-
-        function initTheme() {
-            const saved = localStorage.getItem('mancan-theme');
-            const theme = saved || 'dark';
-            applyTheme(theme);
-        }
-
-        function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            const sunIcon = document.querySelector('.sun-icon');
-            const moonIcon = document.querySelector('.moon-icon');
-
-            if (sunIcon && moonIcon) {
-                sunIcon.classList.toggle('hidden', theme === 'dark');
-                moonIcon.classList.toggle('hidden', theme !== 'dark');
-            }
         }
 
         function initMobileNav() {
@@ -526,20 +541,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            initTheme();
             switchLang('pt');
             initMobileNav();
             initScrollAnimations();
             initSmoothScroll();
             initActiveNav();
-
-            const themeToggle = document.querySelector('.theme-toggle');
-            if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    const current = document.documentElement.getAttribute('data-theme');
-                    const next = current === 'dark' ? 'light' : 'dark';
-                    applyTheme(next);
-                    localStorage.setItem('mancan-theme', next);
-                });
-            }
         });
