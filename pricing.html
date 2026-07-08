@@ -32,54 +32,61 @@
                         <span class="brand-wordmark">mancan<span class="text-muted-2">.digital</span></span>
                     </a>
                     <div class="desktop-nav hidden md:flex items-center gap-7">
-                        <a href="index.html#about" class="nav-link">About</a>
-                        <a href="index.html#services" class="nav-link">Services</a>
-                        <a href="index.html#products" class="nav-link">Products</a>
-                        <a href="index.html#contact" class="nav-link">Contact</a>
+                        <a href="index.html#about" class="nav-link" data-i18n="nav-about">About</a>
+                        <a href="index.html#services" class="nav-link" data-i18n="nav-services">Services</a>
+                        <a href="index.html#products" class="nav-link" data-i18n="nav-products">Products</a>
+                        <a href="pricing.html" class="nav-link" data-i18n="nav-pricing">Pricing</a>
+                        <a href="index.html#contact" class="nav-link" data-i18n="nav-contact">Contact</a>
                     </div>
-                    <a href="index.html#contact" class="btn-primary !px-4 !py-2.5 !text-[0.85rem]">Book a call</a>
+                    <div class="flex items-center gap-3">
+                        <div class="lang-toggle flex items-center gap-1">
+                            <button type="button" onclick="switchLang('en')" class="lang-btn" data-lang="en">EN</button>
+                            <button type="button" onclick="switchLang('pt')" class="lang-btn" data-lang="pt">PT</button>
+                        </div>
+                        <a href="index.html#contact" class="btn-primary desktop-mobile-hide !px-4 !py-2.5 !text-[0.85rem]" data-i18n="nav-book">Book a call</a>
+                    </div>
                 </div>
             </div>
         </nav>
 
         <main>
             <div class="max-w-3xl mx-auto px-6 sm:px-8 pt-16 pb-12">
-                <div class="section-label mb-4">Pricing</div>
-                <h1 class="hero-title mb-4">Simple, transparent pricing.</h1>
-                <p class="text-muted font-display leading-relaxed mb-2">Product pricing depends on the product and license tier. Consulting is scoped per engagement. All prices are in US dollars (USD) unless stated otherwise; applicable taxes may be added at checkout.</p>
+                <div class="section-label mb-4" data-i18n="pr-tag">Pricing</div>
+                <h1 class="hero-title mb-4" data-i18n="pr-title">Simple, transparent pricing.</h1>
+                <p class="text-muted font-display leading-relaxed mb-2" data-i18n="pr-intro">Product pricing depends on the product and license tier. Consulting is scoped per engagement. All prices are in US dollars (USD) unless stated otherwise; applicable taxes may be added at checkout.</p>
             </div>
 
             <div class="max-w-6xl mx-auto px-6 sm:px-8 pb-16">
-                <h2 class="text-2xl font-bold mb-6">Products</h2>
+                <h2 class="text-2xl font-bold mb-6" data-i18n="pr-products-h">Products</h2>
                 <div class="grid gap-6 md:grid-cols-2">
                     <article class="product-card">
-                        <div class="product-tag">macOS · Capture &amp; recording</div>
+                        <div class="product-tag" data-i18n="pr-cenna-tag">macOS · Capture &amp; recording</div>
                         <h3 class="text-2xl font-bold mb-1">Cenna</h3>
-                        <div class="font-display text-[1.4rem] font-semibold mb-1">Pricing coming soon</div>
-                        <p class="text-[0.92rem] text-muted font-display leading-relaxed mb-4">Lightweight macOS menu bar app for screenshots and screen recording. One-time purchase, lifetime use of the purchased major version.</p>
+                        <div class="font-display text-[1.4rem] font-semibold mb-1" data-i18n="pr-cenna-price">Pricing coming soon</div>
+                        <p class="text-[0.92rem] text-muted font-display leading-relaxed mb-4" data-i18n="pr-cenna-desc">Lightweight macOS menu bar app for screenshots and screen recording. One-time purchase, lifetime use of the purchased major version.</p>
                         <div class="flex flex-wrap gap-3 mt-auto">
-                            <a href="products/cenna.html" class="btn-primary !px-4 !py-2.5 !text-[0.85rem]">View details</a>
+                            <a href="products/cenna.html" class="btn-primary !px-4 !py-2.5 !text-[0.85rem]" data-i18n="pr-view">View details</a>
                         </div>
                     </article>
                     <article class="product-card">
-                        <div class="product-tag">macOS · Audio</div>
+                        <div class="product-tag" data-i18n="pr-soundlock-tag">macOS · Audio</div>
                         <h3 class="text-2xl font-bold mb-1">SoundLock</h3>
-                        <div class="font-display text-[2rem] font-bold mb-1">$5.99<span class="text-[1rem] text-muted font-normal"> one-time</span></div>
-                        <p class="text-[0.92rem] text-muted font-display leading-relaxed mb-4">One-time purchase, lifetime use of the purchased major version.</p>
+                        <div class="font-display text-[2rem] font-bold mb-1">$5.99<span class="text-[1rem] text-muted font-normal"> <span data-i18n="pr-onetime">one-time</span></span></div>
+                        <p class="text-[0.92rem] text-muted font-display leading-relaxed mb-4" data-i18n="pr-soundlock-desc">One-time purchase, lifetime use of the purchased major version.</p>
                         <div class="flex flex-wrap gap-3 mt-auto">
-                            <a href="products/soundlock.html" class="btn-primary !px-4 !py-2.5 !text-[0.85rem]">View details</a>
+                            <a href="products/soundlock.html" class="btn-primary !px-4 !py-2.5 !text-[0.85rem]" data-i18n="pr-view">View details</a>
                         </div>
                     </article>
                 </div>
 
-                <h2 class="text-2xl font-bold mt-14 mb-6">Consulting</h2>
+                <h2 class="text-2xl font-bold mt-14 mb-6" data-i18n="pr-consult-h">Consulting</h2>
                 <article class="product-card">
-                    <div class="product-tag">Advisory · Delivery · Hybrid</div>
-                    <h3 class="text-2xl font-bold mb-1">Custom engagements</h3>
-                    <div class="font-display text-[1.4rem] font-semibold mb-1">Scoped per project</div>
-                    <p class="text-[0.92rem] text-muted font-display leading-relaxed mb-4">Technology consulting is priced by engagement scope and timeline — fixed-scope, retainer, or hybrid. Bring the problem and the timeline for a quote.</p>
+                    <div class="product-tag" data-i18n="pr-consult-tag">Advisory · Delivery · Hybrid</div>
+                    <h3 class="text-2xl font-bold mb-1" data-i18n="pr-consult-title">Custom engagements</h3>
+                    <div class="font-display text-[1.4rem] font-semibold mb-1" data-i18n="pr-consult-sub">Scoped per project</div>
+                    <p class="text-[0.92rem] text-muted font-display leading-relaxed mb-4" data-i18n="pr-consult-desc">Technology consulting is priced by engagement scope and timeline — fixed-scope, retainer, or hybrid. Bring the problem and the timeline for a quote.</p>
                     <div class="flex flex-wrap gap-3 mt-auto">
-                        <a href="index.html#contact" class="btn-primary !px-4 !py-2.5 !text-[0.85rem]">Request a quote</a>
+                        <a href="index.html#contact" class="btn-primary !px-4 !py-2.5 !text-[0.85rem]" data-i18n="pr-quote">Request a quote</a>
                         <a href="mailto:info@mancan.digital" class="btn-secondary !px-4 !py-2.5 !text-[0.85rem]">info@mancan.digital</a>
                     </div>
                 </article>
@@ -88,15 +95,16 @@
 
         <footer class="border-t border-white/[0.06]">
             <div class="max-w-6xl mx-auto px-6 sm:px-8 py-10 flex flex-wrap justify-between gap-4 items-center">
-                <span class="footer-link">© 2026 mancan.digital — brazil-based, available worldwide.</span>
+                <span class="footer-link" data-i18n="footer-copy">© 2026 mancan.digital — brazil-based, available worldwide.</span>
                 <div class="flex flex-wrap gap-5">
-                    <a href="pricing.html" class="footer-link">Pricing</a>
-                    <a href="terms.html" class="footer-link">Terms</a>
-                    <a href="privacy.html" class="footer-link">Privacy</a>
-                    <a href="refunds.html" class="footer-link">Refunds</a>
+                    <a href="pricing.html" class="footer-link" data-i18n="foot-pricing">Pricing</a>
+                    <a href="terms.html" class="footer-link" data-i18n="foot-terms">Terms</a>
+                    <a href="privacy.html" class="footer-link" data-i18n="foot-privacy">Privacy</a>
+                    <a href="refunds.html" class="footer-link" data-i18n="foot-refunds">Refunds</a>
                 </div>
             </div>
         </footer>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -36,85 +36,83 @@
                         <span class="brand-wordmark">mancan<span class="text-muted-2">.digital</span></span>
                     </a>
                     <div class="desktop-nav hidden md:flex items-center gap-7">
-                        <a href="index.html#about" class="nav-link">About</a>
-                        <a href="index.html#services" class="nav-link">Services</a>
-                        <a href="index.html#products" class="nav-link">Products</a>
-                        <a href="pricing.html" class="nav-link">Pricing</a>
-                        <a href="index.html#contact" class="nav-link">Contact</a>
+                        <a href="index.html#about" class="nav-link" data-i18n="nav-about">About</a>
+                        <a href="index.html#services" class="nav-link" data-i18n="nav-services">Services</a>
+                        <a href="index.html#products" class="nav-link" data-i18n="nav-products">Products</a>
+                        <a href="pricing.html" class="nav-link" data-i18n="nav-pricing">Pricing</a>
+                        <a href="index.html#contact" class="nav-link" data-i18n="nav-contact">Contact</a>
                     </div>
-                    <a href="index.html#contact" class="btn-primary !px-4 !py-2.5 !text-[0.85rem]">Book a call</a>
+                    <div class="flex items-center gap-3">
+                        <div class="lang-toggle flex items-center gap-1">
+                            <button type="button" onclick="switchLang('en')" class="lang-btn" data-lang="en">EN</button>
+                            <button type="button" onclick="switchLang('pt')" class="lang-btn" data-lang="pt">PT</button>
+                        </div>
+                        <a href="index.html#contact" class="btn-primary desktop-mobile-hide !px-4 !py-2.5 !text-[0.85rem]" data-i18n="nav-book">Book a call</a>
+                    </div>
                 </div>
             </div>
         </nav>
 
         <main class="legal">
             <div class="max-w-3xl mx-auto px-6 sm:px-8 pt-16 pb-16">
-                <div class="section-label mb-4">Legal</div>
-                <h1 class="hero-title mb-3">Privacy Policy</h1>
-                <p class="text-muted-2 font-mono text-sm mb-8">Last updated: 8 July 2026</p>
+                <div class="section-label mb-4" data-i18n="legal-tag">Legal</div>
+                <h1 class="hero-title mb-3" data-i18n="pp-title">Privacy Policy</h1>
+                <p class="text-muted-2 font-mono text-sm mb-8" data-i18n="legal-updated">Last updated: 8 July 2026</p>
 
-                <p>This Privacy Policy explains how <strong>MANCAN DIGITAL ANALISE E DESENVOLVIMENTO LTDA</strong>, CNPJ 60.808.509/0001-97 ("mancan.digital", "we", "us"), collects, uses, and protects personal data when you visit our website, purchase, or use our products and services. We act as data controller and process personal data in accordance with the Brazilian General Data Protection Law (LGPD, Law No. 13.709/2018).</p>
+                <p data-i18n="pp-intro">This Privacy Policy explains how <strong>MANCAN DIGITAL ANALISE E DESENVOLVIMENTO LTDA</strong>, CNPJ 60.808.509/0001-97 ("mancan.digital", "we", "us"), collects, uses, and protects personal data when you visit our website, purchase, or use our products and services. We act as data controller and process personal data in accordance with the Brazilian General Data Protection Law (LGPD, Law No. 13.709/2018).</p>
 
-                <h2>1. Data we collect</h2>
+                <h2 data-i18n="pp-h1">1. Data we collect</h2>
                 <ul>
-                    <li><strong>Contact and account data</strong> — name, email address, and any details you provide when you contact us or purchase.</li>
-                    <li><strong>Transaction data</strong> — products purchased, amounts, and billing information. Card details are handled directly by our payment providers; we do not store full card numbers.</li>
-                    <li><strong>Usage and device data</strong> — IP address, browser type, and pages viewed, collected via standard web logs and analytics.</li>
-                    <li><strong>Support data</strong> — information you share when requesting support.</li>
+                    <li data-i18n="pp-l1a"><strong>Contact and account data</strong> — name, email address, and any details you provide when you contact us or purchase.</li>
+                    <li data-i18n="pp-l1b"><strong>Transaction data</strong> — products purchased, amounts, and billing information. Card details are handled directly by our payment providers; we do not store full card numbers.</li>
+                    <li data-i18n="pp-l1c"><strong>Usage and device data</strong> — IP address, browser type, and pages viewed, collected via standard web logs and analytics.</li>
+                    <li data-i18n="pp-l1d"><strong>Support data</strong> — information you share when requesting support.</li>
                 </ul>
 
-                <h2>2. How we use data</h2>
+                <h2 data-i18n="pp-h2">2. How we use data</h2>
                 <ul>
-                    <li>To provide, license, and support our products and services.</li>
-                    <li>To process payments, refunds, and invoicing.</li>
-                    <li>To respond to enquiries and provide customer support.</li>
-                    <li>To operate, secure, and improve our website and products.</li>
-                    <li>To comply with legal, tax, and accounting obligations.</li>
+                    <li data-i18n="pp-l2a">To provide, license, and support our products and services.</li>
+                    <li data-i18n="pp-l2b">To process payments, refunds, and invoicing.</li>
+                    <li data-i18n="pp-l2c">To respond to enquiries and provide customer support.</li>
+                    <li data-i18n="pp-l2d">To operate, secure, and improve our website and products.</li>
+                    <li data-i18n="pp-l2e">To comply with legal, tax, and accounting obligations.</li>
                 </ul>
 
-                <h2>3. Legal bases (LGPD)</h2>
-                <p>We process personal data based on: performance of a contract with you; compliance with legal obligations; our legitimate interests (such as security and improving our Services); and your consent, where required.</p>
-
-                <h2>4. Sharing data</h2>
-                <p>We share personal data only with service providers who help us operate — including payment processors, hosting and analytics providers — and with authorities where required by law. These providers process data on our behalf under appropriate safeguards. We do not sell your personal data.</p>
-
-                <h2>5. International transfers</h2>
-                <p>Some providers may process data outside Brazil. Where this occurs, we rely on legal transfer mechanisms permitted by the LGPD to protect your data.</p>
-
-                <h2>6. Retention</h2>
-                <p>We keep personal data only as long as necessary for the purposes above, including to meet legal, tax, and accounting requirements, after which it is deleted or anonymized.</p>
-
-                <h2>7. Your rights</h2>
-                <p>Under the LGPD you may request confirmation of processing, access, correction, anonymization, portability, deletion, and information about data sharing, and you may withdraw consent. To exercise these rights, contact <a href="mailto:info@mancan.digital">info@mancan.digital</a>.</p>
-
-                <h2>8. Cookies</h2>
-                <p>Our website may use cookies and similar technologies for functionality and analytics. You can control cookies through your browser settings; disabling them may affect some features.</p>
-
-                <h2>9. Security</h2>
-                <p>We use reasonable technical and organizational measures to protect personal data against unauthorized access, loss, or misuse. No method of transmission or storage is completely secure.</p>
-
-                <h2>10. Children</h2>
-                <p>Our Services are not directed to children under 18, and we do not knowingly collect their personal data.</p>
-
-                <h2>11. Changes</h2>
-                <p>We may update this Policy from time to time. The "Last updated" date reflects the latest version.</p>
-
-                <h2>12. Contact</h2>
-                <p>Data controller: MANCAN DIGITAL ANALISE E DESENVOLVIMENTO LTDA, CNPJ 60.808.509/0001-97. Privacy enquiries: <a href="mailto:info@mancan.digital">info@mancan.digital</a>.</p>
+                <h2 data-i18n="pp-h3">3. Legal bases (LGPD)</h2>
+                <p data-i18n="pp-p3">We process personal data based on: performance of a contract with you; compliance with legal obligations; our legitimate interests (such as security and improving our Services); and your consent, where required.</p>
+                <h2 data-i18n="pp-h4">4. Sharing data</h2>
+                <p data-i18n="pp-p4">We share personal data only with service providers who help us operate — including payment processors, hosting and analytics providers — and with authorities where required by law. These providers process data on our behalf under appropriate safeguards. We do not sell your personal data.</p>
+                <h2 data-i18n="pp-h5">5. International transfers</h2>
+                <p data-i18n="pp-p5">Some providers may process data outside Brazil. Where this occurs, we rely on legal transfer mechanisms permitted by the LGPD to protect your data.</p>
+                <h2 data-i18n="pp-h6">6. Retention</h2>
+                <p data-i18n="pp-p6">We keep personal data only as long as necessary for the purposes above, including to meet legal, tax, and accounting requirements, after which it is deleted or anonymized.</p>
+                <h2 data-i18n="pp-h7">7. Your rights</h2>
+                <p data-i18n="pp-p7">Under the LGPD you may request confirmation of processing, access, correction, anonymization, portability, deletion, and information about data sharing, and you may withdraw consent. To exercise these rights, contact <a href="mailto:info@mancan.digital">info@mancan.digital</a>.</p>
+                <h2 data-i18n="pp-h8">8. Cookies</h2>
+                <p data-i18n="pp-p8">Our website may use cookies and similar technologies for functionality and analytics. You can control cookies through your browser settings; disabling them may affect some features.</p>
+                <h2 data-i18n="pp-h9">9. Security</h2>
+                <p data-i18n="pp-p9">We use reasonable technical and organizational measures to protect personal data against unauthorized access, loss, or misuse. No method of transmission or storage is completely secure.</p>
+                <h2 data-i18n="pp-h10">10. Children</h2>
+                <p data-i18n="pp-p10">Our Services are not directed to children under 18, and we do not knowingly collect their personal data.</p>
+                <h2 data-i18n="pp-h11">11. Changes</h2>
+                <p data-i18n="pp-p11">We may update this Policy from time to time. The "Last updated" date reflects the latest version.</p>
+                <h2 data-i18n="pp-h12">12. Contact</h2>
+                <p data-i18n="pp-p12">Data controller: MANCAN DIGITAL ANALISE E DESENVOLVIMENTO LTDA, CNPJ 60.808.509/0001-97. Privacy enquiries: <a href="mailto:info@mancan.digital">info@mancan.digital</a>.</p>
             </div>
         </main>
 
         <footer class="border-t border-white/[0.06]">
             <div class="max-w-6xl mx-auto px-6 sm:px-8 py-10 flex flex-wrap justify-between gap-4 items-center">
-                <span class="footer-link">© 2026 mancan.digital — brazil-based, available worldwide.</span>
+                <span class="footer-link" data-i18n="footer-copy">© 2026 mancan.digital — brazil-based, available worldwide.</span>
                 <div class="flex flex-wrap gap-5">
-                    <a href="pricing.html" class="footer-link">Pricing</a>
-                    <a href="terms.html" class="footer-link">Terms</a>
-                    <a href="privacy.html" class="footer-link">Privacy</a>
-                    <a href="refunds.html" class="footer-link">Refunds</a>
+                    <a href="pricing.html" class="footer-link" data-i18n="foot-pricing">Pricing</a>
+                    <a href="terms.html" class="footer-link" data-i18n="foot-terms">Terms</a>
+                    <a href="privacy.html" class="footer-link" data-i18n="foot-privacy">Privacy</a>
+                    <a href="refunds.html" class="footer-link" data-i18n="foot-refunds">Refunds</a>
                 </div>
             </div>
         </footer>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
