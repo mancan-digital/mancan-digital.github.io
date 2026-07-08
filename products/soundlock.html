@@ -104,8 +104,8 @@
                     <button type="button" onclick="switchLang('pt')" class="lang-btn" data-lang="pt">PT</button>
                 </div>
                 <div class="grid gap-3 mt-5">
-                    <a href="https://github.com/lucasmancan/SoundLock/raw/main/SoundLock.app.zip" class="btn-primary mobile-link" data-i18n="sl-download">Download SoundLock</a>
-                    <a href="https://github.com/lucasmancan/SoundLock" target="_blank" rel="noopener" class="btn-secondary mobile-link" data-i18n="sl-cta-github">Source on GitHub</a>
+                    <a href="https://github.com/lucasmancan/SoundLock/releases/latest" class="btn-primary mobile-link" data-i18n="sl-download">Download SoundLock</a>
+                    <a href="https://github.com/lucasmancan/SoundLock" target="_blank" rel="noopener" class="btn-secondary mobile-link" data-i18n="sl-cta-github">View on GitHub</a>
                 </div>
             </div>
         </div>
@@ -127,8 +127,8 @@
                             <p class="hero-sub mt-4" data-i18n="prod-soundlock-desc">A macOS menu bar app that locks your audio device priority so the right output and input are always selected.</p>
 
                             <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                                <a href="https://github.com/lucasmancan/SoundLock/raw/main/SoundLock.app.zip" class="btn-primary" data-i18n="sl-download">Download SoundLock</a>
-                                <a href="https://github.com/lucasmancan/SoundLock" target="_blank" rel="noopener" class="btn-secondary" data-i18n="sl-cta-github">Source on GitHub</a>
+                                <a href="https://github.com/lucasmancan/SoundLock/releases/latest" class="btn-primary" data-i18n="sl-download">Download SoundLock</a>
+                                <a href="https://github.com/lucasmancan/SoundLock" target="_blank" rel="noopener" class="btn-secondary" data-i18n="sl-cta-github">View on GitHub</a>
                             </div>
                             <p class="mt-4 text-sm font-semibold text-[var(--brand-muted-2)]" data-i18n="sl-download-note">Free · MIT license · macOS 13+</p>
 
@@ -201,18 +201,16 @@
                             <h3 class="text-xl font-bold" data-i18n="sl-install-1-title">1. Download &amp; unzip</h3>
                             <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="sl-install-1-desc">Download SoundLock.app.zip, unzip it, and drag SoundLock.app into your Applications folder.</p>
                             <h3 class="text-xl font-bold mt-6" data-i18n="sl-install-2-title">2. First launch (Gatekeeper)</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="sl-install-2-desc">The app is unsigned. Right-click it and choose Open twice, or clear the quarantine flag from Terminal:</p>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="sl-install-2-desc">The app is unsigned. On macOS 14 and earlier, right-click it and choose Open twice; on macOS 15 Sequoia, open System Settings → Privacy &amp; Security → Open Anyway. Or clear the quarantine flag from Terminal:</p>
                             <pre class="code-block"><code>xattr -dr com.apple.quarantine /Applications/SoundLock.app</code></pre>
                         </article>
 
                         <article class="capability-card fade-in">
-                            <h3 class="text-xl font-bold" data-i18n="sl-build-label">Build from source</h3>
-                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="sl-build-desc">Requires macOS 13+ and Xcode Command Line Tools. Clone the repo and run:</p>
-                            <pre class="code-block"><code>git clone https://github.com/lucasmancan/SoundLock.git
-cd SoundLock
-bash build.sh</code></pre>
+                            <h3 class="text-xl font-bold" data-i18n="sl-more-label">Free &amp; ready</h3>
+                            <p class="mt-3 text-[var(--brand-muted)] font-semibold" data-i18n="sl-more-desc">SoundLock is free to download and use — no account, no tracking, no network code. It's a closed-source app maintained by mancan.digital.</p>
                             <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                                <a href="https://github.com/lucasmancan/SoundLock" target="_blank" rel="noopener" class="btn-secondary" data-i18n="sl-cta-github">Source on GitHub</a>
+                                <a href="https://github.com/lucasmancan/SoundLock/releases/latest" target="_blank" rel="noopener" class="btn-primary" data-i18n="sl-download">Download SoundLock</a>
+                                <a href="https://github.com/lucasmancan/SoundLock" target="_blank" rel="noopener" class="btn-secondary" data-i18n="sl-cta-github">View on GitHub</a>
                                 <a href="https://www.buymeacoffee.com/lucasmancan" target="_blank" rel="noopener" class="btn-secondary" data-i18n="sl-cta-coffee">Buy me a coffee</a>
                             </div>
                         </article>
